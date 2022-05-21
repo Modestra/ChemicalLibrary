@@ -50,6 +50,7 @@
             this.FileLabel.Size = new System.Drawing.Size(50, 20);
             this.FileLabel.TabIndex = 1;
             this.FileLabel.Text = "label1";
+            this.FileLabel.Click += new System.EventHandler(this.FileLabel_Click);
             // 
             // Form1
             // 

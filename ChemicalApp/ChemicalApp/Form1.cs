@@ -30,5 +30,9 @@ namespace ChemicalApp
             debug.CreateDirectiory(path);
             debug.WriteDebugFile(path,"Файл создан");
         }
+
+        private void FileLabel_Click(object sender, EventArgs e)
+        {
+                    }
     }
 }

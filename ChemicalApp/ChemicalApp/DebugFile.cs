@@ -36,10 +36,7 @@ namespace DebugUtilites
     }
     public class DebugFileBoolean
     {
-        public bool isDebugFileConnect()
-        {
-            return true;
-        }
+        public bool isDebugFileConnect() { return true; }
     }
 
 }
