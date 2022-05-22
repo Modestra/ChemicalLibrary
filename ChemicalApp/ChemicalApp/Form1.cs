@@ -33,6 +33,7 @@ namespace ChemicalApp
 
         private void FileLabel_Click(object sender, EventArgs e)
         {
-                    }
+            
+        }
     }
 }

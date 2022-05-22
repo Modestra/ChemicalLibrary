@@ -2,7 +2,8 @@
 
 namespace ChemicalFormulas
 {
-    public class Class1
+    public class ControllerFormulas
     {
+
     }
 }
