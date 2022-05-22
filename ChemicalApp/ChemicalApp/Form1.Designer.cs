@@ -45,7 +45,7 @@
             // FileLabel
             // 
             this.FileLabel.AutoSize = true;
-            this.FileLabel.Location = new System.Drawing.Point(694, 58);
+            this.FileLabel.Location = new System.Drawing.Point(664, 58);
             this.FileLabel.Name = "FileLabel";
             this.FileLabel.Size = new System.Drawing.Size(50, 20);
             this.FileLabel.TabIndex = 1;

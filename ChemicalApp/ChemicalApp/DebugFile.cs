@@ -6,6 +6,7 @@ namespace DebugUtilites
 {
     public class DebugFile
     {
+        
         public void CreateDirectiory(string path)
         {
             try
@@ -33,6 +34,15 @@ namespace DebugUtilites
             {
                
             }
+        }
+    }
+    public class FileReader
+    {
+        public void AddTextInFile(string text)
+        {
+            string path = @"C:\Users\Пользователь\OneDrive\Рабочий стол\ChemicalLibrary\debug.txt";
+            DebugFile df = new DebugFile();
+            df.WriteDebugFile(path, text);
         }
     }
     public class DebugFileBoolean

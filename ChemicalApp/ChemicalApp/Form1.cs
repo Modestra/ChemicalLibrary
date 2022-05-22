@@ -27,8 +27,11 @@ namespace ChemicalApp
         private void ButtonFile_Click(object sender, EventArgs e)
         {
             DebugFile debug = new DebugFile();
+            FileReader reader = new FileReader();
+            reader.AddTextInFile("Text");
             debug.CreateDirectiory(path);
-            debug.WriteDebugFile(path,"Файл создан");
+            
+            FileLabel.Text = "Файл создан";
         }
 
         private void FileLabel_Click(object sender, EventArgs e)
