@@ -30,6 +30,8 @@
         {
             this.ButtonFile = new System.Windows.Forms.Button();
             this.FileLabel = new System.Windows.Forms.Label();
+            this.text = new System.Windows.Forms.TextBox();
+            this.OxidIndexSub = new System.Windows.Forms.Label();
             this.SuspendLayout();
             // 
             // ButtonFile
@@ -52,11 +54,31 @@
             this.FileLabel.Text = "label1";
             this.FileLabel.Click += new System.EventHandler(this.FileLabel_Click);
             // 
+            // text
+            // 
+            this.text.Location = new System.Drawing.Point(518, 20);
+            this.text.Name = "text";
+            this.text.Size = new System.Drawing.Size(125, 27);
+            this.text.TabIndex = 2;
+            this.text.TextChanged += new System.EventHandler(this.text_TextChanged);
+            // 
+            // OxidIndexSub
+            // 
+            this.OxidIndexSub.AutoSize = true;
+            this.OxidIndexSub.Location = new System.Drawing.Point(518, 58);
+            this.OxidIndexSub.Name = "OxidIndexSub";
+            this.OxidIndexSub.Size = new System.Drawing.Size(104, 20);
+            this.OxidIndexSub.TabIndex = 3;
+            this.OxidIndexSub.Text = "Тип вещества";
+            this.OxidIndexSub.Click += new System.EventHandler(this.OxidIndexSub_Click);
+            // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 20F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(800, 450);
+            this.Controls.Add(this.OxidIndexSub);
+            this.Controls.Add(this.text);
             this.Controls.Add(this.FileLabel);
             this.Controls.Add(this.ButtonFile);
             this.Name = "Form1";
@@ -71,5 +93,7 @@
 
         private System.Windows.Forms.Button ButtonFile;
         private System.Windows.Forms.Label FileLabel;
+        private System.Windows.Forms.TextBox text;
+        private System.Windows.Forms.Label OxidIndexSub;
     }
 }

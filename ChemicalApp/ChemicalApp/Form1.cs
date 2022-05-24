@@ -8,6 +8,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using DebugUtilites;
+using ChemicalFormulas;
 
 namespace ChemicalApp
 {
@@ -37,6 +38,32 @@ namespace ChemicalApp
         private void FileLabel_Click(object sender, EventArgs e)
         {
             
+        }
+
+        private void text_TextChanged(object sender, EventArgs e)
+        {
+            int input = Convert.ToInt32(text.Text);
+            if (input < 7)
+            {
+                OxidIndex oxSub = new OxidSub();
+                oxSub.IndexHydrogen();
+            }
+            else if (input == 7)
+            {
+                OxidIndex neitral = new NeitralSub();
+                neitral.IndexHydrogen();
+            }
+            else
+            {
+                OxidIndex baseSub = new BaseSub();
+                baseSub.IndexHydrogen();
+            }
+        }
+
+        private void OxidIndexSub_Click(object sender, EventArgs e)
+        {
+            
+
         }
     }
 }

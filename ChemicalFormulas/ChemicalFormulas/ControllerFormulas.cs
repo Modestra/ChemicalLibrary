@@ -4,27 +4,31 @@ namespace ChemicalFormulas
 {
     public class ControllerFormulas
     {
-        OxidIndex od = new BaseSub("something");
         
     }
     public abstract class OxidIndex { //pH
-        public string Name {get;}
-        public OxidIndex(string name)
+        public abstract void IndexHydrogen();
+    }
+    public class OxidSub : OxidIndex
+    {
+        public override void IndexHydrogen()
         {
-            Name = name;
+            
         }
-        public void InfoAboutSubstance()
+    }
+    public class BaseSub : OxidIndex
+    {
+        public override void IndexHydrogen()
         {
 
         }
     }
-    class BaseSub : OxidIndex 
-    {
-        public BaseSub(string name): base(name) { }
+    public class NeitralSub : OxidIndex{
+        public override void IndexHydrogen()
+        {
+            
+        }
     }
-    class OxidSub : OxidIndex
-    {
-        public OxidSub(string name): base(name) { }
-    }
+
 
 }
