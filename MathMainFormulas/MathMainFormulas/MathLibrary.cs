@@ -2,7 +2,8 @@
 
 namespace MathMainFormulas
 {
-    public class Class1
+    public class MathLibrary
     {
+
     }
 }
