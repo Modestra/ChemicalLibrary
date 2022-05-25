@@ -32,6 +32,7 @@
             this.FileLabel = new System.Windows.Forms.Label();
             this.text = new System.Windows.Forms.TextBox();
             this.OxidIndexSub = new System.Windows.Forms.Label();
+            this.OxidIndexButton = new System.Windows.Forms.Button();
             this.SuspendLayout();
             // 
             // ButtonFile
@@ -72,11 +73,22 @@
             this.OxidIndexSub.Text = "Тип вещества";
             this.OxidIndexSub.Click += new System.EventHandler(this.OxidIndexSub_Click);
             // 
+            // OxidIndexButton
+            // 
+            this.OxidIndexButton.Location = new System.Drawing.Point(418, 18);
+            this.OxidIndexButton.Name = "OxidIndexButton";
+            this.OxidIndexButton.Size = new System.Drawing.Size(94, 29);
+            this.OxidIndexButton.TabIndex = 4;
+            this.OxidIndexButton.Text = "Проверить";
+            this.OxidIndexButton.UseVisualStyleBackColor = true;
+            this.OxidIndexButton.Click += new System.EventHandler(this.button1_Click);
+            // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 20F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(800, 450);
+            this.Controls.Add(this.OxidIndexButton);
             this.Controls.Add(this.OxidIndexSub);
             this.Controls.Add(this.text);
             this.Controls.Add(this.FileLabel);
@@ -95,5 +107,6 @@
         private System.Windows.Forms.Label FileLabel;
         private System.Windows.Forms.TextBox text;
         private System.Windows.Forms.Label OxidIndexSub;
+        private System.Windows.Forms.Button OxidIndexButton;
     }
 }
