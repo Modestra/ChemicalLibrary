@@ -7,4 +7,9 @@
     <UseWindowsForms>true</UseWindowsForms>
   </PropertyGroup>
 
+  <ItemGroup>
+    <ProjectReference Include="..\..\ChemicalFormulas\ChemicalFormulas\ChemicalFormulas.csproj" />
+    <ProjectReference Include="..\..\MathMainFormulas\MathMainFormulas\MathMainFormulas.csproj" />
+  </ItemGroup>
+
 </Project>
