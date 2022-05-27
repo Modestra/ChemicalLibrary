@@ -41,24 +41,34 @@ namespace ChemicalApp
         }
         private void button1_Click(object sender, EventArgs e)
         {
-            int input = Convert.ToInt32(text.Text);
-            if (input < 7)
+            try
             {
-                OxidIndex oxSub = new OxidSub();
-                oxSub.IndexHydrogen();
-                OxidIndexSub.Text = "Вещество кислота";
+                int input = Convert.ToInt32(text.Text);
+                ControllerFormulas controllForm = new ControllerFormulas();
+                controllForm.NumberRule(input);
+                if (input < 7 && input > 0) //Временная условность до создания блока исключений NumberException, нарушение DRY
+                {
+                    OxidIndex oxSub = new OxidSub();
+                    oxSub.IndexHydrogen();
+                    OxidIndexSub.Text = "Вещество кислота";
+                }
+                else if (input == 7)
+                {
+                    OxidIndex neitral = new NeitralSub();
+                    neitral.IndexHydrogen();
+                    OxidIndexSub.Text = "Вещество нейтральное";
+                }
+                else if(input > 7 && input < 14)
+                {
+                    OxidIndex baseSub = new BaseSub();
+                    baseSub.IndexHydrogen();
+                    OxidIndexSub.Text = "Вещество основание";
+                }
             }
-            else if (input == 7)
+            catch (NumberException ne)
             {
-                OxidIndex neitral = new NeitralSub();
-                neitral.IndexHydrogen();
-                OxidIndexSub.Text = "Вещество нейтральное";
-            }
-            else
-            {
-                OxidIndex baseSub = new BaseSub();
-                baseSub.IndexHydrogen();
-                OxidIndexSub.Text = "Вещество основание";
+                FileReader reader = new FileReader();
+                reader.AddTextInFile(ne.Message);
             }
         }
     }
