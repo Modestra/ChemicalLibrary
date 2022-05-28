@@ -9,6 +9,8 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "ChemicalFormulas", "..\Chem
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "MathMainFormulas", "..\MathMainFormulas\MathMainFormulas\MathMainFormulas.csproj", "{6A42D72D-9269-48BB-A054-A2C064476737}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DebugUtilites", "ClassLibrary1\DebugUtilites.csproj", "{5788D5AC-8D9A-4C3F-B185-1CBE0C95EFD5}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -27,6 +29,10 @@ Global
 		{6A42D72D-9269-48BB-A054-A2C064476737}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{6A42D72D-9269-48BB-A054-A2C064476737}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{6A42D72D-9269-48BB-A054-A2C064476737}.Release|Any CPU.Build.0 = Release|Any CPU
+		{5788D5AC-8D9A-4C3F-B185-1CBE0C95EFD5}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{5788D5AC-8D9A-4C3F-B185-1CBE0C95EFD5}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{5788D5AC-8D9A-4C3F-B185-1CBE0C95EFD5}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{5788D5AC-8D9A-4C3F-B185-1CBE0C95EFD5}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

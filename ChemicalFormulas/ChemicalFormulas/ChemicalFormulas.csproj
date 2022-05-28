@@ -5,7 +5,11 @@
   </PropertyGroup>
 
   <ItemGroup>
+<<<<<<< HEAD
+    <ProjectReference Include="..\..\ChemicalApp\ClassLibrary1\DebugUtilites.csproj" />
+=======
     <ProjectReference Include="..\..\ChemicalApp\DebugUtilites\DebugUtilites.csproj" />
+>>>>>>> main
   </ItemGroup>
 
 </Project>

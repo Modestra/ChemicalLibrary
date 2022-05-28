@@ -1,12 +1,11 @@
 ﻿using System;
 using System.IO;
-using ChemicalFormulas;
 
 namespace DebugUtilites
 {
     public class DebugFile
     {
-        
+
         public void CreateDirectiory(string path)
         {
             try
@@ -32,7 +31,7 @@ namespace DebugUtilites
             }
             else
             {
-               
+
             }
         }
     }
