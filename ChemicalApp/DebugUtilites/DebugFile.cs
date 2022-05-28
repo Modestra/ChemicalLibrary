@@ -1,6 +1,10 @@
 ﻿using System;
 using System.IO;
+<<<<<<< HEAD
 using ChemicalFormulas;
+=======
+
+>>>>>>> main
 
 namespace DebugUtilites
 {
