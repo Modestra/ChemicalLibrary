@@ -10,6 +10,8 @@
   <ItemGroup>
     <ProjectReference Include="..\..\ChemicalFormulas\ChemicalFormulas\ChemicalFormulas.csproj" />
     <ProjectReference Include="..\..\MathMainFormulas\MathMainFormulas\MathMainFormulas.csproj" />
+    <ProjectReference Include="..\ChemicalFormulas\ChemicalFormulas.csproj" />
+    <ProjectReference Include="..\ClassLibrary1\DebugUtilites.csproj" />
   </ItemGroup>
 
 </Project>

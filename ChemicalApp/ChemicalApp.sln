@@ -5,11 +5,11 @@ VisualStudioVersion = 17.2.32516.85
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "ChemicalApp", "ChemicalApp\ChemicalApp.csproj", "{1841D7ED-04B2-4897-BA87-68F02BA3BA2E}"
 EndProject
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "ChemicalFormulas", "..\ChemicalFormulas\ChemicalFormulas\ChemicalFormulas.csproj", "{83E88839-C44F-4305-8A2A-DB5943632425}"
-EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "MathMainFormulas", "..\MathMainFormulas\MathMainFormulas\MathMainFormulas.csproj", "{6A42D72D-9269-48BB-A054-A2C064476737}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DebugUtilites", "ClassLibrary1\DebugUtilites.csproj", "{5788D5AC-8D9A-4C3F-B185-1CBE0C95EFD5}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "DebugUtilites", "ClassLibrary1\DebugUtilites.csproj", "{5788D5AC-8D9A-4C3F-B185-1CBE0C95EFD5}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ChemicalFormulas", "ChemicalFormulas\ChemicalFormulas.csproj", "{443BB7ED-C451-4535-A360-4C4143535798}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -21,10 +21,6 @@ Global
 		{1841D7ED-04B2-4897-BA87-68F02BA3BA2E}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{1841D7ED-04B2-4897-BA87-68F02BA3BA2E}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{1841D7ED-04B2-4897-BA87-68F02BA3BA2E}.Release|Any CPU.Build.0 = Release|Any CPU
-		{83E88839-C44F-4305-8A2A-DB5943632425}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{83E88839-C44F-4305-8A2A-DB5943632425}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{83E88839-C44F-4305-8A2A-DB5943632425}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{83E88839-C44F-4305-8A2A-DB5943632425}.Release|Any CPU.Build.0 = Release|Any CPU
 		{6A42D72D-9269-48BB-A054-A2C064476737}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
 		{6A42D72D-9269-48BB-A054-A2C064476737}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{6A42D72D-9269-48BB-A054-A2C064476737}.Release|Any CPU.ActiveCfg = Release|Any CPU
@@ -33,6 +29,10 @@ Global
 		{5788D5AC-8D9A-4C3F-B185-1CBE0C95EFD5}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{5788D5AC-8D9A-4C3F-B185-1CBE0C95EFD5}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{5788D5AC-8D9A-4C3F-B185-1CBE0C95EFD5}.Release|Any CPU.Build.0 = Release|Any CPU
+		{443BB7ED-C451-4535-A360-4C4143535798}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{443BB7ED-C451-4535-A360-4C4143535798}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{443BB7ED-C451-4535-A360-4C4143535798}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{443BB7ED-C451-4535-A360-4C4143535798}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
