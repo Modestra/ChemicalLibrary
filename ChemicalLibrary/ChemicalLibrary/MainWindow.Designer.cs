@@ -28,66 +28,70 @@
         /// </summary>
         private void InitializeComponent()
         {
-            this.button1 = new System.Windows.Forms.Button();
-            this.textBox1 = new System.Windows.Forms.TextBox();
-            this.label1 = new System.Windows.Forms.Label();
-            this.button2 = new System.Windows.Forms.Button();
-            this.label2 = new System.Windows.Forms.Label();
+            this.PhysicalButtom = new System.Windows.Forms.Button();
+            this.TextInputFormulas = new System.Windows.Forms.TextBox();
+            this.InputFormulas = new System.Windows.Forms.Label();
+            this.DebugButtom = new System.Windows.Forms.Button();
+            this.InputFileLabel = new System.Windows.Forms.Label();
             this.SuspendLayout();
             // 
-            // button1
+            // PhysicalButtom
             // 
-            this.button1.Location = new System.Drawing.Point(676, 376);
-            this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(112, 62);
-            this.button1.TabIndex = 0;
-            this.button1.Text = "button1";
-            this.button1.UseVisualStyleBackColor = true;
+            this.PhysicalButtom.Location = new System.Drawing.Point(657, 376);
+            this.PhysicalButtom.Name = "PhysicalButtom";
+            this.PhysicalButtom.Size = new System.Drawing.Size(131, 62);
+            this.PhysicalButtom.TabIndex = 0;
+            this.PhysicalButtom.Text = "Физ. свойства";
+            this.PhysicalButtom.UseVisualStyleBackColor = true;
+            this.PhysicalButtom.Click += new System.EventHandler(this.PhysicalButtom_Click);
             // 
-            // textBox1
+            // TextInputFormulas
             // 
-            this.textBox1.Location = new System.Drawing.Point(12, 12);
-            this.textBox1.Name = "textBox1";
-            this.textBox1.Size = new System.Drawing.Size(187, 27);
-            this.textBox1.TabIndex = 1;
+            this.TextInputFormulas.Location = new System.Drawing.Point(12, 12);
+            this.TextInputFormulas.Name = "TextInputFormulas";
+            this.TextInputFormulas.Size = new System.Drawing.Size(187, 27);
+            this.TextInputFormulas.TabIndex = 1;
+            this.TextInputFormulas.TextChanged += new System.EventHandler(this.TextInputFormulas_TextChanged);
             // 
-            // label1
+            // InputFormulas
             // 
-            this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(12, 42);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(50, 20);
-            this.label1.TabIndex = 2;
-            this.label1.Text = "label1";
+            this.InputFormulas.AutoSize = true;
+            this.InputFormulas.Location = new System.Drawing.Point(12, 42);
+            this.InputFormulas.Name = "InputFormulas";
+            this.InputFormulas.Size = new System.Drawing.Size(130, 20);
+            this.InputFormulas.TabIndex = 2;
+            this.InputFormulas.Text = "Число реагентов:";
             // 
-            // button2
+            // DebugButtom
             // 
-            this.button2.Location = new System.Drawing.Point(676, 10);
-            this.button2.Name = "button2";
-            this.button2.Size = new System.Drawing.Size(112, 52);
-            this.button2.TabIndex = 3;
-            this.button2.Text = "button2";
-            this.button2.UseVisualStyleBackColor = true;
+            this.DebugButtom.Location = new System.Drawing.Point(676, 10);
+            this.DebugButtom.Name = "DebugButtom";
+            this.DebugButtom.Size = new System.Drawing.Size(112, 52);
+            this.DebugButtom.TabIndex = 3;
+            this.DebugButtom.Text = "Запись";
+            this.DebugButtom.UseVisualStyleBackColor = true;
+            this.DebugButtom.Click += new System.EventHandler(this.DebugButtom_Click);
             // 
-            // label2
+            // InputFileLabel
             // 
-            this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(676, 65);
-            this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(50, 20);
-            this.label2.TabIndex = 4;
-            this.label2.Text = "label2";
+            this.InputFileLabel.AutoSize = true;
+            this.InputFileLabel.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.InputFileLabel.Location = new System.Drawing.Point(676, 65);
+            this.InputFileLabel.Name = "InputFileLabel";
+            this.InputFileLabel.Size = new System.Drawing.Size(50, 20);
+            this.InputFileLabel.TabIndex = 4;
+            this.InputFileLabel.Text = "label2";
             // 
             // MainWindow
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 20F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(800, 450);
-            this.Controls.Add(this.label2);
-            this.Controls.Add(this.button2);
-            this.Controls.Add(this.label1);
-            this.Controls.Add(this.textBox1);
-            this.Controls.Add(this.button1);
+            this.Controls.Add(this.InputFileLabel);
+            this.Controls.Add(this.DebugButtom);
+            this.Controls.Add(this.InputFormulas);
+            this.Controls.Add(this.TextInputFormulas);
+            this.Controls.Add(this.PhysicalButtom);
             this.Name = "MainWindow";
             this.Text = "Form1";
             this.Load += new System.EventHandler(this.MainWindow_Load);
@@ -98,10 +102,10 @@
 
         #endregion
 
-        private System.Windows.Forms.Button button1;
-        private System.Windows.Forms.TextBox textBox1;
-        private System.Windows.Forms.Label label1;
-        private System.Windows.Forms.Button button2;
-        private System.Windows.Forms.Label label2;
+        private System.Windows.Forms.Button PhysicalButtom;
+        private System.Windows.Forms.TextBox TextInputFormulas;
+        private System.Windows.Forms.Label InputFormulas;
+        private System.Windows.Forms.Button DebugButtom;
+        private System.Windows.Forms.Label InputFileLabel;
     }
 }

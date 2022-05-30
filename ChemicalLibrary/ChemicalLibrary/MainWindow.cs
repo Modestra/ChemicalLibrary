@@ -23,5 +23,22 @@ namespace ChemicalLibrary
         {
 
         }
+
+        private void TextInputFormulas_TextChanged(object sender, EventArgs e)
+        {
+            string[] text = TextInputFormulas.Text.Split(new char[] {'+'},StringSplitOptions.RemoveEmptyEntries);
+            InputFormulas.Text = "Число реагентов: "+ Convert.ToInt16(text.Length);
+        }
+
+        private void DebugButtom_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void PhysicalButtom_Click(object sender, EventArgs e)
+        {
+            PhysicalWindow pb = new PhysicalWindow();
+            pb.Show();
+        }
     }
 }
