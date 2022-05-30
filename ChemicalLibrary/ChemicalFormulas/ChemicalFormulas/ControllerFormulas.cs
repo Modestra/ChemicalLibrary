@@ -1,10 +1,16 @@
 ﻿using System;
+using DebugUtilites;
 
 namespace ChemicalFormulas
 {
     public class ControllerFormulas
     {
-        
+        public void ReagentsList(string[] list)
+        {
+            FileWriter writer = new FileWriter();
+            writer.AddTextInFile(list.ToString());
+            
+        }
     }
     public abstract class OxidIndex { //pH
         public abstract void IndexHydrogen();

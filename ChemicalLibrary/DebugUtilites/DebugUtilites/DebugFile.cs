@@ -15,7 +15,7 @@ namespace DebugUtilites
                     FileIn.Create();
                 }
             }
-            catch (ArgumentNullException ane)
+            catch
             {
                 Console.WriteLine("Файл не удалось создать");
             }
@@ -25,5 +25,16 @@ namespace DebugUtilites
             StreamWriter streamWriter = new StreamWriter(path);
             streamWriter.WriteLine(text);
         }
+    }
+    public class FileWriter
+    {
+        public void AddTextInFile(string text)
+        {
+            string path = @"C:\Users\Пользователь\OneDrive\Рабочий стол\ChemicalLibrary\ChemicalLibrary\debug.txt";
+            DebugFile debug = new DebugFile();
+            debug.WriteDebugFile(path, text);
+        }
+        
+        
     }
 }

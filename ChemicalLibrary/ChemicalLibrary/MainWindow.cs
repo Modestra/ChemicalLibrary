@@ -26,8 +26,10 @@ namespace ChemicalLibrary
 
         private void TextInputFormulas_TextChanged(object sender, EventArgs e)
         {
-            string[] text = TextInputFormulas.Text.Split(new char[] {'+'},StringSplitOptions.RemoveEmptyEntries);
+            string[] text = TextInputFormulas.Text.Split(new char[]{'+'},StringSplitOptions.RemoveEmptyEntries);
             InputFormulas.Text = "Число реагентов: "+ Convert.ToInt16(text.Length);
+            ControllerFormulas contrForm = new ControllerFormulas();
+            contrForm.ReagentsList(text);
         }
 
         private void DebugButtom_Click(object sender, EventArgs e)
