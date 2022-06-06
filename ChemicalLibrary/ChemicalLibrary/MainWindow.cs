@@ -34,7 +34,10 @@ namespace ChemicalLibrary
 
         private void DebugButtom_Click(object sender, EventArgs e)
         {
+            if (TextInputFormulas.Text != null)
+            {
 
+            }
         }
 
         private void PhysicalButtom_Click(object sender, EventArgs e)

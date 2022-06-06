@@ -1,0 +1,61 @@
+{
+  "runtimeTarget": {
+    "name": ".NETCoreApp,Version=v5.0",
+    "signature": ""
+  },
+  "compilationOptions": {},
+  "targets": {
+    ".NETCoreApp,Version=v5.0": {
+      "ChemicalLibrary/1.0.0": {
+        "dependencies": {
+          "ChemicalFormulas": "1.0.0",
+          "DebugUtilites": "1.0.0",
+          "MathMainFormulas": "1.0.0"
+        },
+        "runtime": {
+          "ChemicalLibrary.dll": {}
+        }
+      },
+      "ChemicalFormulas/1.0.0": {
+        "dependencies": {
+          "DebugUtilites": "1.0.0"
+        },
+        "runtime": {
+          "ChemicalFormulas.dll": {}
+        }
+      },
+      "DebugUtilites/1.0.0": {
+        "runtime": {
+          "DebugUtilites.dll": {}
+        }
+      },
+      "MathMainFormulas/1.0.0": {
+        "runtime": {
+          "MathMainFormulas.dll": {}
+        }
+      }
+    }
+  },
+  "libraries": {
+    "ChemicalLibrary/1.0.0": {
+      "type": "project",
+      "serviceable": false,
+      "sha512": ""
+    },
+    "ChemicalFormulas/1.0.0": {
+      "type": "project",
+      "serviceable": false,
+      "sha512": ""
+    },
+    "DebugUtilites/1.0.0": {
+      "type": "project",
+      "serviceable": false,
+      "sha512": ""
+    },
+    "MathMainFormulas/1.0.0": {
+      "type": "project",
+      "serviceable": false,
+      "sha512": ""
+    }
+  }
+}

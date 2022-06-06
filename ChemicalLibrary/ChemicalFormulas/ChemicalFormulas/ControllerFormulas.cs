@@ -8,7 +8,10 @@ namespace ChemicalFormulas
         public void ReagentsList(string[] list)
         {
             FileWriter writer = new FileWriter();
-            writer.AddTextInFile(list.ToString());
+            foreach(string sub in list)
+            {
+                writer.AddTextInFile("Элемент: " + sub);
+            }
             
         }
     }
