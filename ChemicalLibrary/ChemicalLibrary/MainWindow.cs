@@ -30,6 +30,7 @@ namespace ChemicalLibrary
             InputFormulas.Text = "Число реагентов: "+ Convert.ToInt16(text.Length);
             ControllerFormulas contrForm = new ControllerFormulas();
             contrForm.ReagentsList(text);
+            label1.Text = "Первый элемент: " + text[0];
         }
 
         private void DebugButtom_Click(object sender, EventArgs e)
@@ -44,6 +45,11 @@ namespace ChemicalLibrary
         {
             PhysicalWindow pb = new PhysicalWindow();
             pb.Show();
+        }
+
+        private void label1_Click(object sender, EventArgs e)
+        {
+          
         }
     }
 }

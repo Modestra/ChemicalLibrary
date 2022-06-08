@@ -33,6 +33,7 @@
             this.InputFormulas = new System.Windows.Forms.Label();
             this.DebugButtom = new System.Windows.Forms.Button();
             this.InputFileLabel = new System.Windows.Forms.Label();
+            this.label1 = new System.Windows.Forms.Label();
             this.SuspendLayout();
             // 
             // PhysicalButtom
@@ -82,11 +83,22 @@
             this.InputFileLabel.TabIndex = 4;
             this.InputFileLabel.Text = "label2";
             // 
+            // label1
+            // 
+            this.label1.AutoSize = true;
+            this.label1.Location = new System.Drawing.Point(12, 62);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(50, 20);
+            this.label1.TabIndex = 5;
+            this.label1.Text = "label1";
+            this.label1.Click += new System.EventHandler(this.label1_Click);
+            // 
             // MainWindow
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 20F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(800, 450);
+            this.Controls.Add(this.label1);
             this.Controls.Add(this.InputFileLabel);
             this.Controls.Add(this.DebugButtom);
             this.Controls.Add(this.InputFormulas);
@@ -107,5 +119,6 @@
         private System.Windows.Forms.Label InputFormulas;
         private System.Windows.Forms.Button DebugButtom;
         private System.Windows.Forms.Label InputFileLabel;
+        private System.Windows.Forms.Label label1;
     }
 }

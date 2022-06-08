@@ -16,5 +16,15 @@ namespace ChemicalLibrary
         {
             InitializeComponent();
         }
+
+        private void PhysicalWindow_Load(object sender, EventArgs e)
+        {
+
+        }
+
+        private void buttonInputFEL_Click(object sender, EventArgs e)
+        {
+
+        }
     }
 }

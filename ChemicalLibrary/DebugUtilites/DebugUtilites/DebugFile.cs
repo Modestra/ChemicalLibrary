@@ -22,8 +22,15 @@ namespace DebugUtilites
         }
         public void WriteDebugFile(string path, string text)
         {
-            StreamWriter streamWriter = new StreamWriter(path);
-            streamWriter.WriteLine(text);
+            try
+            {
+                StreamWriter streamWriter = new StreamWriter(path);
+                streamWriter.WriteLine(text);
+            }
+            catch(Exception ex)
+            {
+
+            }
         }
     }
     public class FileWriter
