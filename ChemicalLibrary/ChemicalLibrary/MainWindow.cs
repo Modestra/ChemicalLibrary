@@ -30,7 +30,17 @@ namespace ChemicalLibrary
             InputFormulas.Text = "Число реагентов: "+ Convert.ToInt16(text.Length);
             ControllerFormulas contrForm = new ControllerFormulas();
             contrForm.ReagentsList(text);
-            label1.Text = "Первый элемент: " + text[0];
+            if (TextInputFormulas.Text != null)
+            {
+                try
+                {
+                    label1.Text = "Первый элемент: " + text[0];
+                }
+                catch
+                {
+                    label1.Text = "Элементов нет";
+                }
+            }
         }
 
         private void DebugButtom_Click(object sender, EventArgs e)
