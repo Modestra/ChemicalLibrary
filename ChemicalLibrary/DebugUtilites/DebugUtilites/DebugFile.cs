@@ -24,8 +24,7 @@ namespace DebugUtilites
         {
             try
             {
-                StreamWriter streamWriter = new StreamWriter(path);
-                streamWriter.WriteLine(text);
+                File.AppendAllText(path, "\n"+text);
             }
             catch(Exception ex)
             {
