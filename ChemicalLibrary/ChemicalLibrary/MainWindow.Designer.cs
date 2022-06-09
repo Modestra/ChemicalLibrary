@@ -34,6 +34,9 @@
             this.DebugButtom = new System.Windows.Forms.Button();
             this.InputFileLabel = new System.Windows.Forms.Label();
             this.label1 = new System.Windows.Forms.Label();
+            this.ChemElementTable = new System.Windows.Forms.DataGridView();
+            this.DataBaseOn = new System.Windows.Forms.Button();
+            ((System.ComponentModel.ISupportInitialize)(this.ChemElementTable)).BeginInit();
             this.SuspendLayout();
             // 
             // PhysicalButtom
@@ -93,11 +96,34 @@
             this.label1.Text = "label1";
             this.label1.Click += new System.EventHandler(this.label1_Click);
             // 
+            // ChemElementTable
+            // 
+            this.ChemElementTable.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.ChemElementTable.Location = new System.Drawing.Point(12, 110);
+            this.ChemElementTable.Name = "ChemElementTable";
+            this.ChemElementTable.RowHeadersWidth = 51;
+            this.ChemElementTable.RowTemplate.Height = 29;
+            this.ChemElementTable.Size = new System.Drawing.Size(639, 328);
+            this.ChemElementTable.TabIndex = 6;
+            this.ChemElementTable.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.ChemElementTable_CellContentClick);
+            // 
+            // DataBaseOn
+            // 
+            this.DataBaseOn.Location = new System.Drawing.Point(557, 75);
+            this.DataBaseOn.Name = "DataBaseOn";
+            this.DataBaseOn.Size = new System.Drawing.Size(94, 29);
+            this.DataBaseOn.TabIndex = 7;
+            this.DataBaseOn.Text = "Запуск";
+            this.DataBaseOn.UseVisualStyleBackColor = true;
+            this.DataBaseOn.Click += new System.EventHandler(this.DataBaseOn_Click);
+            // 
             // MainWindow
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 20F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(800, 450);
+            this.Controls.Add(this.DataBaseOn);
+            this.Controls.Add(this.ChemElementTable);
             this.Controls.Add(this.label1);
             this.Controls.Add(this.InputFileLabel);
             this.Controls.Add(this.DebugButtom);
@@ -107,6 +133,7 @@
             this.Name = "MainWindow";
             this.Text = "Form1";
             this.Load += new System.EventHandler(this.MainWindow_Load);
+            ((System.ComponentModel.ISupportInitialize)(this.ChemElementTable)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -120,5 +147,7 @@
         private System.Windows.Forms.Button DebugButtom;
         private System.Windows.Forms.Label InputFileLabel;
         private System.Windows.Forms.Label label1;
+        private System.Windows.Forms.DataGridView ChemElementTable;
+        private System.Windows.Forms.Button DataBaseOn;
     }
 }

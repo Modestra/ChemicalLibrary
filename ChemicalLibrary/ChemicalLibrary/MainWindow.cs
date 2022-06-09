@@ -22,7 +22,6 @@ namespace ChemicalLibrary
         {
             InitializeComponent();
         }
-
         private void MainWindow_Load(object sender, EventArgs e)
         {
             sql = new SqlConnection(ConfigurationManager.ConnectionStrings["ChemDataBase"].ConnectionString);
@@ -51,24 +50,30 @@ namespace ChemicalLibrary
                 }
             }
         }
-
         private void DebugButtom_Click(object sender, EventArgs e)
         {
             if (TextInputFormulas.Text != null)
             {
-
             }
         }
-
         private void PhysicalButtom_Click(object sender, EventArgs e)
         {
             PhysicalWindow pb = new PhysicalWindow();
             pb.Show();
         }
-
         private void label1_Click(object sender, EventArgs e)
+        {         
+        }
+        private void ChemElementTable_CellContentClick(object sender, DataGridViewCellEventArgs e)
         {
-          
+        }
+        private void DataBaseOn_Click(object sender, EventArgs e)
+        {
+            SqlDataAdapter adapter = new SqlDataAdapter($"SELECT * FROM ChemElementsTable", sql);
+            DataSet ds = new DataSet();
+            adapter.Fill(ds);
+            ChemElementTable.DataSource = ds.Tables[0];
         }
     }
 }
+ 
