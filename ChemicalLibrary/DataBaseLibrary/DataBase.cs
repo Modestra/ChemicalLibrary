@@ -16,11 +16,13 @@ namespace DataBaseLibrary
     }
     public class DataBaseConnection
     {
-        private SqlConnection test = null;
+        private SqlConnection chemDB = null;
         public void DataBaseConnect()
         {
-            test = new SqlConnection();
+            chemDB = new SqlConnection(ConfigurationManager.ConnectionStrings["ChemDataBase"].ConnectionString);
+            chemDB.Open();
         }
+
     }
 
 }

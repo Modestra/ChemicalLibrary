@@ -11,17 +11,21 @@ using DebugUtilites;
 using ChemicalFormulas;
 using System.Configuration;
 using System.Data.SqlClient;
+using DataBaseLibrary;
 
 namespace ChemicalLibrary
 {
     public partial class MainWindow : Form
     {
+        private SqlConnection chemDB = null;
         public MainWindow()
         {
             InitializeComponent();
         }
         private void MainWindow_Load(object sender, EventArgs e)
         {
+            DataBaseConnection dataopen = new DataBaseConnection();
+            dataopen.DataBaseConnect();
         }
 
         private void TextInputFormulas_TextChanged(object sender, EventArgs e)
@@ -61,6 +65,10 @@ namespace ChemicalLibrary
         }
         private void DataBaseOn_Click(object sender, EventArgs e)
         {
+            SqlDataAdapter adapter = new SqlDataAdapter($"SELECT * FROM ChemElementsTable", chemDB);
+            DataSet ds = new DataSet();
+            adapter.Fill(ds);
+            ChemElementTable.DataSource = ds.Tables[0];
         }
     }
 }
