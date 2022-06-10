@@ -70,7 +70,7 @@ namespace ChemicalLibrary
         }
         private void DataBaseOn_Click(object sender, EventArgs e)
         {
-            SqlDataAdapter adapter = new SqlDataAdapter($"SELECT * FROM ChemElementsTable", chemDB);
+            SqlDataAdapter adapter = new SqlDataAdapter($"SELECT * FROM ChemElementList", chemDB);
             DataSet ds = new DataSet();
             adapter.Fill(ds);
             ChemElementTable.DataSource = ds.Tables[0];
