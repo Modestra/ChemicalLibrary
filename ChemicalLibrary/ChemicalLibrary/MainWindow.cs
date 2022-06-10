@@ -9,6 +9,7 @@ using System.Threading.Tasks;
 using System.Windows.Forms;
 using DebugUtilites;
 using ChemicalFormulas;
+
 using System.Configuration;
 using System.Data.SqlClient;
 using DataBaseLibrary;
@@ -24,8 +25,12 @@ namespace ChemicalLibrary
         }
         private void MainWindow_Load(object sender, EventArgs e)
         {
-            DataBaseConnection dataopen = new DataBaseConnection();
-            dataopen.DataBaseConnect();
+            chemDB = new SqlConnection(ConfigurationManager.ConnectionStrings["ChemData"].ConnectionString);
+            chemDB.Open();
+            if (chemDB.State == ConnectionState.Open)
+            {
+                MessageBox.Show("Подключение совершено");
+            }
         }
 
         private void TextInputFormulas_TextChanged(object sender, EventArgs e)
