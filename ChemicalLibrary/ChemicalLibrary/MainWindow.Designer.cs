@@ -36,6 +36,7 @@
             this.label1 = new System.Windows.Forms.Label();
             this.ChemElementTable = new System.Windows.Forms.DataGridView();
             this.DataBaseOn = new System.Windows.Forms.Button();
+            this.InputCommandButton = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.ChemElementTable)).BeginInit();
             this.SuspendLayout();
             // 
@@ -117,11 +118,22 @@
             this.DataBaseOn.UseVisualStyleBackColor = true;
             this.DataBaseOn.Click += new System.EventHandler(this.DataBaseOn_Click);
             // 
+            // InputCommandButton
+            // 
+            this.InputCommandButton.Location = new System.Drawing.Point(457, 75);
+            this.InputCommandButton.Name = "InputCommandButton";
+            this.InputCommandButton.Size = new System.Drawing.Size(94, 29);
+            this.InputCommandButton.TabIndex = 8;
+            this.InputCommandButton.Text = "Ввести";
+            this.InputCommandButton.UseVisualStyleBackColor = true;
+            this.InputCommandButton.Click += new System.EventHandler(this.InputCommandButton_Click);
+            // 
             // MainWindow
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 20F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(800, 450);
+            this.Controls.Add(this.InputCommandButton);
             this.Controls.Add(this.DataBaseOn);
             this.Controls.Add(this.ChemElementTable);
             this.Controls.Add(this.label1);
@@ -149,5 +161,6 @@
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.DataGridView ChemElementTable;
         private System.Windows.Forms.Button DataBaseOn;
+        private System.Windows.Forms.Button InputCommandButton;
     }
 }

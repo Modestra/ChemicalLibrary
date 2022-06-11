@@ -75,6 +75,12 @@ namespace ChemicalLibrary
             adapter.Fill(ds);
             ChemElementTable.DataSource = ds.Tables[0];
         }
+
+        private void InputCommandButton_Click(object sender, EventArgs e)
+        {
+            DataBaseInputElements dbie = new DataBaseInputElements();
+            dbie.InputElement(chemDB);
+        }
     }
 }
  
