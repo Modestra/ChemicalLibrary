@@ -27,10 +27,6 @@ namespace ChemicalLibrary
         {
             chemDB = new SqlConnection(ConfigurationManager.ConnectionStrings["ChemData"].ConnectionString);
             chemDB.Open();
-            if (chemDB.State == ConnectionState.Open)
-            {
-                MessageBox.Show("Подключение совершено");
-            }
         }
 
         private void TextInputFormulas_TextChanged(object sender, EventArgs e)
@@ -79,7 +75,7 @@ namespace ChemicalLibrary
         private void InputCommandButton_Click(object sender, EventArgs e)
         {
             DataBaseInputElements dbie = new DataBaseInputElements();
-            dbie.InputElement(elementText.Text, nameElementText.Text, Convert.ToDecimal(atmText.Text), chemDB);
+            dbie.InputElement(Convert.ToChar(elementText.Text), Convert.ToChar(nameElementText.Text), Convert.ToDecimal(atmText.Text), chemDB);
         }
 
         private void textBox3_TextChanged(object sender, EventArgs e)
