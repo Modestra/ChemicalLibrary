@@ -7,6 +7,7 @@ using System.Data.SqlTypes;
 using System.Data;
 using System.Data.SqlClient;
 using System.Configuration;
+using DebugUtilites;
 
 namespace DataBaseLibrary
 {
@@ -19,6 +20,7 @@ namespace DataBaseLibrary
         private SqlConnection chemDB = null;
         public void DataBaseConnect()
         {
+            FileWriter addQuery = new FileWriter();
             chemDB = new SqlConnection(ConfigurationManager.ConnectionStrings["ChemDataBase"].ConnectionString);
             chemDB.Open();
         }

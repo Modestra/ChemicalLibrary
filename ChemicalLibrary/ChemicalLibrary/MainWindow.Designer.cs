@@ -37,9 +37,9 @@
             this.ChemElementTable = new System.Windows.Forms.DataGridView();
             this.DataBaseOn = new System.Windows.Forms.Button();
             this.InputCommandButton = new System.Windows.Forms.Button();
-            this.textBox1 = new System.Windows.Forms.TextBox();
-            this.textBox2 = new System.Windows.Forms.TextBox();
-            this.textBox3 = new System.Windows.Forms.TextBox();
+            this.atmText = new System.Windows.Forms.TextBox();
+            this.nameElementText = new System.Windows.Forms.TextBox();
+            this.elementText = new System.Windows.Forms.TextBox();
             this.label2 = new System.Windows.Forms.Label();
             this.label3 = new System.Windows.Forms.Label();
             this.Atomic_Name = new System.Windows.Forms.Label();
@@ -134,27 +134,29 @@
             this.InputCommandButton.UseVisualStyleBackColor = true;
             this.InputCommandButton.Click += new System.EventHandler(this.InputCommandButton_Click);
             // 
-            // textBox1
+            // atmText
             // 
-            this.textBox1.Location = new System.Drawing.Point(397, 75);
-            this.textBox1.Name = "textBox1";
-            this.textBox1.Size = new System.Drawing.Size(42, 27);
-            this.textBox1.TabIndex = 9;
+            this.atmText.Location = new System.Drawing.Point(397, 75);
+            this.atmText.Name = "atmText";
+            this.atmText.Size = new System.Drawing.Size(42, 27);
+            this.atmText.TabIndex = 9;
+            this.atmText.TextChanged += new System.EventHandler(this.atmText_TextChanged);
             // 
-            // textBox2
+            // nameElementText
             // 
-            this.textBox2.Location = new System.Drawing.Point(283, 75);
-            this.textBox2.Name = "textBox2";
-            this.textBox2.Size = new System.Drawing.Size(108, 27);
-            this.textBox2.TabIndex = 10;
+            this.nameElementText.Location = new System.Drawing.Point(283, 75);
+            this.nameElementText.Name = "nameElementText";
+            this.nameElementText.Size = new System.Drawing.Size(108, 27);
+            this.nameElementText.TabIndex = 10;
+            this.nameElementText.TextChanged += new System.EventHandler(this.nameElementText_TextChanged);
             // 
-            // textBox3
+            // elementText
             // 
-            this.textBox3.Location = new System.Drawing.Point(209, 75);
-            this.textBox3.Name = "textBox3";
-            this.textBox3.Size = new System.Drawing.Size(68, 27);
-            this.textBox3.TabIndex = 11;
-            this.textBox3.TextChanged += new System.EventHandler(this.textBox3_TextChanged);
+            this.elementText.Location = new System.Drawing.Point(209, 75);
+            this.elementText.Name = "elementText";
+            this.elementText.Size = new System.Drawing.Size(68, 27);
+            this.elementText.TabIndex = 11;
+            this.elementText.TextChanged += new System.EventHandler(this.textBox3_TextChanged);
             // 
             // label2
             // 
@@ -191,9 +193,9 @@
             this.Controls.Add(this.Atomic_Name);
             this.Controls.Add(this.label3);
             this.Controls.Add(this.label2);
-            this.Controls.Add(this.textBox3);
-            this.Controls.Add(this.textBox2);
-            this.Controls.Add(this.textBox1);
+            this.Controls.Add(this.elementText);
+            this.Controls.Add(this.nameElementText);
+            this.Controls.Add(this.atmText);
             this.Controls.Add(this.InputCommandButton);
             this.Controls.Add(this.DataBaseOn);
             this.Controls.Add(this.ChemElementTable);
@@ -223,9 +225,9 @@
         private System.Windows.Forms.DataGridView ChemElementTable;
         private System.Windows.Forms.Button DataBaseOn;
         private System.Windows.Forms.Button InputCommandButton;
-        private System.Windows.Forms.TextBox textBox1;
-        private System.Windows.Forms.TextBox textBox2;
-        private System.Windows.Forms.TextBox textBox3;
+        private System.Windows.Forms.TextBox atmText;
+        private System.Windows.Forms.TextBox nameElementText;
+        private System.Windows.Forms.TextBox elementText;
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.Label label3;
         private System.Windows.Forms.Label Atomic_Name;

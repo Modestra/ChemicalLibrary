@@ -79,10 +79,20 @@ namespace ChemicalLibrary
         private void InputCommandButton_Click(object sender, EventArgs e)
         {
             DataBaseInputElements dbie = new DataBaseInputElements();
-            dbie.InputElement(chemDB);
+            dbie.InputElement(elementText.Text, nameElementText.Text, Convert.ToDecimal(atmText.Text), chemDB);
         }
 
         private void textBox3_TextChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void nameElementText_TextChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void atmText_TextChanged(object sender, EventArgs e)
         {
 
         }

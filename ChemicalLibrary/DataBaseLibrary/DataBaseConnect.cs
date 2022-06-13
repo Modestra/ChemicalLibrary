@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Data.SqlClient;
+using DebugUtilites;
 
 namespace DataBaseLibrary
 {
@@ -9,17 +10,11 @@ namespace DataBaseLibrary
     }
     public class DataBaseInputElements
     {
-        public void InputElement(SqlConnection sql)
+        public void InputElement(string element, string nameElement, decimal atomicMass, SqlConnection sql)
         {
-            try
-            { //Не работает
-                SqlCommand input = new SqlCommand($"INSERT INTO ChemElementList(Element,Name) VALUES('H','Водород');", sql);
-                input.ExecuteNonQuery();
-            }
-            catch
-            {
-
-            }
+            FileWriter addstring = new FileWriter(); //Не работает
+            SqlCommand input = new SqlCommand($"INSERT INTO ChemElementList(Element,Name,Atomic_Mass) VALUES({element},{nameElement},{atomicMass});", sql);
+            addstring.AddTextInFile("Выполнено строк: " + input.ExecuteNonQuery().ToString());
 
         }
     }
