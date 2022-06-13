@@ -11,8 +11,16 @@ namespace DataBaseLibrary
     {
         public void InputElement(SqlConnection sql)
         {
-            SqlCommand input = new SqlCommand($"", sql);
-            input.ExecuteNonQuery();
+            try
+            { //Не работает
+                SqlCommand input = new SqlCommand($"INSERT INTO ChemElementList(Element,Name) VALUES('H','Водород');", sql);
+                input.ExecuteNonQuery();
+            }
+            catch
+            {
+
+            }
+
         }
     }
 }

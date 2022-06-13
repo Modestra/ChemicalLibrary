@@ -81,6 +81,11 @@ namespace ChemicalLibrary
             DataBaseInputElements dbie = new DataBaseInputElements();
             dbie.InputElement(chemDB);
         }
+
+        private void textBox3_TextChanged(object sender, EventArgs e)
+        {
+
+        }
     }
 }
  

@@ -1,8 +1,8 @@
 ﻿CREATE TABLE [dbo].[ChemElementList] (
-    [Atom_Number]      INT  NOT NULL IDENTITY,
-    [Element] TEXT NULL,
-    [Name]    TEXT NULL,
-    [Atomic_Mass] NCHAR(10) NULL, 
-    PRIMARY KEY CLUSTERED ([Atom_Number] ASC)
+    [Atomic_Number] INT  IDENTITY (1, 1) NOT NULL,
+    [Element]       TEXT NULL,
+    [Name]          VARCHAR(MAX) NULL,
+    [Atomic_Mass]   DECIMAL(4, 2) NULL,
+    PRIMARY KEY CLUSTERED ([Atomic_Number] ASC)
 );
 
