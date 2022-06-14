@@ -43,6 +43,7 @@
             this.label2 = new System.Windows.Forms.Label();
             this.label3 = new System.Windows.Forms.Label();
             this.Atomic_Name = new System.Windows.Forms.Label();
+            this.SelectButton = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.ChemElementTable)).BeginInit();
             this.SuspendLayout();
             // 
@@ -185,11 +186,22 @@
             this.Atomic_Name.TabIndex = 14;
             this.Atomic_Name.Text = "А.т.м";
             // 
+            // SelectButton
+            // 
+            this.SelectButton.Location = new System.Drawing.Point(205, 10);
+            this.SelectButton.Name = "SelectButton";
+            this.SelectButton.Size = new System.Drawing.Size(94, 29);
+            this.SelectButton.TabIndex = 15;
+            this.SelectButton.Text = "Выбрать";
+            this.SelectButton.UseVisualStyleBackColor = true;
+            this.SelectButton.Click += new System.EventHandler(this.SelectButton_Click);
+            // 
             // MainWindow
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 20F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(800, 450);
+            this.Controls.Add(this.SelectButton);
             this.Controls.Add(this.Atomic_Name);
             this.Controls.Add(this.label3);
             this.Controls.Add(this.label2);
@@ -231,5 +243,6 @@
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.Label label3;
         private System.Windows.Forms.Label Atomic_Name;
+        private System.Windows.Forms.Button SelectButton;
     }
 }

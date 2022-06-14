@@ -18,7 +18,7 @@ namespace ChemicalLibrary
 {
     public partial class MainWindow : Form
     {
-        private SqlConnection chemDB = null;
+        public SqlConnection chemDB = null;
         public MainWindow()
         {
             InitializeComponent();
@@ -75,7 +75,7 @@ namespace ChemicalLibrary
         private void InputCommandButton_Click(object sender, EventArgs e)
         {
             DataBaseInputElements dbie = new DataBaseInputElements();
-            dbie.InputElement(Convert.ToChar(elementText.Text), Convert.ToChar(nameElementText.Text), Convert.ToDecimal(atmText.Text), chemDB);
+            dbie.InputElement(elementText.Text, nameElementText.Text, Convert.ToDecimal(atmText.Text), chemDB);
         }
 
         private void textBox3_TextChanged(object sender, EventArgs e)
@@ -91,6 +91,12 @@ namespace ChemicalLibrary
         private void atmText_TextChanged(object sender, EventArgs e)
         {
 
+        }
+
+        private void SelectButton_Click(object sender, EventArgs e)
+        {
+            DataBaseInputElements input = new DataBaseInputElements();
+            input.SelectElement(label1.Text, chemDB);
         }
     }
 }
