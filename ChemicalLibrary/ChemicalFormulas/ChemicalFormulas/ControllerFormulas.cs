@@ -38,6 +38,13 @@ namespace ChemicalFormulas
             
         }
     }
-
+    public class ConditionElement<T>
+    {
+        public T Value { get; set; }
+        public ConditionElement(T value)
+        {
+            Value = value;
+        }
+    }
 
 }

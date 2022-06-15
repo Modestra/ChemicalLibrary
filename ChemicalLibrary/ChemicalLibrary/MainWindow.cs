@@ -95,8 +95,10 @@ namespace ChemicalLibrary
 
         private void SelectButton_Click(object sender, EventArgs e)
         {
-            DataBaseInputElements input = new DataBaseInputElements();
-            input.SelectElement(label1.Text, chemDB);
+            SqlDataAdapter data = new SqlDataAdapter($"SELECT Atomic_Number,Element FROM ChemElementList", chemDB);
+            DataSet set = new DataSet();
+            data.Fill(set);
+            ChemElementTable.DataSource = set.Tables[0];
         }
     }
 }
