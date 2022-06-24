@@ -46,8 +46,8 @@
             this.SelectButton = new System.Windows.Forms.Button();
             this.tabControl1 = new System.Windows.Forms.TabControl();
             this.tabPage1 = new System.Windows.Forms.TabPage();
-            this.tabPage2 = new System.Windows.Forms.TabPage();
             this.tableLayoutPanel1 = new System.Windows.Forms.TableLayoutPanel();
+            this.tabPage2 = new System.Windows.Forms.TabPage();
             ((System.ComponentModel.ISupportInitialize)(this.ChemElementTable)).BeginInit();
             this.tabControl1.SuspendLayout();
             this.tabPage1.SuspendLayout();
@@ -56,16 +56,19 @@
             // 
             // PhysicalButtom
             // 
+            this.PhysicalButtom.BackColor = System.Drawing.Color.Turquoise;
+            this.PhysicalButtom.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(64)))), ((int)(((byte)(0)))));
             this.PhysicalButtom.Location = new System.Drawing.Point(657, 376);
             this.PhysicalButtom.Name = "PhysicalButtom";
             this.PhysicalButtom.Size = new System.Drawing.Size(131, 62);
             this.PhysicalButtom.TabIndex = 0;
             this.PhysicalButtom.Text = "Физ. свойства";
-            this.PhysicalButtom.UseVisualStyleBackColor = true;
+            this.PhysicalButtom.UseVisualStyleBackColor = false;
             this.PhysicalButtom.Click += new System.EventHandler(this.PhysicalButtom_Click);
             // 
             // TextInputFormulas
             // 
+            this.TextInputFormulas.BackColor = System.Drawing.Color.CadetBlue;
             this.TextInputFormulas.Location = new System.Drawing.Point(12, 12);
             this.TextInputFormulas.Name = "TextInputFormulas";
             this.TextInputFormulas.Size = new System.Drawing.Size(187, 27);
@@ -75,6 +78,7 @@
             // InputFormulas
             // 
             this.InputFormulas.AutoSize = true;
+            this.InputFormulas.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(128)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
             this.InputFormulas.Location = new System.Drawing.Point(12, 42);
             this.InputFormulas.Name = "InputFormulas";
             this.InputFormulas.Size = new System.Drawing.Size(130, 20);
@@ -83,23 +87,24 @@
             // 
             // DebugButtom
             // 
-            this.DebugButtom.Location = new System.Drawing.Point(676, 10);
+            this.DebugButtom.BackColor = System.Drawing.Color.Turquoise;
+            this.DebugButtom.Location = new System.Drawing.Point(709, 480);
             this.DebugButtom.Name = "DebugButtom";
-            this.DebugButtom.Size = new System.Drawing.Size(112, 52);
+            this.DebugButtom.Size = new System.Drawing.Size(73, 52);
             this.DebugButtom.TabIndex = 3;
             this.DebugButtom.Text = "Запись";
-            this.DebugButtom.UseVisualStyleBackColor = true;
+            this.DebugButtom.UseVisualStyleBackColor = false;
             this.DebugButtom.Click += new System.EventHandler(this.DebugButtom_Click);
             // 
             // InputFileLabel
             // 
             this.InputFileLabel.AutoSize = true;
             this.InputFileLabel.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.InputFileLabel.Location = new System.Drawing.Point(676, 65);
+            this.InputFileLabel.Location = new System.Drawing.Point(577, 457);
             this.InputFileLabel.Name = "InputFileLabel";
-            this.InputFileLabel.Size = new System.Drawing.Size(50, 20);
+            this.InputFileLabel.Size = new System.Drawing.Size(205, 20);
             this.InputFileLabel.TabIndex = 4;
-            this.InputFileLabel.Text = "label2";
+            this.InputFileLabel.Text = "Файловая система работает";
             // 
             // label1
             // 
@@ -114,37 +119,40 @@
             // ChemElementTable
             // 
             this.ChemElementTable.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.ChemElementTable.Location = new System.Drawing.Point(3, 19);
+            this.ChemElementTable.Location = new System.Drawing.Point(3, 37);
             this.ChemElementTable.Name = "ChemElementTable";
             this.ChemElementTable.RowHeadersWidth = 51;
             this.ChemElementTable.RowTemplate.Height = 29;
-            this.ChemElementTable.Size = new System.Drawing.Size(613, 269);
+            this.ChemElementTable.Size = new System.Drawing.Size(613, 251);
             this.ChemElementTable.TabIndex = 6;
             this.ChemElementTable.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.ChemElementTable_CellContentClick);
             // 
             // DataBaseOn
             // 
-            this.DataBaseOn.Location = new System.Drawing.Point(557, 75);
+            this.DataBaseOn.BackColor = System.Drawing.Color.Turquoise;
+            this.DataBaseOn.Location = new System.Drawing.Point(3, 3);
             this.DataBaseOn.Name = "DataBaseOn";
-            this.DataBaseOn.Size = new System.Drawing.Size(94, 29);
+            this.DataBaseOn.Size = new System.Drawing.Size(94, 28);
             this.DataBaseOn.TabIndex = 7;
             this.DataBaseOn.Text = "Запуск";
-            this.DataBaseOn.UseVisualStyleBackColor = true;
+            this.DataBaseOn.UseVisualStyleBackColor = false;
             this.DataBaseOn.Click += new System.EventHandler(this.DataBaseOn_Click);
             // 
             // InputCommandButton
             // 
-            this.InputCommandButton.Location = new System.Drawing.Point(457, 75);
+            this.InputCommandButton.BackColor = System.Drawing.Color.Turquoise;
+            this.InputCommandButton.Location = new System.Drawing.Point(261, 464);
             this.InputCommandButton.Name = "InputCommandButton";
             this.InputCommandButton.Size = new System.Drawing.Size(94, 29);
             this.InputCommandButton.TabIndex = 8;
             this.InputCommandButton.Text = "Ввести";
-            this.InputCommandButton.UseVisualStyleBackColor = true;
+            this.InputCommandButton.UseVisualStyleBackColor = false;
             this.InputCommandButton.Click += new System.EventHandler(this.InputCommandButton_Click);
             // 
             // atmText
             // 
-            this.atmText.Location = new System.Drawing.Point(397, 75);
+            this.atmText.BackColor = System.Drawing.Color.CadetBlue;
+            this.atmText.Location = new System.Drawing.Point(213, 464);
             this.atmText.Name = "atmText";
             this.atmText.Size = new System.Drawing.Size(42, 27);
             this.atmText.TabIndex = 9;
@@ -152,7 +160,8 @@
             // 
             // nameElementText
             // 
-            this.nameElementText.Location = new System.Drawing.Point(283, 75);
+            this.nameElementText.BackColor = System.Drawing.Color.CadetBlue;
+            this.nameElementText.Location = new System.Drawing.Point(99, 464);
             this.nameElementText.Name = "nameElementText";
             this.nameElementText.Size = new System.Drawing.Size(108, 27);
             this.nameElementText.TabIndex = 10;
@@ -160,7 +169,8 @@
             // 
             // elementText
             // 
-            this.elementText.Location = new System.Drawing.Point(209, 75);
+            this.elementText.BackColor = System.Drawing.Color.CadetBlue;
+            this.elementText.Location = new System.Drawing.Point(25, 464);
             this.elementText.Name = "elementText";
             this.elementText.Size = new System.Drawing.Size(68, 27);
             this.elementText.TabIndex = 11;
@@ -169,7 +179,7 @@
             // label2
             // 
             this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(209, 52);
+            this.label2.Location = new System.Drawing.Point(25, 441);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(68, 20);
             this.label2.TabIndex = 12;
@@ -178,7 +188,7 @@
             // label3
             // 
             this.label3.AutoSize = true;
-            this.label3.Location = new System.Drawing.Point(283, 52);
+            this.label3.Location = new System.Drawing.Point(99, 441);
             this.label3.Name = "label3";
             this.label3.Size = new System.Drawing.Size(108, 20);
             this.label3.TabIndex = 13;
@@ -187,7 +197,7 @@
             // Atomic_Name
             // 
             this.Atomic_Name.AutoSize = true;
-            this.Atomic_Name.Location = new System.Drawing.Point(397, 52);
+            this.Atomic_Name.Location = new System.Drawing.Point(213, 441);
             this.Atomic_Name.Name = "Atomic_Name";
             this.Atomic_Name.Size = new System.Drawing.Size(42, 20);
             this.Atomic_Name.TabIndex = 14;
@@ -195,12 +205,15 @@
             // 
             // SelectButton
             // 
+            this.SelectButton.BackColor = System.Drawing.Color.Turquoise;
+            this.SelectButton.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.SelectButton.ForeColor = System.Drawing.SystemColors.MenuText;
             this.SelectButton.Location = new System.Drawing.Point(205, 10);
             this.SelectButton.Name = "SelectButton";
             this.SelectButton.Size = new System.Drawing.Size(94, 29);
             this.SelectButton.TabIndex = 15;
             this.SelectButton.Text = "Выбрать";
-            this.SelectButton.UseVisualStyleBackColor = true;
+            this.SelectButton.UseVisualStyleBackColor = false;
             this.SelectButton.Click += new System.EventHandler(this.SelectButton_Click);
             // 
             // tabControl1
@@ -215,14 +228,28 @@
             // 
             // tabPage1
             // 
+            this.tabPage1.BackColor = System.Drawing.Color.SteelBlue;
             this.tabPage1.Controls.Add(this.tableLayoutPanel1);
             this.tabPage1.Location = new System.Drawing.Point(4, 29);
             this.tabPage1.Name = "tabPage1";
             this.tabPage1.Padding = new System.Windows.Forms.Padding(3);
             this.tabPage1.Size = new System.Drawing.Size(631, 295);
             this.tabPage1.TabIndex = 0;
-            this.tabPage1.Text = "Таблица";
-            this.tabPage1.UseVisualStyleBackColor = true;
+            this.tabPage1.Text = "Хим. Элементы";
+            // 
+            // tableLayoutPanel1
+            // 
+            this.tableLayoutPanel1.ColumnCount = 1;
+            this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 50F));
+            this.tableLayoutPanel1.Controls.Add(this.ChemElementTable, 0, 1);
+            this.tableLayoutPanel1.Controls.Add(this.DataBaseOn, 0, 0);
+            this.tableLayoutPanel1.Location = new System.Drawing.Point(6, 3);
+            this.tableLayoutPanel1.Name = "tableLayoutPanel1";
+            this.tableLayoutPanel1.RowCount = 2;
+            this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 50F));
+            this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 257F));
+            this.tableLayoutPanel1.Size = new System.Drawing.Size(619, 291);
+            this.tableLayoutPanel1.TabIndex = 0;
             // 
             // tabPage2
             // 
@@ -231,34 +258,21 @@
             this.tabPage2.Padding = new System.Windows.Forms.Padding(3);
             this.tabPage2.Size = new System.Drawing.Size(631, 295);
             this.tabPage2.TabIndex = 1;
-            this.tabPage2.Text = "Ещё одна таблица";
+            this.tabPage2.Text = "Неорг. Вещества";
             this.tabPage2.UseVisualStyleBackColor = true;
-            // 
-            // tableLayoutPanel1
-            // 
-            this.tableLayoutPanel1.ColumnCount = 1;
-            this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 50F));
-            this.tableLayoutPanel1.Controls.Add(this.ChemElementTable, 0, 1);
-            this.tableLayoutPanel1.Location = new System.Drawing.Point(6, 3);
-            this.tableLayoutPanel1.Name = "tableLayoutPanel1";
-            this.tableLayoutPanel1.RowCount = 2;
-            this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 50F));
-            this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 275F));
-            this.tableLayoutPanel1.Size = new System.Drawing.Size(619, 291);
-            this.tableLayoutPanel1.TabIndex = 0;
             // 
             // MainWindow
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 20F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(800, 450);
+            this.BackColor = System.Drawing.Color.Teal;
+            this.ClientSize = new System.Drawing.Size(794, 544);
             this.Controls.Add(this.tabControl1);
-            this.Controls.Add(this.DataBaseOn);
+            this.Controls.Add(this.elementText);
             this.Controls.Add(this.SelectButton);
             this.Controls.Add(this.Atomic_Name);
             this.Controls.Add(this.label3);
             this.Controls.Add(this.label2);
-            this.Controls.Add(this.elementText);
             this.Controls.Add(this.nameElementText);
             this.Controls.Add(this.atmText);
             this.Controls.Add(this.InputCommandButton);
@@ -268,6 +282,7 @@
             this.Controls.Add(this.InputFormulas);
             this.Controls.Add(this.TextInputFormulas);
             this.Controls.Add(this.PhysicalButtom);
+            this.ForeColor = System.Drawing.Color.Black;
             this.Name = "MainWindow";
             this.Text = "Form1";
             this.Load += new System.EventHandler(this.MainWindow_Load);
