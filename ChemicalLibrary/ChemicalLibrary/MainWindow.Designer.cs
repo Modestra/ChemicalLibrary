@@ -114,11 +114,11 @@
             // ChemElementTable
             // 
             this.ChemElementTable.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.ChemElementTable.Location = new System.Drawing.Point(3, 20);
+            this.ChemElementTable.Location = new System.Drawing.Point(3, 19);
             this.ChemElementTable.Name = "ChemElementTable";
             this.ChemElementTable.RowHeadersWidth = 51;
             this.ChemElementTable.RowTemplate.Height = 29;
-            this.ChemElementTable.Size = new System.Drawing.Size(613, 268);
+            this.ChemElementTable.Size = new System.Drawing.Size(613, 269);
             this.ChemElementTable.TabIndex = 6;
             this.ChemElementTable.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.ChemElementTable_CellContentClick);
             // 
@@ -221,7 +221,7 @@
             this.tabPage1.Padding = new System.Windows.Forms.Padding(3);
             this.tabPage1.Size = new System.Drawing.Size(631, 295);
             this.tabPage1.TabIndex = 0;
-            this.tabPage1.Text = "tabPage1";
+            this.tabPage1.Text = "Таблица";
             this.tabPage1.UseVisualStyleBackColor = true;
             // 
             // tabPage2
@@ -229,9 +229,9 @@
             this.tabPage2.Location = new System.Drawing.Point(4, 29);
             this.tabPage2.Name = "tabPage2";
             this.tabPage2.Padding = new System.Windows.Forms.Padding(3);
-            this.tabPage2.Size = new System.Drawing.Size(631, 297);
+            this.tabPage2.Size = new System.Drawing.Size(631, 295);
             this.tabPage2.TabIndex = 1;
-            this.tabPage2.Text = "tabPage2";
+            this.tabPage2.Text = "Ещё одна таблица";
             this.tabPage2.UseVisualStyleBackColor = true;
             // 
             // tableLayoutPanel1
@@ -243,7 +243,7 @@
             this.tableLayoutPanel1.Name = "tableLayoutPanel1";
             this.tableLayoutPanel1.RowCount = 2;
             this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 50F));
-            this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 274F));
+            this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 275F));
             this.tableLayoutPanel1.Size = new System.Drawing.Size(619, 291);
             this.tableLayoutPanel1.TabIndex = 0;
             // 
@@ -253,6 +253,7 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(800, 450);
             this.Controls.Add(this.tabControl1);
+            this.Controls.Add(this.DataBaseOn);
             this.Controls.Add(this.SelectButton);
             this.Controls.Add(this.Atomic_Name);
             this.Controls.Add(this.label3);
@@ -261,7 +262,6 @@
             this.Controls.Add(this.nameElementText);
             this.Controls.Add(this.atmText);
             this.Controls.Add(this.InputCommandButton);
-            this.Controls.Add(this.DataBaseOn);
             this.Controls.Add(this.label1);
             this.Controls.Add(this.InputFileLabel);
             this.Controls.Add(this.DebugButtom);
