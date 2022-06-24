@@ -11,7 +11,7 @@ namespace DataBaseLibrary
     public class DataBaseInputElements
     {
         public void InputElement(string element, string nameElement, decimal atomicMass, SqlConnection sql)
-        { //Не работает
+        {
             FileWriter addstring = new FileWriter();
             try
             {
@@ -27,6 +27,27 @@ namespace DataBaseLibrary
         {
             SqlCommand input = new SqlCommand($"SELECT * FROM ChemElementList WHERE Element = {element}", sql);
             
+        }
+        public void OutWhereValues(SqlConnection sql, string element, string labelConnect)
+        {
+            SqlDataReader dataReader = null;
+            try
+            {
+                SqlCommand command = new SqlCommand($"SELECT * FROM ChemElementList WHERE Element = {element}", sql);
+                dataReader = command.ExecuteReader();
+                while (dataReader.Read())
+                {
+
+                }
+            }
+            finally
+            {
+                if(dataReader != null && !dataReader.IsClosed)
+                {
+                    dataReader.Close();
+                }
+            }
+
         }
     }
 }

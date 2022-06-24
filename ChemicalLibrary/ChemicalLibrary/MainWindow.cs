@@ -9,7 +9,6 @@ using System.Threading.Tasks;
 using System.Windows.Forms;
 using DebugUtilites;
 using ChemicalFormulas;
-
 using System.Configuration;
 using System.Data.SqlClient;
 using DataBaseLibrary;
@@ -35,23 +34,10 @@ namespace ChemicalLibrary
             InputFormulas.Text = "Число реагентов: "+ Convert.ToInt16(text.Length);
             ControllerFormulas contrForm = new ControllerFormulas();
             contrForm.ReagentsList(text);
-            if (TextInputFormulas.Text != null)
-            {
-                try
-                {
-                    label1.Text = "Первый элемент: " + text[0];
-                }
-                catch
-                {
-                    label1.Text = "Элементов нет";
-                }
-            }
         }
         private void DebugButtom_Click(object sender, EventArgs e)
         {
-            if (TextInputFormulas.Text != null)
-            {
-            }
+            
         }
         private void PhysicalButtom_Click(object sender, EventArgs e)
         {
@@ -66,10 +52,7 @@ namespace ChemicalLibrary
         }
         private void DataBaseOn_Click(object sender, EventArgs e)
         {
-            SqlDataAdapter adapter = new SqlDataAdapter($"SELECT * FROM ChemElementList", chemDB);
-            DataSet ds = new DataSet();
-            adapter.Fill(ds);
-            ChemElementTable.DataSource = ds.Tables[0];
+            SelectAllTable(0);
         }
 
         private void InputCommandButton_Click(object sender, EventArgs e)
@@ -81,10 +64,7 @@ namespace ChemicalLibrary
             }
             finally
             {
-                SqlDataAdapter adapter = new SqlDataAdapter($"SELECT * FROM ChemElementList", chemDB);
-                DataSet ds = new DataSet();
-                adapter.Fill(ds);
-                ChemElementTable.DataSource = ds.Tables[0];
+                SelectAllTable(0);
             }
         }
 
@@ -109,6 +89,22 @@ namespace ChemicalLibrary
             DataSet set = new DataSet();
             data.Fill(set);
             ChemElementTable.DataSource = set.Tables[0];
+        }
+        private void tabPage2_Click(object sender, EventArgs e)
+        {
+
+        }
+        public void SelectAllTable(int numbertable)
+        {
+            SqlDataAdapter adapter = new SqlDataAdapter($"SELECT * FROM ChemElementList", chemDB);
+            DataSet ds = new DataSet();
+            adapter.Fill(ds);
+            ChemElementTable.DataSource = ds.Tables[numbertable];
+        }
+
+        private void tableLayoutPanel1_Paint(object sender, PaintEventArgs e)
+        {
+
         }
     }
 }
