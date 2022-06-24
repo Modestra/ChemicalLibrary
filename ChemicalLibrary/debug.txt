@@ -1,0 +1,5 @@
+
+Не удалось выполнить команду:Incorrect syntax near 'gg'. 
+Не удалось выполнить команду:Invalid column name 'GG'. 
+Не удалось выполнить команду:Invalid column name 'GG'. 
+Не удалось выполнить команду:Invalid column name 'gg'. 

@@ -11,11 +11,11 @@ namespace DataBaseLibrary
     public class DataBaseInputElements
     {
         public void InputElement(string element, string nameElement, decimal atomicMass, SqlConnection sql)
-        {
+        { //Не работает
             FileWriter addstring = new FileWriter();
             try
             {
-                SqlCommand input = new SqlCommand($"INSERT INTO ChemElementList(Element,Name,Atomic_Mass) VALUES({element},{nameElement},{atomicMass});", sql);
+                SqlCommand input = new SqlCommand($"INSERT INTO ChemElementList(Element,Name,Atomic_Mass) VALUES(N{element},N{nameElement},N{atomicMass});", sql);
                 int row = input.ExecuteNonQuery();
                 addstring.AddTextInFile(Convert.ToString(row));
             }
