@@ -74,15 +74,17 @@ namespace ChemicalLibrary
 
         private void InputCommandButton_Click(object sender, EventArgs e)
         {
-            FileWriter addstring = new FileWriter();
             try
             {
-                SqlCommand input = new SqlCommand($"INSERT INTO ChemElementList(Element,Name,Atomic_Mass) VALUES('{elementText.Text}',N'{nameElementText.Text}',{atmText.Text})", chemDB);
-                MessageBox.Show($"Выполнено строк: {input.ExecuteNonQuery()}");
+                DataBaseInputElements dataBaseInput = new DataBaseInputElements();
+                dataBaseInput.InputElement(elementText.Text, nameElementText.Text, Convert.ToDecimal(atmText.Text), chemDB);
             }
-            catch (SqlException ice)
+            finally
             {
-                addstring.AddTextInFile($"Не удалось выполнить команду:{ice.Message} ");
+                SqlDataAdapter adapter = new SqlDataAdapter($"SELECT * FROM ChemElementList", chemDB);
+                DataSet ds = new DataSet();
+                adapter.Fill(ds);
+                ChemElementTable.DataSource = ds.Tables[0];
             }
         }
 

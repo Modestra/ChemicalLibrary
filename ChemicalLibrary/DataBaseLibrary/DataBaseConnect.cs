@@ -15,15 +15,13 @@ namespace DataBaseLibrary
             FileWriter addstring = new FileWriter();
             try
             {
-                SqlCommand input = new SqlCommand($"INSERT INTO ChemElementList(Element,Name,Atomic_Mass) VALUES(N{element},N{nameElement},N{atomicMass});", sql);
-                int row = input.ExecuteNonQuery();
-                addstring.AddTextInFile(Convert.ToString(row));
+                SqlCommand input = new SqlCommand($"INSERT INTO ChemElementList(Element,Name,Atomic_Mass) VALUES('{element}',N'{nameElement}',{atomicMass})", sql);
+                addstring.AddTextInFile($"Выполнено строк: {input.ExecuteNonQuery()}");
             }
             catch (SqlException ice)
             {
                 addstring.AddTextInFile($"Не удалось выполнить команду:{ice.Message} ");
             }
-
         }
         public void SelectElement(string element, SqlConnection sql)
         {
