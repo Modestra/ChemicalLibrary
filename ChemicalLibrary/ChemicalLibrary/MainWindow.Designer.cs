@@ -49,8 +49,8 @@
             this.tableLayoutPanel1 = new System.Windows.Forms.TableLayoutPanel();
             this.tabPage2 = new System.Windows.Forms.TabPage();
             this.tableLayoutPanel2 = new System.Windows.Forms.TableLayoutPanel();
-            this.dataGridView1 = new System.Windows.Forms.DataGridView();
-            this.button1 = new System.Windows.Forms.Button();
+            this.NonOrganicGrid = new System.Windows.Forms.DataGridView();
+            this.NonOrganicButton = new System.Windows.Forms.Button();
             this.TrackDataTables = new System.Windows.Forms.TrackBar();
             this.textBox1 = new System.Windows.Forms.TextBox();
             this.textBox2 = new System.Windows.Forms.TextBox();
@@ -66,7 +66,7 @@
             this.tableLayoutPanel1.SuspendLayout();
             this.tabPage2.SuspendLayout();
             this.tableLayoutPanel2.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.NonOrganicGrid)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.TrackDataTables)).BeginInit();
             this.SuspendLayout();
             // 
@@ -290,8 +290,8 @@
             // 
             this.tableLayoutPanel2.ColumnCount = 1;
             this.tableLayoutPanel2.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 49.73822F));
-            this.tableLayoutPanel2.Controls.Add(this.dataGridView1, 0, 1);
-            this.tableLayoutPanel2.Controls.Add(this.button1, 0, 0);
+            this.tableLayoutPanel2.Controls.Add(this.NonOrganicGrid, 0, 1);
+            this.tableLayoutPanel2.Controls.Add(this.NonOrganicButton, 0, 0);
             this.tableLayoutPanel2.Location = new System.Drawing.Point(-4, 0);
             this.tableLayoutPanel2.Name = "tableLayoutPanel2";
             this.tableLayoutPanel2.RowCount = 2;
@@ -300,26 +300,28 @@
             this.tableLayoutPanel2.Size = new System.Drawing.Size(639, 299);
             this.tableLayoutPanel2.TabIndex = 0;
             // 
-            // dataGridView1
+            // NonOrganicGrid
             // 
-            this.dataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dataGridView1.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.dataGridView1.Location = new System.Drawing.Point(3, 41);
-            this.dataGridView1.Name = "dataGridView1";
-            this.dataGridView1.RowHeadersWidth = 51;
-            this.dataGridView1.RowTemplate.Height = 29;
-            this.dataGridView1.Size = new System.Drawing.Size(633, 255);
-            this.dataGridView1.TabIndex = 0;
+            this.NonOrganicGrid.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.NonOrganicGrid.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.NonOrganicGrid.Location = new System.Drawing.Point(3, 41);
+            this.NonOrganicGrid.Name = "NonOrganicGrid";
+            this.NonOrganicGrid.RowHeadersWidth = 51;
+            this.NonOrganicGrid.RowTemplate.Height = 29;
+            this.NonOrganicGrid.Size = new System.Drawing.Size(633, 255);
+            this.NonOrganicGrid.TabIndex = 0;
+            this.NonOrganicGrid.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.NonOrganicGrid_CellContentClick);
             // 
-            // button1
+            // NonOrganicButton
             // 
-            this.button1.BackColor = System.Drawing.Color.Turquoise;
-            this.button1.Location = new System.Drawing.Point(3, 3);
-            this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(116, 32);
-            this.button1.TabIndex = 18;
-            this.button1.Text = "Запуск";
-            this.button1.UseVisualStyleBackColor = false;
+            this.NonOrganicButton.BackColor = System.Drawing.Color.Turquoise;
+            this.NonOrganicButton.Location = new System.Drawing.Point(3, 3);
+            this.NonOrganicButton.Name = "NonOrganicButton";
+            this.NonOrganicButton.Size = new System.Drawing.Size(116, 32);
+            this.NonOrganicButton.TabIndex = 18;
+            this.NonOrganicButton.Text = "Запуск";
+            this.NonOrganicButton.UseVisualStyleBackColor = false;
+            this.NonOrganicButton.Click += new System.EventHandler(this.NonOrganicButton_Click);
             // 
             // TrackDataTables
             // 
@@ -443,7 +445,7 @@
             this.tableLayoutPanel1.ResumeLayout(false);
             this.tabPage2.ResumeLayout(false);
             this.tableLayoutPanel2.ResumeLayout(false);
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.NonOrganicGrid)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.TrackDataTables)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
@@ -473,8 +475,8 @@
         private System.Windows.Forms.TableLayoutPanel tableLayoutPanel1;
         private System.Windows.Forms.TabPage tabPage2;
         private System.Windows.Forms.TableLayoutPanel tableLayoutPanel2;
-        private System.Windows.Forms.DataGridView dataGridView1;
-        private System.Windows.Forms.Button button1;
+        private System.Windows.Forms.DataGridView NonOrganicGrid;
+        private System.Windows.Forms.Button NonOrganicButton;
         private System.Windows.Forms.TrackBar TrackDataTables;
         private System.Windows.Forms.TextBox textBox1;
         private System.Windows.Forms.TextBox textBox2;

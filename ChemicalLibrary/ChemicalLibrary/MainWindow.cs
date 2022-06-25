@@ -27,6 +27,7 @@ namespace ChemicalLibrary
         {
             chemDB = new SqlConnection(ConfigurationManager.ConnectionStrings["ChemData"].ConnectionString);
             chemDB.Open(); //Открытие ChemDataBase
+            
         }
 
         private void TextInputFormulas_TextChanged(object sender, EventArgs e)
@@ -51,11 +52,10 @@ namespace ChemicalLibrary
         private void ChemElementTable_CellContentClick(object sender, DataGridViewCellEventArgs e)
         {
         }
-        private void DataBaseOn_Click(object sender, EventArgs e)
+        private void DataBaseOn_Click(object sender, EventArgs e) //Запуск 1 таблицы
         {
-            SelectAllTable();
+            SelectAllTable("ChemElementList", ChemElementTable, TrackDataTables);
         }
-
         private void InputCommandButton_Click(object sender, EventArgs e)
         {
             try
@@ -65,25 +65,21 @@ namespace ChemicalLibrary
             }
             finally
             {
-                SelectAllTable();
+                SelectAllTable("ChemElementList", ChemElementTable, TrackDataTables);
             }
         }
-
         private void textBox3_TextChanged(object sender, EventArgs e)
         {
 
         }
-
         private void nameElementText_TextChanged(object sender, EventArgs e)
         {
 
         }
-
         private void atmText_TextChanged(object sender, EventArgs e)
         {
 
         }
-
         private void SelectButton_Click(object sender, EventArgs e)
         {
             SqlDataAdapter data = new SqlDataAdapter($"SELECT Atomic_Number,Element FROM ChemElementList", chemDB);
@@ -95,14 +91,14 @@ namespace ChemicalLibrary
         {
 
         }
-        public void SelectAllTable()
+        public void SelectAllTable(string tablename, DataGridView table, TrackBar track) //Запуск таблицы
         {
             try
             {
-                SqlDataAdapter adapter = new SqlDataAdapter($"SELECT * FROM ChemElementList", chemDB);
+                SqlDataAdapter adapter = new SqlDataAdapter($"SELECT * FROM {tablename}", chemDB);
                 DataSet ds = new DataSet();
                 adapter.Fill(ds);
-                ChemElementTable.DataSource = ds.Tables[TrackDataTables.Value];
+                table.DataSource = ds.Tables[1];
             }
             catch
             {
@@ -130,33 +126,28 @@ namespace ChemicalLibrary
             switch (TrackDataTables.Value) 
             {
                 case 0:
-                    label2.Text = "Элемент";
-                    label3.Text = "Назв. вещ-ва";
-                    Atomic_Name.Text = "Атомная масса";
-                    label4.Text = "";
-                    label5.Text = "";
-                    label6.Text = "";
-                    label7.Text = "";
+                    label2.Text = "Элемент"; label3.Text = "Назв. вещ-ва"; Atomic_Name.Text = "Атомная масса"; label4.Text = "";
+                    label5.Text = ""; label6.Text = ""; label7.Text = "";
                     break;
                 case 1:
-                    label2.Text = "";
-                    label3.Text = "";
-                    Atomic_Name.Text = "";
-                    label4.Text = "";
-                    label5.Text = "";
-                    label6.Text = "";
-                    label7.Text = "";
+                    label2.Text = ""; label3.Text = ""; Atomic_Name.Text = ""; label4.Text = "";
+                    label5.Text = ""; label6.Text = ""; label7.Text = "";
                     break;
                 case 2:
-                    label2.Text = "";
-                    label3.Text = "";
-                    Atomic_Name.Text = "";
-                    label4.Text = "";
-                    label5.Text = "";
-                    label6.Text = "";
-                    label7.Text = "";
+                    label2.Text = ""; label3.Text = "";  Atomic_Name.Text = ""; label4.Text = "";
+                    label5.Text = ""; label6.Text = ""; label7.Text = "";
                     break;
             }
+
+        }
+
+        private void NonOrganicButton_Click(object sender, EventArgs e)
+        {
+            SelectAllTable("Non-OrganicTable", NonOrganicGrid, TrackDataTables);
+        }
+
+        private void NonOrganicGrid_CellContentClick(object sender, DataGridViewCellEventArgs e)
+        {
 
         }
     }
