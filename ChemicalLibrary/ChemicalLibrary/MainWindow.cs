@@ -54,7 +54,7 @@ namespace ChemicalLibrary
         }
         private void DataBaseOn_Click(object sender, EventArgs e) //Запуск 1 таблицы
         {
-            SelectAllTable("ChemElementList", ChemElementTable, TrackDataTables);
+            SelectAllTable("ChemElementList", ChemElementTable);
         }
         private void InputCommandButton_Click(object sender, EventArgs e)
         {
@@ -65,7 +65,7 @@ namespace ChemicalLibrary
             }
             finally
             {
-                SelectAllTable("ChemElementList", ChemElementTable, TrackDataTables);
+                SelectAllTable("ChemElementList", ChemElementTable);
             }
         }
         private void textBox3_TextChanged(object sender, EventArgs e)
@@ -91,14 +91,14 @@ namespace ChemicalLibrary
         {
 
         }
-        public void SelectAllTable(string tablename, DataGridView table, TrackBar track) //Запуск таблицы
-        {
+        public void SelectAllTable(string tablename, DataGridView table)
+        { //Запуск таблицы
             try
             {
                 SqlDataAdapter adapter = new SqlDataAdapter($"SELECT * FROM {tablename}", chemDB);
                 DataSet ds = new DataSet();
                 adapter.Fill(ds);
-                table.DataSource = ds.Tables[1];
+                table.DataSource = ds.Tables[0];
             }
             catch
             {
@@ -126,7 +126,7 @@ namespace ChemicalLibrary
             switch (TrackDataTables.Value) 
             {
                 case 0:
-                    label2.Text = "Элемент"; label3.Text = "Назв. вещ-ва"; Atomic_Name.Text = "Атомная масса"; label4.Text = "";
+                    label2.Text = "Элемент"; label3.Text = "Назв. вещ-ва"; Atomic_Name.Text = "А.т.м"; label4.Text = "";
                     label5.Text = ""; label6.Text = ""; label7.Text = "";
                     break;
                 case 1:
@@ -143,7 +143,7 @@ namespace ChemicalLibrary
 
         private void NonOrganicButton_Click(object sender, EventArgs e)
         {
-            SelectAllTable("Non-OrganicTable", NonOrganicGrid, TrackDataTables);
+            SelectAllTable("NonOrganicTable", NonOrganicGrid);
         }
 
         private void NonOrganicGrid_CellContentClick(object sender, DataGridViewCellEventArgs e)
