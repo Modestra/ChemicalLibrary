@@ -51,6 +51,15 @@
             this.tableLayoutPanel2 = new System.Windows.Forms.TableLayoutPanel();
             this.dataGridView1 = new System.Windows.Forms.DataGridView();
             this.button1 = new System.Windows.Forms.Button();
+            this.TrackDataTables = new System.Windows.Forms.TrackBar();
+            this.textBox1 = new System.Windows.Forms.TextBox();
+            this.textBox2 = new System.Windows.Forms.TextBox();
+            this.textBox3 = new System.Windows.Forms.TextBox();
+            this.label4 = new System.Windows.Forms.Label();
+            this.label5 = new System.Windows.Forms.Label();
+            this.label6 = new System.Windows.Forms.Label();
+            this.textBox4 = new System.Windows.Forms.TextBox();
+            this.label7 = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.ChemElementTable)).BeginInit();
             this.tabControl1.SuspendLayout();
             this.tabPage1.SuspendLayout();
@@ -58,6 +67,7 @@
             this.tabPage2.SuspendLayout();
             this.tableLayoutPanel2.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.TrackDataTables)).BeginInit();
             this.SuspendLayout();
             // 
             // PhysicalButtom
@@ -95,7 +105,7 @@
             // DebugButtom
             // 
             this.DebugButtom.BackColor = System.Drawing.Color.Turquoise;
-            this.DebugButtom.Location = new System.Drawing.Point(709, 480);
+            this.DebugButtom.Location = new System.Drawing.Point(715, 32);
             this.DebugButtom.Name = "DebugButtom";
             this.DebugButtom.Size = new System.Drawing.Size(73, 52);
             this.DebugButtom.TabIndex = 3;
@@ -108,7 +118,7 @@
             this.InputFileLabel.AutoSize = true;
             this.InputFileLabel.BackColor = System.Drawing.Color.DarkTurquoise;
             this.InputFileLabel.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.InputFileLabel.Location = new System.Drawing.Point(577, 457);
+            this.InputFileLabel.Location = new System.Drawing.Point(583, 9);
             this.InputFileLabel.Name = "InputFileLabel";
             this.InputFileLabel.Size = new System.Drawing.Size(205, 20);
             this.InputFileLabel.TabIndex = 4;
@@ -150,7 +160,7 @@
             // InputCommandButton
             // 
             this.InputCommandButton.BackColor = System.Drawing.Color.Turquoise;
-            this.InputCommandButton.Location = new System.Drawing.Point(261, 464);
+            this.InputCommandButton.Location = new System.Drawing.Point(304, 503);
             this.InputCommandButton.Name = "InputCommandButton";
             this.InputCommandButton.Size = new System.Drawing.Size(94, 29);
             this.InputCommandButton.TabIndex = 8;
@@ -163,7 +173,7 @@
             this.atmText.BackColor = System.Drawing.Color.CadetBlue;
             this.atmText.Location = new System.Drawing.Point(213, 464);
             this.atmText.Name = "atmText";
-            this.atmText.Size = new System.Drawing.Size(42, 27);
+            this.atmText.Size = new System.Drawing.Size(85, 27);
             this.atmText.TabIndex = 9;
             this.atmText.TextChanged += new System.EventHandler(this.atmText_TextChanged);
             // 
@@ -179,9 +189,9 @@
             // elementText
             // 
             this.elementText.BackColor = System.Drawing.Color.CadetBlue;
-            this.elementText.Location = new System.Drawing.Point(25, 464);
+            this.elementText.Location = new System.Drawing.Point(16, 464);
             this.elementText.Name = "elementText";
-            this.elementText.Size = new System.Drawing.Size(68, 27);
+            this.elementText.Size = new System.Drawing.Size(77, 27);
             this.elementText.TabIndex = 11;
             this.elementText.TextChanged += new System.EventHandler(this.textBox3_TextChanged);
             // 
@@ -189,11 +199,11 @@
             // 
             this.label2.AutoSize = true;
             this.label2.BackColor = System.Drawing.Color.DarkTurquoise;
-            this.label2.Location = new System.Drawing.Point(25, 441);
+            this.label2.Location = new System.Drawing.Point(17, 441);
             this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(68, 20);
+            this.label2.Size = new System.Drawing.Size(76, 20);
             this.label2.TabIndex = 12;
-            this.label2.Text = "Элемент";
+            this.label2.Text = "Вещество";
             // 
             // label3
             // 
@@ -201,9 +211,9 @@
             this.label3.BackColor = System.Drawing.Color.DarkTurquoise;
             this.label3.Location = new System.Drawing.Point(99, 441);
             this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(108, 20);
+            this.label3.Size = new System.Drawing.Size(100, 20);
             this.label3.TabIndex = 13;
-            this.label3.Text = "Имя элемента";
+            this.label3.Text = "Назв. вещ-ва";
             // 
             // Atomic_Name
             // 
@@ -211,9 +221,9 @@
             this.Atomic_Name.BackColor = System.Drawing.Color.DarkTurquoise;
             this.Atomic_Name.Location = new System.Drawing.Point(213, 441);
             this.Atomic_Name.Name = "Atomic_Name";
-            this.Atomic_Name.Size = new System.Drawing.Size(42, 20);
+            this.Atomic_Name.Size = new System.Drawing.Size(85, 20);
             this.Atomic_Name.TabIndex = 14;
-            this.Atomic_Name.Text = "А.т.м";
+            this.Atomic_Name.Text = "моль. масс";
             // 
             // SelectButton
             // 
@@ -311,12 +321,103 @@
             this.button1.Text = "Запуск";
             this.button1.UseVisualStyleBackColor = false;
             // 
+            // TrackDataTables
+            // 
+            this.TrackDataTables.Location = new System.Drawing.Point(12, 497);
+            this.TrackDataTables.Maximum = 2;
+            this.TrackDataTables.Name = "TrackDataTables";
+            this.TrackDataTables.Size = new System.Drawing.Size(286, 56);
+            this.TrackDataTables.TabIndex = 18;
+            this.TrackDataTables.Value = 1;
+            this.TrackDataTables.Scroll += new System.EventHandler(this.TrackDataTables_Scroll);
+            // 
+            // textBox1
+            // 
+            this.textBox1.BackColor = System.Drawing.Color.CadetBlue;
+            this.textBox1.Location = new System.Drawing.Point(304, 464);
+            this.textBox1.Name = "textBox1";
+            this.textBox1.Size = new System.Drawing.Size(111, 27);
+            this.textBox1.TabIndex = 19;
+            // 
+            // textBox2
+            // 
+            this.textBox2.BackColor = System.Drawing.Color.CadetBlue;
+            this.textBox2.Location = new System.Drawing.Point(421, 464);
+            this.textBox2.Name = "textBox2";
+            this.textBox2.Size = new System.Drawing.Size(113, 27);
+            this.textBox2.TabIndex = 20;
+            // 
+            // textBox3
+            // 
+            this.textBox3.BackColor = System.Drawing.Color.CadetBlue;
+            this.textBox3.Location = new System.Drawing.Point(540, 464);
+            this.textBox3.Name = "textBox3";
+            this.textBox3.Size = new System.Drawing.Size(111, 27);
+            this.textBox3.TabIndex = 21;
+            // 
+            // label4
+            // 
+            this.label4.AutoSize = true;
+            this.label4.BackColor = System.Drawing.Color.DarkTurquoise;
+            this.label4.Location = new System.Drawing.Point(304, 441);
+            this.label4.Name = "label4";
+            this.label4.Size = new System.Drawing.Size(50, 20);
+            this.label4.TabIndex = 22;
+            this.label4.Text = "label4";
+            // 
+            // label5
+            // 
+            this.label5.AutoSize = true;
+            this.label5.BackColor = System.Drawing.Color.DarkTurquoise;
+            this.label5.Location = new System.Drawing.Point(421, 441);
+            this.label5.Name = "label5";
+            this.label5.Size = new System.Drawing.Size(50, 20);
+            this.label5.TabIndex = 23;
+            this.label5.Text = "label5";
+            // 
+            // label6
+            // 
+            this.label6.AutoSize = true;
+            this.label6.BackColor = System.Drawing.Color.DarkTurquoise;
+            this.label6.Location = new System.Drawing.Point(540, 441);
+            this.label6.Name = "label6";
+            this.label6.Size = new System.Drawing.Size(50, 20);
+            this.label6.TabIndex = 24;
+            this.label6.Text = "label6";
+            // 
+            // textBox4
+            // 
+            this.textBox4.BackColor = System.Drawing.Color.CadetBlue;
+            this.textBox4.Location = new System.Drawing.Point(657, 464);
+            this.textBox4.Name = "textBox4";
+            this.textBox4.Size = new System.Drawing.Size(125, 27);
+            this.textBox4.TabIndex = 25;
+            // 
+            // label7
+            // 
+            this.label7.AutoSize = true;
+            this.label7.BackColor = System.Drawing.Color.DarkTurquoise;
+            this.label7.Location = new System.Drawing.Point(657, 441);
+            this.label7.Name = "label7";
+            this.label7.Size = new System.Drawing.Size(50, 20);
+            this.label7.TabIndex = 26;
+            this.label7.Text = "label7";
+            // 
             // MainWindow
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 20F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.Teal;
             this.ClientSize = new System.Drawing.Size(794, 544);
+            this.Controls.Add(this.label7);
+            this.Controls.Add(this.textBox4);
+            this.Controls.Add(this.label6);
+            this.Controls.Add(this.label5);
+            this.Controls.Add(this.label4);
+            this.Controls.Add(this.textBox3);
+            this.Controls.Add(this.textBox2);
+            this.Controls.Add(this.textBox1);
+            this.Controls.Add(this.TrackDataTables);
             this.Controls.Add(this.tabControl1);
             this.Controls.Add(this.elementText);
             this.Controls.Add(this.SelectButton);
@@ -343,6 +444,7 @@
             this.tabPage2.ResumeLayout(false);
             this.tableLayoutPanel2.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.TrackDataTables)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -373,5 +475,14 @@
         private System.Windows.Forms.TableLayoutPanel tableLayoutPanel2;
         private System.Windows.Forms.DataGridView dataGridView1;
         private System.Windows.Forms.Button button1;
+        private System.Windows.Forms.TrackBar TrackDataTables;
+        private System.Windows.Forms.TextBox textBox1;
+        private System.Windows.Forms.TextBox textBox2;
+        private System.Windows.Forms.TextBox textBox3;
+        private System.Windows.Forms.Label label4;
+        private System.Windows.Forms.Label label5;
+        private System.Windows.Forms.Label label6;
+        private System.Windows.Forms.TextBox textBox4;
+        private System.Windows.Forms.Label label7;
     }
 }

@@ -26,9 +26,8 @@ namespace DataBaseLibrary
         public void SelectElement(string element, SqlConnection sql)
         {
             SqlCommand input = new SqlCommand($"SELECT * FROM ChemElementList WHERE Element = {element}", sql);
-            
         }
-        public void OutWhereValues(SqlConnection sql, string element, string labelConnect)
+        public void OutWhereValues(SqlConnection sql, string element)
         {
             SqlDataReader dataReader = null;
             try

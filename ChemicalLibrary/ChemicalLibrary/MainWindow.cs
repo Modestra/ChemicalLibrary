@@ -17,6 +17,7 @@ namespace ChemicalLibrary
 {
     public partial class MainWindow : Form
     {
+        FileWriter writer = new FileWriter();
         public SqlConnection chemDB = null;
         public MainWindow()
         {
@@ -25,7 +26,7 @@ namespace ChemicalLibrary
         private void MainWindow_Load(object sender, EventArgs e)
         {
             chemDB = new SqlConnection(ConfigurationManager.ConnectionStrings["ChemData"].ConnectionString);
-            chemDB.Open();
+            chemDB.Open(); //Открытие ChemDataBase
         }
 
         private void TextInputFormulas_TextChanged(object sender, EventArgs e)
@@ -52,7 +53,7 @@ namespace ChemicalLibrary
         }
         private void DataBaseOn_Click(object sender, EventArgs e)
         {
-            SelectAllTable(0);
+            SelectAllTable();
         }
 
         private void InputCommandButton_Click(object sender, EventArgs e)
@@ -64,7 +65,7 @@ namespace ChemicalLibrary
             }
             finally
             {
-                SelectAllTable(0);
+                SelectAllTable();
             }
         }
 
@@ -94,16 +95,68 @@ namespace ChemicalLibrary
         {
 
         }
-        public void SelectAllTable(int numbertable)
+        public void SelectAllTable()
         {
-            SqlDataAdapter adapter = new SqlDataAdapter($"SELECT * FROM ChemElementList", chemDB);
-            DataSet ds = new DataSet();
-            adapter.Fill(ds);
-            ChemElementTable.DataSource = ds.Tables[numbertable];
+            try
+            {
+                SqlDataAdapter adapter = new SqlDataAdapter($"SELECT * FROM ChemElementList", chemDB);
+                DataSet ds = new DataSet();
+                adapter.Fill(ds);
+                ChemElementTable.DataSource = ds.Tables[TrackDataTables.Value];
+            }
+            catch
+            {
+                writer.AddTextInFile("Произошла ошибка при загрузке таблиц: Таблицы не существует или слишком большое значение");
+            }
         }
 
         private void tableLayoutPanel1_Paint(object sender, PaintEventArgs e)
         {
+            
+        }
+
+        private void TrackDataTables_Scroll(object sender, EventArgs e)
+        {
+            /*if (TrackDataTables.Value == 0)
+            {
+                label2.Text = "";
+                label3.Text = "";
+                Atomic_Name.Text = "";
+                label4.Text = "";
+                label5.Text = "";
+                label6.Text = "";
+            }
+            */
+            switch (TrackDataTables.Value) 
+            {
+                case 0:
+                    label2.Text = "Элемент";
+                    label3.Text = "Назв. вещ-ва";
+                    Atomic_Name.Text = "Атомная масса";
+                    label4.Text = "";
+                    label5.Text = "";
+                    label6.Text = "";
+                    label7.Text = "";
+                    break;
+                case 1:
+                    label2.Text = "";
+                    label3.Text = "";
+                    Atomic_Name.Text = "";
+                    label4.Text = "";
+                    label5.Text = "";
+                    label6.Text = "";
+                    label7.Text = "";
+                    break;
+                case 2:
+                    label2.Text = "";
+                    label3.Text = "";
+                    Atomic_Name.Text = "";
+                    label4.Text = "";
+                    label5.Text = "";
+                    label6.Text = "";
+                    label7.Text = "";
+                    break;
+            }
 
         }
     }
