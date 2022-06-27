@@ -5,7 +5,7 @@ namespace MathMainFormulas
 {
     public class MathLibrary
     {
-        public static long Fact(long n)
+        public long Fact(long n)
         {
             if (n == 0)
                 return 1;
@@ -15,6 +15,7 @@ namespace MathMainFormulas
     }
     public class Probability
     {
+        MathLibrary library = new MathLibrary();
         private void Prob(List<double> number)
         {
             foreach(int numberItem in number)
@@ -22,6 +23,7 @@ namespace MathMainFormulas
                 double Item = numberItem / number.Sum();
                 number.Remove(numberItem);
                 number.Add(Item);
+                
             }
         }
         public void Bernully()
@@ -30,10 +32,13 @@ namespace MathMainFormulas
         }
     }
     public class Combinatorics 
-    { 
-        public int CombSelection(int n, int k)
+    {
+        MathLibrary library = new MathLibrary();
+        public long CombSelection(long n, long k) //Работает)
         {
-            return 1;
+            long b = library.Fact(n)/(library.Fact(k)*library.Fact(n-k));
+            return b;
+
         }
     }
 

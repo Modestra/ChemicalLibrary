@@ -12,12 +12,14 @@ using ChemicalFormulas;
 using System.Configuration;
 using System.Data.SqlClient;
 using DataBaseLibrary;
+using MathMainFormulas;
 
 namespace ChemicalLibrary
 {
     public partial class MainWindow : Form
     {
         FileWriter writer = new FileWriter();
+        Combinatorics comb = new Combinatorics();
         public SqlConnection chemDB = null;
         public MainWindow()
         {
@@ -27,7 +29,7 @@ namespace ChemicalLibrary
         {
             chemDB = new SqlConnection(ConfigurationManager.ConnectionStrings["ChemData"].ConnectionString);
             chemDB.Open(); //Открытие ChemDataBase
-            
+            writer.AddTextInFile($"{comb.CombSelection(10, 5)}");
         }
 
         private void TextInputFormulas_TextChanged(object sender, EventArgs e)
