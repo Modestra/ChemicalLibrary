@@ -8,6 +8,5 @@ namespace ChemicalFormula
 {
     public class Class1
     {
-
     }
 }
