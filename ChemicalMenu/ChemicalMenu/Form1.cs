@@ -7,6 +7,9 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using ChemicalFormula;
+
+
 
 namespace ChemicalMenu
 {
@@ -15,6 +18,12 @@ namespace ChemicalMenu
         public Form1()
         {
             InitializeComponent();
+            Molecula mol = new Molecula("LiHe");
+        }
+
+        private void ChemTable_CellContentClick(object sender, DataGridViewCellEventArgs e)
+        {
+
         }
     }
 }
