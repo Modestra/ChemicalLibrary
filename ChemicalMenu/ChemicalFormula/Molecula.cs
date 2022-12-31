@@ -4,7 +4,6 @@ using System.Linq;
 using System.Text;
 using System.Text.RegularExpressions;
 using System.Threading.Tasks;
-using ChemicalMenu;
 
 namespace ChemicalFormula
 {
@@ -35,5 +34,34 @@ namespace ChemicalFormula
             }
             molarmass = molarmasslist.Sum();
         }
+    }
+    public class Solution
+    {
+        public List<Molecula> ions;
+        private decimal volume;
+        public string errorMessage;
+        public decimal Volume
+        {
+            get { return volume; }
+            set
+            {
+                if (Volume > 0)
+                {
+                   volume = value;
+                }
+                else
+                {
+                    errorMessage = "Объем не может быть меньше или равен нулю";
+                }
+            }
+        }
+        public Solution(decimal volume)
+        {
+            Volume = volume;
+        }
+    }
+    public class Ion
+    {
+
     }
 }

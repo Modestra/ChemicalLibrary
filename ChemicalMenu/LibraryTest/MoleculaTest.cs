@@ -22,4 +22,22 @@ namespace LibraryTest
             Assert.AreEqual(molecula.molarmass, test);
         }
     }
+    [TestClass]
+    public class SolutionTest
+    {
+        [TestMethod]
+        public void Solution_Zero_Value()
+        {
+            Molecula molecula = new Molecula("LiHe");
+            string test = "Объем не может быть меньше или равен нулю";
+            Solution solution = new Solution(0);
+            Assert.AreEqual(solution.errorMessage, test);
+        }
+        [TestMethod]
+        public void Solution_Count_Of_Moleculas()
+        {
+            Molecula molecula = new Molecula("LiHe");
+
+        }
+    }
 }
