@@ -53,12 +53,17 @@
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
+    <None Include="App.config" />
     <None Include="packages.config" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\ChemicalFormula\ChemicalFormula.csproj">
       <Project>{9bf04ab6-6dc0-4594-bb6e-b319e028bef8}</Project>
       <Name>ChemicalFormula</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\ChemicalMenu\ChemicalMenu.csproj">
+      <Project>{af389775-527d-40a2-9292-0617cf3e41e0}</Project>
+      <Name>ChemicalMenu</Name>
     </ProjectReference>
   </ItemGroup>
   <Import Project="$(VSToolsPath)\TeamTest\Microsoft.TestTools.targets" Condition="Exists('$(VSToolsPath)\TeamTest\Microsoft.TestTools.targets')" />
