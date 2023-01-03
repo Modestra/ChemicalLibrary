@@ -9,6 +9,8 @@ namespace ChemicalFormula
 {
     public class Molecula
     {
+        public string errorMessage;
+
         public List<string> element = new List<string>();
         public decimal molarmass;
         public string Molecular { get; set; }
@@ -32,13 +34,13 @@ namespace ChemicalFormula
             }
             else
             {
-                //Неправильно записанная формула
+                errorMessage = "Не явно выражена формула";
             }
             molarmass = molarmasslist.Sum();
         }
         public int RedOxFeature()
         {
-
+            return 0;
         }
     }
     public class Solution
@@ -64,11 +66,26 @@ namespace ChemicalFormula
         public Solution(decimal volume, List<Molecula> list)
         {
             Volume = volume;
-            
+            if (Volume > 0)
+            {
+                volume = 0;
+            }
+            else
+            {
+                errorMessage = "Объем не может быть меньше или равен нулю";
+            }
+
         }
         public Solution(decimal volume, Molecula molecula)
-        {
-
+        {     
+            if (volume > 0)
+            {
+                volume = 0;
+            }
+            else
+            {
+                errorMessage = "Объем не может быть меньше или равен нулю";
+            }
         }
         public Solution(decimal volume, Molecula molecula, Solvent solvent)
         {

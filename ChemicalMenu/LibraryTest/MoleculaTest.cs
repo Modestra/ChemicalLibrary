@@ -21,6 +21,13 @@ namespace LibraryTest
             Molecula molecula = new Molecula("LiHe");
             Assert.AreEqual(molecula.molarmass, test);
         }
+        [TestMethod]
+        public void Test_molecula_Dummy()
+        {
+            string errorMessage = "Не явно выражена формула";
+            Molecula molecula = new Molecula("");
+            Assert.AreEqual(molecula.errorMessage, errorMessage);
+        }
     }
     [TestClass]
     public class SolutionTest
