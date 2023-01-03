@@ -19,6 +19,7 @@ namespace ChemicalMenu
         {
             InitializeComponent();
             Molecula mol = new Molecula("LiHe");
+            Molecula h = new Solvent("g");
         }
 
         private void ChemTable_CellContentClick(object sender, DataGridViewCellEventArgs e)

@@ -10,9 +10,11 @@ namespace ChemicalFormula
     public class Molecula
     {
         public List<string> element = new List<string>();
-        private List<decimal> molarmasslist;
         public decimal molarmass;
         public string Molecular { get; set; }
+
+        private List<decimal> molarmasslist;
+        private decimal ionPotential;
         public Molecula(string molecular)
         {
             DataBaseConnect connect = new DataBaseConnect();
@@ -24,7 +26,7 @@ namespace ChemicalFormula
                 foreach(Match m in match)
                 {
                     element.Add(m.Value);
-                    decimal mass = connect.GetDecimal(Convert.ToString(m));
+                    decimal mass = connect.GetMolarMass(Convert.ToString(m));
                     molarmasslist.Add(mass);
                 }
             }
@@ -33,6 +35,10 @@ namespace ChemicalFormula
                 //Неправильно записанная формула
             }
             molarmass = molarmasslist.Sum();
+        }
+        public int RedOxFeature()
+        {
+
         }
     }
     public class Solution
@@ -55,13 +61,30 @@ namespace ChemicalFormula
                 }
             }
         }
-        public Solution(decimal volume)
+        public Solution(decimal volume, List<Molecula> list)
         {
             Volume = volume;
+            
+        }
+        public Solution(decimal volume, Molecula molecula)
+        {
+
+        }
+        public Solution(decimal volume, Molecula molecula, Solvent solvent)
+        {
+
         }
     }
-    public class Ion
+    public class Ion 
     {
-
+        public string ionName { get; set; }
+    }
+    public class Solvent : Molecula
+    {
+        public string Name { get; set; }
+        public Solvent(string mol) : base(mol)
+        {
+            Name = mol;
+        }
     }
 }
