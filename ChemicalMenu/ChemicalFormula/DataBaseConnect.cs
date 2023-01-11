@@ -28,7 +28,7 @@ namespace ChemicalFormula
                 list.Add(reader["Element_Name"].ToString());
             }
         }
-        public decimal GetMolarMass(string element)
+        public decimal GetColumn(string element, int indexcolumn)
         {
             SqlDataReader reader = null;
             try
@@ -38,7 +38,7 @@ namespace ChemicalFormula
                 reader = command.ExecuteReader();
                 while (reader.Read())
                 {
-                    return (decimal)reader.GetValue(3);
+                    return (decimal)reader.GetValue(indexcolumn);
                 }
                 return 0;
             }

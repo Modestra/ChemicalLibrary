@@ -11,15 +11,14 @@ namespace ChemicalFormula
     {
         public string errorMessage;
 
-        public List<string> element = new List<string>();
+        public List<Ion> element = new List<Ion>();
         public decimal molarmass;
         public string Molecular { get; set; }
+        public decimal mole;
 
         private List<decimal> molarmasslist;
-        private decimal ionPotential;
         public Molecula(string molecular)
         {
-            DataBaseConnect connect = new DataBaseConnect();
             molarmasslist = new List<decimal>();
             Regex reg = new Regex(@"([A-Z]+)([^A-Z])*");
             MatchCollection match = reg.Matches(molecular);
@@ -27,9 +26,9 @@ namespace ChemicalFormula
             {
                 foreach(Match m in match)
                 {
-                    element.Add(m.Value);
-                    decimal mass = connect.GetMolarMass(Convert.ToString(m));
-                    molarmasslist.Add(mass);
+                    Ion ion = new Ion(m.Value);
+                    element.Add(ion);
+                    molarmasslist.Add(ion.atomicMass);
                 }
             }
             else
@@ -46,55 +45,67 @@ namespace ChemicalFormula
     public class Solution
     {
         public List<Molecula> ions;
-        private decimal volume;
         public string errorMessage;
-        public decimal Volume
-        {
-            get { return volume; }
-            set
-            {
-                if (Volume > 0)
-                {
-                   volume = value;
-                }
-                else
-                {
-                    errorMessage = "Объем не может быть меньше или равен нулю";
-                }
-            }
-        }
+        public List<decimal> concentration;
+        public object solutionColor { get; }
+        public decimal Volume;
         public Solution(decimal volume, List<Molecula> list)
         {
             Volume = volume;
             if (Volume > 0)
             {
-                volume = 0;
+                
             }
             else
             {
                 errorMessage = "Объем не может быть меньше или равен нулю";
             }
+            ions = list;
 
         }
         public Solution(decimal volume, Molecula molecula)
-        {     
-            if (volume > 0)
+        {
+            Volume = volume;
+            if (Volume > 0 && Volume < molecula.mole)
             {
-                volume = 0;
+                concentration.Add(molecula.mole/Volume);
             }
             else
             {
                 errorMessage = "Объем не может быть меньше или равен нулю";
             }
+
+
         }
         public Solution(decimal volume, Molecula molecula, Solvent solvent)
         {
+            Volume = volume;
+            if (Volume > 0)
+            {
 
+            }
+            else
+            {
+                errorMessage = "Объем не может быть меньше или равен нулю";
+            }
+            ions.Add(molecula);
+        }
+        public void AddMolecula(Molecula mol)
+        {
+            ions.Add(mol);
         }
     }
     public class Ion 
     {
         public string ionName { get; set; }
+        public decimal atomicMass;
+
+        public Ion(string ionName)
+        {
+            DataBaseConnect connect = new DataBaseConnect();
+            this.ionName = ionName;
+            atomicMass = connect.GetColumn(ionName, 3);
+        }
     }
     public class Solvent : Molecula
     {
