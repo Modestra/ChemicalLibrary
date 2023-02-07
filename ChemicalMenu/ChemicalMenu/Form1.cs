@@ -19,11 +19,15 @@ namespace ChemicalMenu
         {
             InitializeComponent();
             Molecula mol = new Molecula("LiHe");
-            mol.mole = 27;
-            Solution sol = new Solution(2400, mol);
+            List<int> ints = mol.TypeOfBound();
         }
 
         private void ChemTable_CellContentClick(object sender, DataGridViewCellEventArgs e)
+        {
+
+        }
+
+        private void Form1_Load(object sender, EventArgs e)
         {
 
         }

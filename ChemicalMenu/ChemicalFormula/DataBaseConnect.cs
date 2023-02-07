@@ -28,7 +28,7 @@ namespace ChemicalFormula
                 list.Add(reader["Element_Name"].ToString());
             }
         }
-        public decimal GetColumn(string element, int indexcolumn)
+        public object GetCharacteristic(string element, int index)
         {
             SqlDataReader reader = null;
             try
@@ -38,7 +38,7 @@ namespace ChemicalFormula
                 reader = command.ExecuteReader();
                 while (reader.Read())
                 {
-                    return (decimal)reader.GetValue(indexcolumn);
+                    return reader.GetValue(index);
                 }
                 return 0;
             }
@@ -47,5 +47,6 @@ namespace ChemicalFormula
                 reader.Close();
             }
         }
+
     }
 }

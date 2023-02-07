@@ -12,14 +12,14 @@ namespace ChemicalFormula
         public string errorMessage;
 
         public List<Ion> element = new List<Ion>();
-        public decimal molarmass;
+        public double molarmass;
         public string Molecular { get; set; }
-        public decimal mole;
+        public double mole;
 
-        private List<decimal> molarmasslist;
+        private List<double> molarmasslist;
         public Molecula(string molecular)
         {
-            molarmasslist = new List<decimal>();
+            molarmasslist = new List<double>();
             Regex reg = new Regex(@"([A-Z]+)([^A-Z])*");
             MatchCollection match = reg.Matches(molecular);
             if(match.Count > 0)
@@ -36,20 +36,38 @@ namespace ChemicalFormula
                 errorMessage = "Не явно выражена формула";
             }
             molarmass = molarmasslist.Sum();
+            GC.Collect();
+            GC.GetTotalMemory(true); GC.WaitForPendingFinalizers();
         }
         public int RedOxFeature()
         {
             return 0;
+        }
+        public List<int> TypeOfBound()
+        {
+            List<int> list = new List<int>();
+            for(int i = 0; i < element.Count; i++)
+            {
+                if (element[i].IsMetal == true && element[i+1].IsMetal == true)
+                {
+                    list.Add(1);
+                }
+                else
+                {
+                    list.Add(0);
+                }
+            }
+            return list;
         }
     }
     public class Solution
     {
         public List<Molecula> ions;
         public string errorMessage;
-        public List<decimal> concentration;
+        public List<double> concentration = new List<double>();
         public object solutionColor { get; }
-        public decimal Volume;
-        public Solution(decimal volume, List<Molecula> list)
+        public double Volume;
+        public Solution(double volume, List<Molecula> list)
         {
             Volume = volume;
             if (Volume > 0)
@@ -63,10 +81,10 @@ namespace ChemicalFormula
             ions = list;
 
         }
-        public Solution(decimal volume, Molecula molecula)
+        public Solution(double volume, Molecula molecula)
         {
             Volume = volume;
-            if (Volume > 0 && Volume < molecula.mole)
+            if (Volume > 0 && Volume > molecula.mole)
             {
                 concentration.Add(molecula.mole/Volume);
             }
@@ -77,7 +95,7 @@ namespace ChemicalFormula
 
 
         }
-        public Solution(decimal volume, Molecula molecula, Solvent solvent)
+        public Solution(double volume, Molecula molecula, Solvent solvent)
         {
             Volume = volume;
             if (Volume > 0)
@@ -97,14 +115,22 @@ namespace ChemicalFormula
     }
     public class Ion 
     {
+        private double ionPotential;
         public string ionName { get; set; }
-        public decimal atomicMass;
+        public List<double> ions { get; set; }
+        public double atomicMass;
+        public bool IsMetal;
 
         public Ion(string ionName)
         {
             DataBaseConnect connect = new DataBaseConnect();
             this.ionName = ionName;
-            atomicMass = connect.GetColumn(ionName, 3);
+            atomicMass = Convert.ToDouble(connect.GetCharacteristic(ionName, 3));
+            ionPotential = Convert.ToDouble(connect.GetCharacteristic(ionName, 4));
+            if (ionPotential < 1.5)
+            {
+                IsMetal = true;
+            }
         }
     }
     public class Solvent : Molecula
