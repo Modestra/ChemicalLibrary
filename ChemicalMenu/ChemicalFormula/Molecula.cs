@@ -20,6 +20,7 @@ namespace ChemicalFormula
         public Molecula(string molecular)
         {
             molarmasslist = new List<double>();
+
             Regex reg = new Regex(@"([A-Z]+)([^A-Z])*");
             MatchCollection match = reg.Matches(molecular);
             if(match.Count > 0)
@@ -46,15 +47,23 @@ namespace ChemicalFormula
         public List<int> TypeOfBound()
         {
             List<int> list = new List<int>();
+            int n = element.Count;
             for(int i = 0; i < element.Count; i++)
             {
-                if (element[i].IsMetal == true && element[i+1].IsMetal == true)
+                if(i+1 != n)
                 {
-                    list.Add(1);
+                    if (element[i].IsMetal == true && element[i + 1].IsMetal == true)
+                    {
+                        list.Add(1);
+                    }
+                    else
+                    {
+                        list.Add(0);
+                    }
                 }
                 else
                 {
-                    list.Add(0);
+                    continue;
                 }
             }
             return list;
@@ -127,7 +136,7 @@ namespace ChemicalFormula
             this.ionName = ionName;
             atomicMass = Convert.ToDouble(connect.GetCharacteristic(ionName, 3));
             ionPotential = Convert.ToDouble(connect.GetCharacteristic(ionName, 4));
-            if (ionPotential < 1.5)
+            if (ionPotential < 1.5 && ionPotential != 0)
             {
                 IsMetal = true;
             }

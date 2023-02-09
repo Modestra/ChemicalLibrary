@@ -18,7 +18,7 @@ namespace ChemicalMenu
         public Form1()
         {
             InitializeComponent();
-            Molecula mol = new Molecula("LiHe");
+            Molecula mol = new Molecula("LiNaH");
             List<int> ints = mol.TypeOfBound();
         }
 
