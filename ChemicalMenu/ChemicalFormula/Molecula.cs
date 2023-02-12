@@ -44,21 +44,21 @@ namespace ChemicalFormula
         {
             return 0;
         }
-        public List<int> TypeOfBound()
+        public Dictionary<string, int> TypeOfBound()
         {
-            List<int> list = new List<int>();
+            Dictionary<string,int> list = new Dictionary<string, int>();
             int n = element.Count;
             for(int i = 0; i < element.Count; i++)
             {
                 if(i+1 != n)
                 {
-                    if (element[i].IsMetal == true && element[i + 1].IsMetal == true)
+                    if (element[i].IsMetal == true && !element[i + 1].IsMetal == true)
                     {
-                        list.Add(1);
+                        list.Add($"{element[i].ionName}-{element[i + 1].ionName}", 1); //Ионная связь
                     }
                     else
                     {
-                        list.Add(0);
+                        list.Add($"{element[i].ionName}-{element[i + 1].ionName}", 0); //Ковалентная связь
                     }
                 }
                 else

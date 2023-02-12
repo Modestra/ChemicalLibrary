@@ -19,7 +19,7 @@ namespace ChemicalMenu
         {
             InitializeComponent();
             Molecula mol = new Molecula("LiNaH");
-            List<int> ints = mol.TypeOfBound();
+            Dictionary<string, int> ints = mol.TypeOfBound();
         }
 
         private void ChemTable_CellContentClick(object sender, DataGridViewCellEventArgs e)
