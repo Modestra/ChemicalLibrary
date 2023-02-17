@@ -4,6 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Text.RegularExpressions;
 using System.Threading.Tasks;
+using static System.Net.Mime.MediaTypeNames;
 
 namespace ChemicalFormula
 {
@@ -17,28 +18,38 @@ namespace ChemicalFormula
         public double mole;
 
         private List<double> molarmasslist;
+        private char[] numbers = "0123456789".ToCharArray();
         public Molecula(string molecular)
         {
             molarmasslist = new List<double>();
-
-            Regex reg = new Regex(@"([A-Z]+)([^A-Z])*");
+            Regex reg = new Regex(@"([A-Z]+[a-z].)|([A-Z]\d)|([A-Z])");
             MatchCollection match = reg.Matches(molecular);
-            if(match.Count > 0)
-            {
-                foreach(Match m in match)
+                if (match.Count > 0)
                 {
-                    Ion ion = new Ion(m.Value);
-                    element.Add(ion);
-                    molarmasslist.Add(ion.atomicMass);
+                    foreach (Match m in match)
+                    {
+                        if (char.IsDigit(m.Value[m.Length - 1]))
+                        {
+                            Ion ion = new Ion(m.Value.Trim(numbers), (int)m.Value[m.Length - 1] - 48);
+                            element.Add(ion);
+                            molarmasslist.Add(ion.atomicMass * (int)m.Value[m.Length - 1] - 48);
+                        }
+                        else
+                        {
+                            Ion ion = new Ion(m.Value, 1);
+                            element.Add(ion);
+                            molarmasslist.Add(ion.atomicMass);
+                        }
+                    }
                 }
-            }
-            else
-            {
-                errorMessage = "Не явно выражена формула";
-            }
+                else
+                {
+                    errorMessage = "Не явно выражена формула";
+                }
             molarmass = molarmasslist.Sum();
             GC.Collect();
-            GC.GetTotalMemory(true); GC.WaitForPendingFinalizers();
+            GC.GetTotalMemory(true);
+            GC.WaitForPendingFinalizers();
         }
         public int RedOxFeature()
         {
@@ -67,6 +78,10 @@ namespace ChemicalFormula
                 }
             }
             return list;
+        }
+        public void SaveInJson()
+        {
+
         }
     }
     public class Solution
@@ -130,10 +145,11 @@ namespace ChemicalFormula
         public double atomicMass;
         public bool IsMetal;
 
-        public Ion(string ionName)
+        public Ion(string ionName, int count)
         {
             DataBaseConnect connect = new DataBaseConnect();
             this.ionName = ionName;
+            this.count = count;
             atomicMass = Convert.ToDouble(connect.GetCharacteristic(ionName, 3));
             ionPotential = Convert.ToDouble(connect.GetCharacteristic(ionName, 4));
             if (ionPotential < 1.5 && ionPotential != 0)

@@ -18,8 +18,6 @@ namespace ChemicalMenu
         public Form1()
         {
             InitializeComponent();
-            Molecula mol = new Molecula("LiNaH");
-            Dictionary<string, int> ints = mol.TypeOfBound();
         }
 
         private void ChemTable_CellContentClick(object sender, DataGridViewCellEventArgs e)
@@ -30,6 +28,16 @@ namespace ChemicalMenu
         private void Form1_Load(object sender, EventArgs e)
         {
 
+        }
+
+        private void textBox1_TextChanged(object sender, EventArgs e)
+        {
+
+        }
+        private void button1_Click(object sender, EventArgs e)
+        {
+            Molecula mol = new Molecula(textBox1.Text);
+            Dictionary<string, int> ints = mol.TypeOfBound();
         }
     }
 }
