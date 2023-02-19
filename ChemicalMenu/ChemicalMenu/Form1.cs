@@ -37,7 +37,20 @@ namespace ChemicalMenu
         private void button1_Click(object sender, EventArgs e)
         {
             Molecula mol = new Molecula(textBox1.Text);
+            mol.SaveInJson(mol);
             Dictionary<string, int> ints = mol.TypeOfBound();
+            foreach (var key in ints)
+            {
+                switch (key.Value)
+                {
+                    case 0:
+                        listBox1.Items.Add($"{key.Key}: Ковалентная связь");
+                        break;
+                    case 1:
+                        listBox1.Items.Add($"{key.Key}: Ионная связь");
+                        break;
+                }
+            }
         }
     }
 }

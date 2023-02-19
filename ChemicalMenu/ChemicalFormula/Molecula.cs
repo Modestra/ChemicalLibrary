@@ -1,13 +1,15 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.IO;
 using System.Linq;
 using System.Text;
 using System.Text.RegularExpressions;
 using System.Threading.Tasks;
-using static System.Net.Mime.MediaTypeNames;
+using System.Text.Json;
 
 namespace ChemicalFormula
 {
+    [Serializable]
     public class Molecula
     {
         public string errorMessage;
@@ -16,7 +18,7 @@ namespace ChemicalFormula
         public double molarmass;
         public string Molecular { get; set; }
         public double mole;
-
+        [NonSerialized]
         private List<double> molarmasslist;
         private char[] numbers = "0123456789".ToCharArray();
         public Molecula(string molecular)
@@ -79,9 +81,12 @@ namespace ChemicalFormula
             }
             return list;
         }
-        public void SaveInJson()
+        public async void SaveInJson(Molecula mol)
         {
-
+            using (FileStream fs = new FileStream(@"C:\Users\Пользователь\OneDrive\Рабочий стол\user.json", FileMode.OpenOrCreate))
+            {
+                await JsonSerializer.SerializeAsync(fs, mol);
+            }
         }
     }
     public class Solution
@@ -139,11 +144,12 @@ namespace ChemicalFormula
     }
     public class Ion 
     {
-        private double ionPotential;
         public string ionName { get; set; }
-        public List<double> ions { get; set; }
         public double atomicMass;
+        public int count;
         public bool IsMetal;
+        [NonSerialized]
+        private double ionPotential;
 
         public Ion(string ionName, int count)
         {
