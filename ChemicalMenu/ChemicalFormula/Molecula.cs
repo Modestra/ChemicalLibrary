@@ -6,48 +6,50 @@ using System.Text;
 using System.Text.RegularExpressions;
 using System.Threading.Tasks;
 using System.Text.Json;
+using Newtonsoft.Json.Linq;
+using System.Runtime.Remoting.Contexts;
 
 namespace ChemicalFormula
 {
     [Serializable]
     public class Molecula
     {
-        public string errorMessage;
-
+        public string molecular { get; set; }
+        public double molarmass { get; set; }
         public List<Ion> element = new List<Ion>();
-        public double molarmass;
-        public string Molecular { get; set; }
-        public double mole;
+        public double mole { get; set; }
         [NonSerialized]
         private List<double> molarmasslist;
-        private char[] numbers = "0123456789".ToCharArray();
+        public string errorMessage { get; set; }
         public Molecula(string molecular)
         {
+            this.molecular = molecular;
             molarmasslist = new List<double>();
-            Regex reg = new Regex(@"([A-Z]+[a-z].)|([A-Z]\d)|([A-Z])");
-            MatchCollection match = reg.Matches(molecular);
-                if (match.Count > 0)
+            List<string> list = molecular.Split(new char[] {'(',')','[',']'}).ToList();
+            for(int i = 0; i < list.Count; i++)
+            {
+                if(i+1 != list.Count)
                 {
-                    foreach (Match m in match)
+                    if (int.TryParse(list[i + 1], out int n))
                     {
-                        if (char.IsDigit(m.Value[m.Length - 1]))
-                        {
-                            Ion ion = new Ion(m.Value.Trim(numbers), (int)m.Value[m.Length - 1] - 48);
-                            element.Add(ion);
-                            molarmasslist.Add(ion.atomicMass * (int)m.Value[m.Length - 1] - 48);
-                        }
-                        else
-                        {
-                            Ion ion = new Ion(m.Value, 1);
-                            element.Add(ion);
-                            molarmasslist.Add(ion.atomicMass);
-                        }
+                        Ion ion = new Ion(list[i], int.Parse(list[i + 1]));
+                        element.Add(ion);
+                        list.RemoveAt(i + 1);
+                    }
+                    else
+                    {
+                        Ion ion = new Ion(list[i], 1);
+                        element.Add(ion);
+                        continue;
                     }
                 }
                 else
                 {
-                    errorMessage = "Не явно выражена формула";
+                    Ion ion = new Ion(list[i], 1);
+                    element.Add(ion);
+                    continue;
                 }
+            }
             molarmass = molarmasslist.Sum();
             GC.Collect();
             GC.GetTotalMemory(true);
@@ -80,13 +82,6 @@ namespace ChemicalFormula
                 }
             }
             return list;
-        }
-        public async void SaveInJson(Molecula mol)
-        {
-            using (FileStream fs = new FileStream(@"C:\Users\Пользователь\OneDrive\Рабочий стол\user.json", FileMode.OpenOrCreate))
-            {
-                await JsonSerializer.SerializeAsync(fs, mol);
-            }
         }
     }
     public class Solution
@@ -145,19 +140,55 @@ namespace ChemicalFormula
     public class Ion 
     {
         public string ionName { get; set; }
-        public double atomicMass;
-        public int count;
+        public List<Atom> atoms = new List<Atom>();
+        public int count { get; set; }
         public bool IsMetal;
-        [NonSerialized]
-        private double ionPotential;
+        private char[] numbers = "0123456789".ToCharArray();
 
         public Ion(string ionName, int count)
         {
             DataBaseConnect connect = new DataBaseConnect();
             this.ionName = ionName;
+            Regex region = new Regex(@"([A-Z]+[a-z]\d)|([A-Z]+[a-z])|([A-Z]+[a-z]\d)|([A-Z]\d)|([A-Z])");
             this.count = count;
-            atomicMass = Convert.ToDouble(connect.GetCharacteristic(ionName, 3));
-            ionPotential = Convert.ToDouble(connect.GetCharacteristic(ionName, 4));
+            MatchCollection match = region.Matches(this.ionName);
+            if(match.Count > 0)
+            {
+                foreach(Match m in match)
+                {
+                    if (Char.IsDigit(m.Value[m.Length - 1]))
+                    {
+                        Atom atom = new Atom(m.Value.Trim(numbers), (int)m.Value[m.Length - 1] - 48);
+                        atoms.Add(atom);
+                    }
+                    else
+                    {
+                        Atom atom = new Atom(m.Value, 1);
+                        atoms.Add(atom);
+                    }
+                }
+            }
+            else
+            {
+
+            }
+        }
+    }
+    [Serializable]
+    public class Atom
+    {
+        public string atomName { get; set; }
+        public double atomMass { get; set; }
+        public int count { get; set; }
+        public bool IsMetal;
+        private double ionPotential;
+        public Atom(string atomName, int count)
+        {
+            DataBaseConnect connect = new DataBaseConnect();
+            this.atomName = atomName;
+            this.count = count;
+            atomMass = Convert.ToDouble(connect.GetCharacteristic(atomName, 3));
+            ionPotential = Convert.ToDouble(connect.GetCharacteristic(atomName, 4));
             if (ionPotential < 1.5 && ionPotential != 0)
             {
                 IsMetal = true;

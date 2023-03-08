@@ -8,8 +8,8 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using ChemicalFormula;
-
-
+using Newtonsoft.Json;
+using System.IO;
 
 namespace ChemicalMenu
 {
@@ -29,7 +29,6 @@ namespace ChemicalMenu
         {
 
         }
-
         private void textBox1_TextChanged(object sender, EventArgs e)
         {
 
@@ -37,7 +36,12 @@ namespace ChemicalMenu
         private void button1_Click(object sender, EventArgs e)
         {
             Molecula mol = new Molecula(textBox1.Text);
-            mol.SaveInJson(mol);
+            using (FileStream fs = new FileStream(@"C:\Users\Пользователь\OneDrive\Рабочий стол\user.json", FileMode.OpenOrCreate))
+            {
+                fs.Close();
+                string json = JsonConvert.SerializeObject(mol, Formatting.Indented);
+                File.AppendAllText(@"C:\Users\Пользователь\OneDrive\Рабочий стол\user.json", json);
+            }
             Dictionary<string, int> ints = mol.TypeOfBound();
             foreach (var key in ints)
             {
