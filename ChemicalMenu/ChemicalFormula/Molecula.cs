@@ -8,6 +8,7 @@ using System.Threading.Tasks;
 using System.Text.Json;
 using Newtonsoft.Json.Linq;
 using System.Runtime.Remoting.Contexts;
+using System.Collections;
 
 namespace ChemicalFormula
 {
@@ -62,23 +63,23 @@ namespace ChemicalFormula
         public Dictionary<string, int> TypeOfBound()
         {
             Dictionary<string,int> list = new Dictionary<string, int>();
-            int n = element.Count;
-            for(int i = 0; i < element.Count; i++)
+            foreach(Ion ion in element)
             {
-                if(i+1 != n)
+                for(int i = 0; i < ion.atoms.Count - 1; i++)
                 {
-                    if (element[i].IsMetal == true && !element[i + 1].IsMetal == true)
+                    if((ion.atoms[i].IsMetal == false && ion.atoms[i].IsMetal == true) || 
+                        (ion.atoms[i].IsMetal == true && ion.atoms[i].IsMetal == false))
                     {
-                        list.Add($"{element[i].ionName}-{element[i + 1].ionName}", 1); //Ионная связь
+                        list.Add($"{ion.atoms[i]} - {ion.atoms[i+1]}", -1);
+                    }
+                    else if (ion.atoms[i].IsMetal == true && ion.atoms[i].IsMetal == true)
+                    {
+                        list.Add($"{ion.atoms[i]} - {ion.atoms[i + 1]}", 0);
                     }
                     else
                     {
-                        list.Add($"{element[i].ionName}-{element[i + 1].ionName}", 0); //Ковалентная связь
+                        list.Add($"{ion.atoms[i]} - {ion.atoms[i + 1]}", 1);
                     }
-                }
-                else
-                {
-                    continue;
                 }
             }
             return list;
@@ -137,12 +138,13 @@ namespace ChemicalFormula
             ions.Add(mol);
         }
     }
-    public class Ion 
+    public class Ion : IEnumerable
     {
         public string ionName { get; set; }
         public List<Atom> atoms = new List<Atom>();
         public int count { get; set; }
         public bool IsMetal;
+        public IEnumerator GetEnumerator() => atoms.GetEnumerator();
         private char[] numbers = "0123456789".ToCharArray();
 
         public Ion(string ionName, int count)
@@ -172,6 +174,7 @@ namespace ChemicalFormula
             {
 
             }
+
         }
     }
     [Serializable]
