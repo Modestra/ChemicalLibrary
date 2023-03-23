@@ -47,11 +47,14 @@ namespace ChemicalMenu
             {
                 switch (key.Value)
                 {
+                    case -1:
+                        listBox1.Items.Add($"{key.Key}: Ионная связь"); 
+                        break;
                     case 0:
-                        listBox1.Items.Add($"{key.Key}: Ковалентная связь");
+                        listBox1.Items.Add($"{key.Key}: Металлическая связь");
                         break;
                     case 1:
-                        listBox1.Items.Add($"{key.Key}: Ионная связь");
+                        listBox1.Items.Add($"{key.Key}: Ковалентная связь");
                         break;
                 }
             }

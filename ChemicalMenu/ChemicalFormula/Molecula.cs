@@ -70,15 +70,15 @@ namespace ChemicalFormula
                     if((ion.atoms[i].IsMetal == false && ion.atoms[i].IsMetal == true) || 
                         (ion.atoms[i].IsMetal == true && ion.atoms[i].IsMetal == false))
                     {
-                        list.Add($"{ion.atoms[i]} - {ion.atoms[i+1]}", -1);
+                        list.Add($"{ion.atoms[i].atomName} - {ion.atoms[i+1].atomName}", -1); //Ионная связь
                     }
                     else if (ion.atoms[i].IsMetal == true && ion.atoms[i].IsMetal == true)
                     {
-                        list.Add($"{ion.atoms[i]} - {ion.atoms[i + 1]}", 0);
+                        list.Add($"{ion.atoms[i].atomName} - {ion.atoms[i + 1].atomName}", 0); //Металлическая связь
                     }
                     else
                     {
-                        list.Add($"{ion.atoms[i]} - {ion.atoms[i + 1]}", 1);
+                        list.Add($"{ion.atoms[i].atomName} - {ion.atoms[i + 1].atomName}", 1); //Ковалентная связь
                     }
                 }
             }

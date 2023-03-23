@@ -7,10 +7,10 @@ using System.Threading.Tasks;
 
 namespace ChemicalFormula
 {
-    internal class CreateReaction
+    internal class Reaction
     {
         public string errorMessage { get; set; }
-        public CreateReaction(List<Molecula> components)
+        public Reaction(List<Molecula> components, ReactionType type)
         {
             Thread reaction = Thread.CurrentThread;
             if(components.Count != 0)
@@ -20,12 +20,17 @@ namespace ChemicalFormula
                 {
                     
                 }
-              
             }
             else
             {
                 errorMessage = "Отсутствие компонентов для проведения реакции";
             }
         }
+    }
+    public enum ReactionType
+    {
+        Exchange = 0,//Обмена
+        Decomposition = 1, //Разложение
+        Аccession = 2 //Присоединение
     }
 }
