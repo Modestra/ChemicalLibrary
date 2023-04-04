@@ -36,6 +36,7 @@ namespace ChemicalMenu
         private void button1_Click(object sender, EventArgs e)
         {
             Molecula mol = new Molecula(textBox1.Text);
+            Quantum quantum = new Quantum(mol);
             using (FileStream fs = new FileStream(@"C:\Users\Пользователь\OneDrive\Рабочий стол\user.json", FileMode.OpenOrCreate))
             {
                 fs.Close();

@@ -4,10 +4,8 @@ using System.IO;
 using System.Linq;
 using System.Text;
 using System.Text.RegularExpressions;
-using System.Threading.Tasks;
-using System.Text.Json;
-using Newtonsoft.Json.Linq;
-using System.Runtime.Remoting.Contexts;
+using IronPython.Hosting;
+using Microsoft.Scripting.Hosting;
 using System.Collections;
 
 namespace ChemicalFormula
@@ -15,17 +13,21 @@ namespace ChemicalFormula
     [Serializable]
     public class Molecula
     {
-        public string molecular { get; set; }
-        public double molarmass { get; set; }
-        public List<Ion> element = new List<Ion>();
-        public double mole { get; set; }
+        public string Molecular { get; set; }
+        public double Molarmass { get; set; }
+        public List<Ion> Element = new List<Ion>();
+        public double Mole { get; set; }
         [NonSerialized]
-        private List<double> molarmasslist;
-        public string errorMessage { get; set; }
+        private List<double> Molarmasslist;
+        public string ErrorMessage { get; set; }
+        /// <summary>
+        /// Основной класс RedOx. Характеристики молекулы
+        /// </summary>
+        /// <param name="molecular">Название молекулы</param>
         public Molecula(string molecular)
         {
-            this.molecular = molecular;
-            molarmasslist = new List<double>();
+            this.Molecular = molecular;
+            Molarmasslist = new List<double>();
             List<string> list = molecular.Split(new char[] {'(',')','[',']'}).ToList();
             for(int i = 0; i < list.Count; i++)
             {
@@ -34,51 +36,56 @@ namespace ChemicalFormula
                     if (int.TryParse(list[i + 1], out int n))
                     {
                         Ion ion = new Ion(list[i], int.Parse(list[i + 1]));
-                        element.Add(ion);
+                        Element.Add(ion);
                         list.RemoveAt(i + 1);
                     }
                     else
                     {
                         Ion ion = new Ion(list[i], 1);
-                        element.Add(ion);
+                        Element.Add(ion);
                         continue;
                     }
                 }
                 else
                 {
                     Ion ion = new Ion(list[i], 1);
-                    element.Add(ion);
+                    Element.Add(ion);
                     continue;
                 }
             }
-            molarmass = molarmasslist.Sum();
-            GC.Collect();
-            GC.GetTotalMemory(true);
-            GC.WaitForPendingFinalizers();
+            Molarmass = Molarmasslist.Sum();
         }
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <returns></returns>
         public int RedOxFeature()
         {
             return 0;
         }
+        /// <summary>
+        /// Выводит список всех связей в молекуле
+        /// </summary>
+        /// <returns></returns>
         public Dictionary<string, int> TypeOfBound()
         {
             Dictionary<string,int> list = new Dictionary<string, int>();
-            foreach(Ion ion in element)
+            foreach(Ion ion in Element)
             {
                 for(int i = 0; i < ion.atoms.Count - 1; i++)
                 {
                     if((ion.atoms[i].IsMetal == false && ion.atoms[i].IsMetal == true) || 
                         (ion.atoms[i].IsMetal == true && ion.atoms[i].IsMetal == false))
                     {
-                        list.Add($"{ion.atoms[i].atomName} - {ion.atoms[i+1].atomName}", -1); //Ионная связь
+                        list.Add($"{ion.atoms[i].AtomName} - {ion.atoms[i+1].AtomName}", -1); //Ионная связь
                     }
                     else if (ion.atoms[i].IsMetal == true && ion.atoms[i].IsMetal == true)
                     {
-                        list.Add($"{ion.atoms[i].atomName} - {ion.atoms[i + 1].atomName}", 0); //Металлическая связь
+                        list.Add($"{ion.atoms[i].AtomName} - {ion.atoms[i + 1].AtomName}", 0); //Металлическая связь
                     }
                     else
                     {
-                        list.Add($"{ion.atoms[i].atomName} - {ion.atoms[i + 1].atomName}", 1); //Ковалентная связь
+                        list.Add($"{ion.atoms[i].AtomName}  -  {ion.atoms[i + 1].AtomName}", 1); //Ковалентная связь
                     }
                 }
             }
@@ -87,12 +94,18 @@ namespace ChemicalFormula
     }
     public class Solution
     {
-        public List<Molecula> ions;
-        public string errorMessage;
-        public List<double> concentration = new List<double>();
-        public object solutionColor { get; }
+        public List<Molecula> Ions;
+        public string ErrorMessage;
+        public List<double> Concentration = new List<double>();
+        public object SolutionColor { get; }
         public double Volume;
-        public Solution(double volume, List<Molecula> list)
+        /// <summary>
+        /// Класс, описывающий систему, в состав в которую входят более 2-3 типов молекул
+        /// </summary>
+        /// <param name="volume"></param>
+        /// <param name="list">Список молекул, находящиеся в растворе</param>
+        /// <param name="solvent">Растворитель</param>
+        public Solution(double volume, List<Molecula> list, Solvent solvent)
         {
             Volume = volume;
             if (Volume > 0)
@@ -101,21 +114,21 @@ namespace ChemicalFormula
             }
             else
             {
-                errorMessage = "Объем не может быть меньше или равен нулю";
+                ErrorMessage = "Объем не может быть меньше или равен нулю";
             }
-            ions = list;
+            Ions = list;
 
         }
         public Solution(double volume, Molecula molecula)
         {
             Volume = volume;
-            if (Volume > 0 && Volume > molecula.mole)
+            if (Volume > 0 && Volume > molecula.Mole)
             {
-                concentration.Add(molecula.mole/Volume);
+                Concentration.Add(molecula.Mole/Volume);
             }
             else
             {
-                errorMessage = "Объем не может быть меньше или равен нулю";
+                ErrorMessage = "Объем не может быть меньше или равен нулю";
             }
 
 
@@ -129,13 +142,13 @@ namespace ChemicalFormula
             }
             else
             {
-                errorMessage = "Объем не может быть меньше или равен нулю";
+                ErrorMessage = "Объем не может быть меньше или равен нулю";
             }
-            ions.Add(molecula);
+            Ions.Add(molecula);
         }
         public void AddMolecula(Molecula mol)
         {
-            ions.Add(mol);
+            Ions.Add(mol);
         }
     }
     public class Ion : IEnumerable
@@ -180,19 +193,19 @@ namespace ChemicalFormula
     [Serializable]
     public class Atom
     {
-        public string atomName { get; set; }
-        public double atomMass { get; set; }
-        public int count { get; set; }
+        public string AtomName { get; set; }
+        public double AtomMass { get; set; }
+        public int Count { get; set; }
         public bool IsMetal;
-        private double ionPotential;
+        public double IonPotential;
         public Atom(string atomName, int count)
         {
             DataBaseConnect connect = new DataBaseConnect();
-            this.atomName = atomName;
-            this.count = count;
-            atomMass = Convert.ToDouble(connect.GetCharacteristic(atomName, 3));
-            ionPotential = Convert.ToDouble(connect.GetCharacteristic(atomName, 4));
-            if (ionPotential < 1.5 && ionPotential != 0)
+            this.AtomName = atomName;
+            this.Count = count;
+            AtomMass = Convert.ToDouble(connect.GetCharacteristic(atomName, 3));
+            IonPotential = Convert.ToDouble(connect.GetCharacteristic(atomName, 4));
+            if (IonPotential < 1.5 && IonPotential != 0)
             {
                 IsMetal = true;
             }
