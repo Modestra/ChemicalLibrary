@@ -144,6 +144,10 @@
     <WCFMetadata Include="Connected Services\" />
   </ItemGroup>
   <ItemGroup>
+    <ProjectReference Include="..\..\EnviromentCore\EnviromentCore.csproj">
+      <Project>{9dcf3dde-21aa-4b54-9784-b1ffd128adce}</Project>
+      <Name>EnviromentCore</Name>
+    </ProjectReference>
     <ProjectReference Include="..\ChemicalFormula\ChemicalFormula.csproj">
       <Project>{9bf04ab6-6dc0-4594-bb6e-b319e028bef8}</Project>
       <Name>ChemicalFormula</Name>

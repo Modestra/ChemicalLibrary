@@ -7,6 +7,8 @@ using System.Text.RegularExpressions;
 using IronPython.Hosting;
 using Microsoft.Scripting.Hosting;
 using System.Collections;
+using Newtonsoft.Json;
+using System.Threading;
 
 namespace ChemicalFormula
 {
@@ -26,7 +28,7 @@ namespace ChemicalFormula
         /// <param name="molecular">Название молекулы</param>
         public Molecula(string molecular)
         {
-            this.Molecular = molecular;
+            Molecular = molecular;
             Molarmasslist = new List<double>();
             List<string> list = molecular.Split(new char[] {'(',')','[',']'}).ToList();
             for(int i = 0; i < list.Count; i++)
@@ -55,10 +57,15 @@ namespace ChemicalFormula
             }
             Molarmass = Molarmasslist.Sum();
         }
-        /// <summary>
-        /// 
-        /// </summary>
-        /// <returns></returns>
+        public void GetJsonMolecula(Molecula mol, string path)
+        {
+            using (FileStream fs = new FileStream(path, FileMode.OpenOrCreate))
+            {
+                fs.Close();
+                string json = JsonConvert.SerializeObject(mol, Formatting.Indented);
+                File.AppendAllText(path, json);
+            }
+        }
         public int RedOxFeature()
         {
             return 0;
