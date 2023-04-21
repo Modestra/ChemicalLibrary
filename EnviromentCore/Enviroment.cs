@@ -19,6 +19,7 @@ namespace EnviromentCore
         public Enviroment(string molecula)
         {
             Thread myThread1 = new Thread(new ParameterizedThreadStart(AddComponentsAsync));
+            myThread1.Name = molecula;
             myThread1.Start(molecula);
 
         }

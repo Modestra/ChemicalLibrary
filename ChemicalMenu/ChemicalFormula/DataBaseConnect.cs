@@ -12,11 +12,20 @@ namespace ChemicalFormula
 {
     public class DataBaseConnect
     {
+        public string errormessage = String.Empty;
         public SqlConnection chemDB = null;
         public DataBaseConnect()
         {
-            chemDB = new SqlConnection(ConfigurationManager.ConnectionStrings["ChemDB"].ConnectionString);
-            chemDB.Open();
+            try
+            {
+                chemDB = new SqlConnection(ConfigurationManager.ConnectionStrings["ChemDB"].ConnectionString);
+                chemDB.Open();
+            }
+            catch
+            {
+                chemDB.Close();
+                errormessage = "Не удалось подключиться к базе данных";
+            }
         }
         public void ElementInformation(string name, ref List<string> list)
         {
@@ -47,6 +56,5 @@ namespace ChemicalFormula
                 reader.Close();
             }
         }
-
     }
 }
