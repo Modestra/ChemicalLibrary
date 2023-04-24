@@ -33,6 +33,8 @@
             this.label3 = new System.Windows.Forms.Label();
             this.button1 = new System.Windows.Forms.Button();
             this.listBox1 = new System.Windows.Forms.ListBox();
+            this.list_debug = new System.Windows.Forms.ListBox();
+            this.s = new System.Windows.Forms.Label();
             this.SuspendLayout();
             // 
             // textBox1
@@ -83,12 +85,32 @@
             this.listBox1.Size = new System.Drawing.Size(500, 84);
             this.listBox1.TabIndex = 10;
             // 
+            // list_debug
+            // 
+            this.list_debug.FormattingEnabled = true;
+            this.list_debug.ItemHeight = 16;
+            this.list_debug.Location = new System.Drawing.Point(459, 183);
+            this.list_debug.Name = "list_debug";
+            this.list_debug.Size = new System.Drawing.Size(312, 244);
+            this.list_debug.TabIndex = 11;
+            // 
+            // s
+            // 
+            this.s.AutoSize = true;
+            this.s.Location = new System.Drawing.Point(456, 164);
+            this.s.Name = "s";
+            this.s.Size = new System.Drawing.Size(131, 16);
+            this.s.TabIndex = 12;
+            this.s.Text = "Отладочный экран";
+            // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
             this.ClientSize = new System.Drawing.Size(783, 450);
+            this.Controls.Add(this.s);
+            this.Controls.Add(this.list_debug);
             this.Controls.Add(this.listBox1);
             this.Controls.Add(this.button1);
             this.Controls.Add(this.label3);
@@ -109,6 +131,8 @@
         private System.Windows.Forms.Label label3;
         private System.Windows.Forms.Button button1;
         private System.Windows.Forms.ListBox listBox1;
+        private System.Windows.Forms.ListBox list_debug;
+        private System.Windows.Forms.Label s;
     }
 }
 

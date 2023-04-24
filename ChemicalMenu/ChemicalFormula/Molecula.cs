@@ -21,7 +21,7 @@ namespace ChemicalFormula
         public double Mole { get; set; }
         [NonSerialized]
         private List<double> Molarmasslist;
-        public string ErrorMessage { get; set; }
+        public string[] ErrorMessage { get; set; }
         /// <summary>
         /// Основной класс RedOx. Характеристики молекулы
         /// </summary>
@@ -59,11 +59,18 @@ namespace ChemicalFormula
         }
         public void GetJsonMolecula(Molecula mol, string path)
         {
-            using (FileStream fs = new FileStream(path, FileMode.OpenOrCreate))
+            try
             {
-                fs.Close();
-                string json = JsonConvert.SerializeObject(mol, Formatting.Indented);
-                File.AppendAllText(path, json);
+                using (FileStream fs = new FileStream(path, FileMode.OpenOrCreate))
+                {
+                    fs.Close();
+                    string json = JsonConvert.SerializeObject(mol, Formatting.Indented);
+                    File.AppendAllText(path, json);
+                }
+            }
+            catch
+            {
+                ErrorMessage.Append("Отказано в пути к папке");
             }
         }
         public int RedOxFeature()

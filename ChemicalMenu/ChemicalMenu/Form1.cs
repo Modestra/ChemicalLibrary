@@ -11,6 +11,7 @@ using EnviromentCore;
 using ChemicalFormula;
 using Newtonsoft.Json;
 using System.IO;
+using System.Threading;
 
 namespace ChemicalMenu
 {
@@ -36,7 +37,7 @@ namespace ChemicalMenu
         }
         private void button1_Click(object sender, EventArgs e)
         {
-            Enviroment env = new Enviroment(textBox1.Text);
+            Enviroment env = new Enviroment(textBox1.Text, $@"C:\Users\Пользователь\OneDrive\Рабочий стол\Проектный менеджмент\test\");
         }
     }
 }
