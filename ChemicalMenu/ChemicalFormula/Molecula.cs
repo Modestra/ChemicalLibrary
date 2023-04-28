@@ -10,7 +10,7 @@ using System.Collections;
 using Newtonsoft.Json;
 using System.Threading;
 
-namespace ChemicalFormula
+namespace EnviromentCore
 {
     [Serializable]
     public class Molecula
