@@ -144,12 +144,15 @@
     <WCFMetadata Include="Connected Services\" />
   </ItemGroup>
   <ItemGroup>
+<<<<<<< Updated upstream
     <ProjectReference Include="..\ChemicalFormula\EnviromentCore.csproj">
       <Project>{9bf04ab6-6dc0-4594-bb6e-b319e028bef8}</Project>
       <Name>EnviromentCore</Name>
     </ProjectReference>
   </ItemGroup>
   <ItemGroup>
+=======
+>>>>>>> Stashed changes
     <Content Include="ChemicalBase.mdf">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
@@ -157,6 +160,12 @@
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
       <DependentUpon>ChemicalBase.mdf</DependentUpon>
     </Content>
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\ChemicalFormula\EnviromentCore.csproj">
+      <Project>{9bf04ab6-6dc0-4594-bb6e-b319e028bef8}</Project>
+      <Name>EnviromentCore</Name>
+    </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>
