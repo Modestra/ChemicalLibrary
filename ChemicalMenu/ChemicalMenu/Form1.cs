@@ -36,7 +36,12 @@ namespace ChemicalMenu
         }
         private void button1_Click(object sender, EventArgs e)
         {
-            Enviroment environment = new Enviroment("", "");
+            //Запуск потока 1
+            using (Enviroment environment = new Enviroment("env_test", @"C:\\Users\Пользователь\OneDrive\Рабочий стол\Проектный менеджмент\Отладка\"))
+            {
+                //Создание молекулы
+                environment.AddComponents(textBox1.Text);
+            }
         }
     }
 }

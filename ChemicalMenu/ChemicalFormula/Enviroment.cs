@@ -13,36 +13,61 @@ namespace EnviromentCore
     /// Среда, в которой будут происходить взаимодействия веществ.
     /// Используется для ассинхронного программирования
     /// </summary>
-    public class Enviroment
+    public class Enviroment : IDisposable
     {
-        public List<Molecula> Components { get; set; }
+        public List<Molecula> Components = new List<Molecula>();
+        public List<Thread> Threads = new List<Thread>();
         public string Name { get; set; }
         public string ThreadEnviromentState = "";
         public string PathLog;
-        private bool disposed = false;
-        public Enviroment(string molecula, string mrdir)
+        private bool Isdisposed = false;
+        public Enviroment(string name, string mrdir)
         {
-            Name = $"env_{molecula}";
+            Name = name;
             PathLog = mrdir + Name;
             Directory.CreateDirectory(PathLog);
             Thread myThread1 = new Thread(new ParameterizedThreadStart(CreateEnviroment));
-            myThread1.Name = molecula;
-            myThread1.Start(molecula);
+            Threads.Add(myThread1);
+            myThread1.Name = Name;
+            myThread1.Start(Name);
         }
-        private void AddComponents(object mole)
+        public void AddComponents(object mole)
+        {
+            if (Threads[0].Name == Name) //Действует ли поток Среды на данный момент?
+            {
+                Thread synthes = new Thread(new ParameterizedThreadStart(SynthesesMolecula));
+                synthes.Name = (string)mole;
+                synthes.Start((string)mole);
+                synthes.Join(); //Все происходящие потоки останавливаются до завершения данного потока
+            }
+        }
+        private void SynthesesMolecula(object mole) //Реализация класса Molecula (Создание молекулы)
         {
             Molecula mol = new Molecula((string)mole);
+            mol.GetJsonMolecula(mol, PathLog + $@"\{mole}.json");
+            if (mol.ErrorMessage == null)
+            {
+                Components.Add(mol);
+                File.AppendAllText(PathLog + $@"\{Name}.log", $"{DateTime.Now} - Молекула {mol.Molecular} успешно добавлена в среду");
+            }
+            else
+            {
+                File.AppendAllText(PathLog + $@"\{Name}.log", $"\n Не удалось создать файл: {mol.ErrorMessage}");
+            }
         }
         private void CreateEnviroment(object reaction)
         {
-            ThreadEnviromentState = $"Среда {Name} успешно запущена";
-            FileStream fs = new FileStream(PathLog + $@"\{Name}.log", FileMode.OpenOrCreate);
-            fs.Close();
+            ThreadEnviromentState = $"\n {DateTime.Now} - Среда {Name} успешно запущена";
             File.AppendAllText(PathLog + $@"\{Name}.log", ThreadEnviromentState);
         }
         public Enviroment(string[] moleculalist)
         {
 
+        }
+
+        public void Dispose()
+        {
+            if(Isdisposed) return;
         }
     }
 }
