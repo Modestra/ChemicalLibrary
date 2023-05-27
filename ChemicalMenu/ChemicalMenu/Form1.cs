@@ -19,7 +19,7 @@ namespace ChemicalMenu
         public Form1()
         {
             InitializeComponent();
-        }
+        }//
 
         private void ChemTable_CellContentClick(object sender, DataGridViewCellEventArgs e)
         {
@@ -36,12 +36,35 @@ namespace ChemicalMenu
         }
         private void button1_Click(object sender, EventArgs e)
         {
+            var dir = new FolderBrowserDialog();
+            dir.ShowDialog();
             //Запуск потока 1
-            using (Enviroment environment = new Enviroment("env_test", @"C:\\Users\Пользователь\OneDrive\Рабочий стол\Проектный менеджмент\Отладка\"))
+            using (Enviroment environment = new Enviroment(@"\env_test", dir.SelectedPath))
             {
                 //Создание молекулы
                 environment.AddComponents(textBox1.Text);
             }
+        }
+
+        private void apppath_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void appdatabase_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void MoleculaScene_OpenGLDraw(object sender, SharpGL.RenderEventArgs args)
+        {
+
+        }
+
+        private void ButtonInfo_Click(object sender, EventArgs e)
+        {
+            Form2 form = new Form2();
+            form.Show();
         }
     }
 }

@@ -38,7 +38,7 @@ namespace EnviromentCore
                 Thread synthes = new Thread(new ParameterizedThreadStart(SynthesesMolecula));
                 synthes.Name = (string)mole;
                 synthes.Start((string)mole);
-                synthes.Join(); //Все происходящие потоки останавливаются до завершения данного потока
+                Threads[0].Suspend();
             }
         }
         private void SynthesesMolecula(object mole) //Реализация класса Molecula (Создание молекулы)
@@ -48,7 +48,8 @@ namespace EnviromentCore
             if (mol.ErrorMessage == null)
             {
                 Components.Add(mol);
-                File.AppendAllText(PathLog + $@"\{Name}.log", $"{DateTime.Now} - Молекула {mol.Molecular} успешно добавлена в среду");
+                File.AppendAllText(PathLog + $@"\{Name}.log", $"\n {DateTime.Now} - Молекула {mol.Molecular} успешно добавлена в среду");
+                Threads[0].Resume();
             }
             else
             {
@@ -59,10 +60,7 @@ namespace EnviromentCore
         {
             ThreadEnviromentState = $"\n {DateTime.Now} - Среда {Name} успешно запущена";
             File.AppendAllText(PathLog + $@"\{Name}.log", ThreadEnviromentState);
-        }
-        public Enviroment(string[] moleculalist)
-        {
-
+            File.AppendAllText(PathLog + $@"\{Name}.log", $"\n {DateTime.Now} -  Среда {Name} успешно создана");
         }
 
         public void Dispose()

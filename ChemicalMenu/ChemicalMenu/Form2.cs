@@ -17,21 +17,16 @@ namespace ChemicalMenu
         public Form2()
         {
             InitializeComponent();
+            appname.Text = appname.Text + Application.ProductName;
+            appversion.Text = appversion.Text + Application.ProductVersion;
+            apppath.Text = apppath.Text + AppDomain.CurrentDomain.BaseDirectory;
+            appname.Text = appname.Text + Application.ProductName;
         }
 
         private void label1_Click(object sender, EventArgs e)
         {
-            listBox1.Items.Clear();
-            string line;
-            StreamReader reader = new StreamReader(@"C:\Users\Пользователь\OneDrive\Рабочий стол\Проектный менеджмент\Отладка\env_test\env_test.log");
-            //Заполнитель для отладки (Переделать)
-            while ((line = reader.ReadLine()) != null)
-            {
-                listBox1.Items.Add(line);
-            }
-            reader.Close();
-        }
 
+        }
         private void Form2_Layout(object sender, LayoutEventArgs e)
         {
 
@@ -43,6 +38,11 @@ namespace ChemicalMenu
         }
 
         private void listBox1_SelectedIndexChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void appversion_Click(object sender, EventArgs e)
         {
 
         }

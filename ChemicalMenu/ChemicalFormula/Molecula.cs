@@ -29,17 +29,26 @@ namespace EnviromentCore
         public Molecula(string molecular)
         {
             Molecular = molecular;
-            Molarmasslist = new List<double>();
-            List<string> list = molecular.Split(new char[] {'(',')','[',']'}).ToList();
-            for(int i = 0; i < list.Count; i++)
+            if(molecular != String.Empty)
             {
-                if(i+1 != list.Count)
+                Molarmasslist = new List<double>();
+                List<string> list = molecular.Split(new char[] { '(', ')', '[', ']' }).ToList();
+                for (int i = 0; i < list.Count; i++)
                 {
-                    if (int.TryParse(list[i + 1], out int n))
+                    if (i + 1 != list.Count)
                     {
-                        Ion ion = new Ion(list[i], int.Parse(list[i + 1]));
-                        Element.Add(ion);
-                        list.RemoveAt(i + 1);
+                        if (int.TryParse(list[i + 1], out int n))
+                        {
+                            Ion ion = new Ion(list[i], int.Parse(list[i + 1]));
+                            Element.Add(ion);
+                            list.RemoveAt(i + 1);
+                        }
+                        else
+                        {
+                            Ion ion = new Ion(list[i], 1);
+                            Element.Add(ion);
+                            continue;
+                        }
                     }
                     else
                     {
@@ -48,14 +57,12 @@ namespace EnviromentCore
                         continue;
                     }
                 }
-                else
-                {
-                    Ion ion = new Ion(list[i], 1);
-                    Element.Add(ion);
-                    continue;
-                }
+                Molarmass = Molarmasslist.Sum();
             }
-            Molarmass = Molarmasslist.Sum();
+            else
+            {
+                //Написать нормальную систему
+            }
         }
         public void GetJsonMolecula(Molecula mol, string path)
         {
