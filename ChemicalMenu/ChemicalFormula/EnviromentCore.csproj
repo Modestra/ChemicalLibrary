@@ -7,8 +7,8 @@
     <ProjectGuid>{9BF04AB6-6DC0-4594-BB6E-B319E028BEF8}</ProjectGuid>
     <OutputType>Library</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
-    <RootNamespace>ChemicalFormula</RootNamespace>
-    <AssemblyName>ChemicalFormula</AssemblyName>
+    <RootNamespace>EnviromentCore</RootNamespace>
+    <AssemblyName>EnviromentCore</AssemblyName>
     <TargetFrameworkVersion>v4.8</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
     <Deterministic>true</Deterministic>
@@ -71,7 +71,7 @@
       <HintPath>..\packages\DynamicLanguageRuntime.1.3.3\lib\net452\Microsoft.Scripting.Metadata.dll</HintPath>
     </Reference>
     <Reference Include="Newtonsoft.Json, Version=13.0.0.0, Culture=neutral, PublicKeyToken=30ad4fe6b2a6aeed, processorArchitecture=MSIL">
-      <HintPath>..\packages\Newtonsoft.Json.13.0.2\lib\net45\Newtonsoft.Json.dll</HintPath>
+      <HintPath>..\packages\Newtonsoft.Json.13.0.3\lib\net45\Newtonsoft.Json.dll</HintPath>
     </Reference>
     <Reference Include="System" />
     <Reference Include="System.Buffers, Version=4.0.3.0, Culture=neutral, PublicKeyToken=cc7b13ffcd2ddd51, processorArchitecture=MSIL">
@@ -110,6 +110,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="DataBaseConnect.cs" />
+    <Compile Include="Enviroment.cs" />
     <Compile Include="IBranchChem.cs" />
     <Compile Include="Molecula.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
