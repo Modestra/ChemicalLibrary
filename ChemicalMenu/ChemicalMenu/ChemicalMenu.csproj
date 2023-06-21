@@ -151,6 +151,7 @@
     <Compile Include="Properties\Resources.Designer.cs">
       <AutoGen>True</AutoGen>
       <DependentUpon>Resources.resx</DependentUpon>
+      <DesignTime>True</DesignTime>
     </Compile>
     <None Include="ChemicalMenu_TemporaryKey.pfx" />
     <None Include="packages.config" />
@@ -196,8 +197,7 @@
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
       <DependentUpon>ChemicalBase.mdf</DependentUpon>
     </Content>
-    <Content Include="SharpGL.ico" />
-    <Content Include="SharpGL.png" />
+    <None Include="Resources\settings.png" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\ChemicalFormula\EnviromentCore.csproj">

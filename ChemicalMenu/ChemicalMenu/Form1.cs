@@ -11,6 +11,7 @@ using Newtonsoft.Json;
 using System.IO;
 using System.Threading;
 using EnviromentCore;
+using SharpGL;
 
 namespace ChemicalMenu
 {
@@ -34,7 +35,7 @@ namespace ChemicalMenu
         {
 
         }
-        private void button1_Click(object sender, EventArgs e)
+        private void button_Save_Click(object sender, EventArgs e)
         {
             var dir = new FolderBrowserDialog();
             dir.ShowDialog();
@@ -56,15 +57,27 @@ namespace ChemicalMenu
 
         }
 
-        private void MoleculaScene_OpenGLDraw(object sender, SharpGL.RenderEventArgs args)
+        private void Molecula_Scene_OpenGLDraw(object sender, RenderEventArgs args)
         {
 
         }
 
-        private void ButtonInfo_Click(object sender, EventArgs e)
+        private void Button_Info_Click(object sender, EventArgs e)
         {
             Form2 form = new Form2();
             form.Show();
+        }
+
+        private void button_Left_Click(object sender, EventArgs e)
+        {
+            OpenGL gl = MoleculaScene.OpenGL;
+            gl.Rotate(10.0f, 0, 0, 10.0f);
+        }
+
+        private void button_Right_Click(object sender, EventArgs e)
+        {
+            OpenGL gl = MoleculaScene.OpenGL;
+            gl.Rotate(-10.0f, 0, 0, 10.0f);
         }
     }
 }
