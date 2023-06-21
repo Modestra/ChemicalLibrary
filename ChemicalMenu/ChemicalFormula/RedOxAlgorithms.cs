@@ -15,13 +15,39 @@ namespace EnviromentCore
     {
         ScriptEngine engine = Python.CreateEngine();
         public bool IsActive;
-        public RedOxAlgorithms()
+        public string Algorithm;
+        public List<dynamic> Results;
+        public RedOxAlgorithms(string algorythm)
         {
-           
+            Algorithm = AppDomain.CurrentDomain.BaseDirectory + $@"\algorythms\{algorythm}";
         }
         public void SetMolecula()
         {
-            engine.ExecuteFile(AppDomain.CurrentDomain.BaseDirectory);
+            
+        }
+        /// <summary>
+        /// Получение значения формулы
+        /// </summary>
+        /// <param name="alogorythm"></param>
+        /// <param name="formula"></param>
+        /// <returns>Значение, полученное в ходе обработки функции</returns>
+        public object GetValues(string formula, object input)
+        {
+            ScriptScope scope = engine.CreateScope();
+            engine.ExecuteFile(Algorithm, scope);
+            dynamic script = scope.GetVariable(formula);
+            if(input.GetType() == typeof(List<>))
+            {
+                foreach(var item in input as List<dynamic>)
+                {
+                   
+                }
+                return Results;
+            }
+            else
+            {
+                return script(input);
+            }
         }
         
     }
