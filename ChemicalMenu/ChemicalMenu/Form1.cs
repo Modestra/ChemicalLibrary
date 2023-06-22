@@ -20,7 +20,7 @@ namespace ChemicalMenu
         public Form1()
         {
             InitializeComponent();
-        }//
+        }
 
         private void ChemTable_CellContentClick(object sender, DataGridViewCellEventArgs e)
         {
@@ -70,13 +70,13 @@ namespace ChemicalMenu
 
         private void button_Left_Click(object sender, EventArgs e)
         {
-            OpenGL gl = MoleculaScene.OpenGL;
+            OpenGL gl = Molecula_Scene.OpenGL;
             gl.Rotate(10.0f, 0, 0, 10.0f);
         }
 
         private void button_Right_Click(object sender, EventArgs e)
         {
-            OpenGL gl = MoleculaScene.OpenGL;
+            OpenGL gl = Molecula_Scene.OpenGL;
             gl.Rotate(-10.0f, 0, 0, 10.0f);
         }
     }

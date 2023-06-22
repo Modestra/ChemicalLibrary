@@ -14,21 +14,15 @@ namespace EnviromentCore
     public class RedOxAlgorithms
     {
         ScriptEngine engine = Python.CreateEngine();
-        public bool IsActive;
-        public string Algorithm;
-        public List<dynamic> Results;
+        public string Algorithm; //Название алгоритма 
+        public List<dynamic> Results; //Полученные данные с алгоритмов
         public RedOxAlgorithms(string algorythm)
         {
             Algorithm = AppDomain.CurrentDomain.BaseDirectory + $@"\algorythms\{algorythm}";
         }
-        public void SetMolecula()
-        {
-            
-        }
         /// <summary>
         /// Получение значения формулы
         /// </summary>
-        /// <param name="alogorythm"></param>
         /// <param name="formula"></param>
         /// <returns>Значение, полученное в ходе обработки функции</returns>
         public object GetValues(string formula, object input)

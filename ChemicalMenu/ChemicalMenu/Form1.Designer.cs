@@ -29,16 +29,16 @@
         private void InitializeComponent()
         {
             this.textBox1 = new System.Windows.Forms.TextBox();
-            this.label1 = new System.Windows.Forms.Label();
+            this.Molecula_Title = new System.Windows.Forms.Label();
             this.button_Save = new System.Windows.Forms.Button();
             this.listBox1 = new System.Windows.Forms.ListBox();
-            this.boundtitle = new System.Windows.Forms.Label();
-            this.MoleculaScene = new SharpGL.SceneControl();
+            this.Bound_Title = new System.Windows.Forms.Label();
+            this.Molecula_Scene = new SharpGL.SceneControl();
             this.Button_Info = new System.Windows.Forms.Button();
             this.button_Right = new System.Windows.Forms.Button();
             this.button_Left = new System.Windows.Forms.Button();
             this.button_Load = new System.Windows.Forms.Button();
-            ((System.ComponentModel.ISupportInitialize)(this.MoleculaScene)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.Molecula_Scene)).BeginInit();
             this.SuspendLayout();
             // 
             // textBox1
@@ -49,16 +49,16 @@
             this.textBox1.TabIndex = 0;
             this.textBox1.TextChanged += new System.EventHandler(this.textBox1_TextChanged);
             // 
-            // label1
+            // Molecula_Title
             // 
-            this.label1.AutoSize = true;
-            this.label1.FlatStyle = System.Windows.Forms.FlatStyle.System;
-            this.label1.Font = new System.Drawing.Font("Times New Roman", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.label1.Location = new System.Drawing.Point(12, 9);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(193, 23);
-            this.label1.TabIndex = 1;
-            this.label1.Text = "Молекула (env_test)";
+            this.Molecula_Title.AutoSize = true;
+            this.Molecula_Title.FlatStyle = System.Windows.Forms.FlatStyle.System;
+            this.Molecula_Title.Font = new System.Drawing.Font("Times New Roman", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.Molecula_Title.Location = new System.Drawing.Point(12, 9);
+            this.Molecula_Title.Name = "Molecula_Title";
+            this.Molecula_Title.Size = new System.Drawing.Size(193, 23);
+            this.Molecula_Title.TabIndex = 1;
+            this.Molecula_Title.Text = "Молекула (env_test)";
             // 
             // button_Save
             // 
@@ -81,32 +81,32 @@
             this.listBox1.Size = new System.Drawing.Size(225, 84);
             this.listBox1.TabIndex = 10;
             // 
-            // boundtitle
+            // Bound_Title
             // 
-            this.boundtitle.AutoSize = true;
-            this.boundtitle.Font = new System.Drawing.Font("Times New Roman", 10.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.boundtitle.Location = new System.Drawing.Point(8, 106);
-            this.boundtitle.Name = "boundtitle";
-            this.boundtitle.RightToLeft = System.Windows.Forms.RightToLeft.No;
-            this.boundtitle.Size = new System.Drawing.Size(112, 20);
-            this.boundtitle.TabIndex = 14;
-            this.boundtitle.Text = "Типы связей";
+            this.Bound_Title.AutoSize = true;
+            this.Bound_Title.Font = new System.Drawing.Font("Times New Roman", 10.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.Bound_Title.Location = new System.Drawing.Point(8, 106);
+            this.Bound_Title.Name = "Bound_Title";
+            this.Bound_Title.RightToLeft = System.Windows.Forms.RightToLeft.No;
+            this.Bound_Title.Size = new System.Drawing.Size(112, 20);
+            this.Bound_Title.TabIndex = 14;
+            this.Bound_Title.Text = "Типы связей";
             // 
-            // MoleculaScene
+            // Molecula_Scene
             // 
-            this.MoleculaScene.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            this.Molecula_Scene.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
             | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
-            this.MoleculaScene.DrawFPS = false;
-            this.MoleculaScene.Location = new System.Drawing.Point(244, 9);
-            this.MoleculaScene.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
-            this.MoleculaScene.Name = "MoleculaScene";
-            this.MoleculaScene.OpenGLVersion = SharpGL.Version.OpenGLVersion.OpenGL2_1;
-            this.MoleculaScene.RenderContextType = SharpGL.RenderContextType.DIBSection;
-            this.MoleculaScene.RenderTrigger = SharpGL.RenderTrigger.TimerBased;
-            this.MoleculaScene.Size = new System.Drawing.Size(417, 429);
-            this.MoleculaScene.TabIndex = 16;
-            this.MoleculaScene.OpenGLDraw += new SharpGL.RenderEventHandler(this.Molecula_Scene_OpenGLDraw);
+            this.Molecula_Scene.DrawFPS = false;
+            this.Molecula_Scene.Location = new System.Drawing.Point(244, 9);
+            this.Molecula_Scene.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.Molecula_Scene.Name = "Molecula_Scene";
+            this.Molecula_Scene.OpenGLVersion = SharpGL.Version.OpenGLVersion.OpenGL2_1;
+            this.Molecula_Scene.RenderContextType = SharpGL.RenderContextType.DIBSection;
+            this.Molecula_Scene.RenderTrigger = SharpGL.RenderTrigger.TimerBased;
+            this.Molecula_Scene.Size = new System.Drawing.Size(417, 429);
+            this.Molecula_Scene.TabIndex = 16;
+            this.Molecula_Scene.OpenGLDraw += new SharpGL.RenderEventHandler(this.Molecula_Scene_OpenGLDraw);
             // 
             // Button_Info
             // 
@@ -162,16 +162,16 @@
             this.Controls.Add(this.button_Left);
             this.Controls.Add(this.button_Right);
             this.Controls.Add(this.Button_Info);
-            this.Controls.Add(this.MoleculaScene);
-            this.Controls.Add(this.boundtitle);
+            this.Controls.Add(this.Molecula_Scene);
+            this.Controls.Add(this.Bound_Title);
             this.Controls.Add(this.listBox1);
             this.Controls.Add(this.button_Save);
-            this.Controls.Add(this.label1);
+            this.Controls.Add(this.Molecula_Title);
             this.Controls.Add(this.textBox1);
             this.Name = "Form1";
             this.Text = "Form1";
             this.Load += new System.EventHandler(this.Form1_Load);
-            ((System.ComponentModel.ISupportInitialize)(this.MoleculaScene)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.Molecula_Scene)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -180,11 +180,11 @@
         #endregion
 
         private System.Windows.Forms.TextBox textBox1;
-        private System.Windows.Forms.Label label1;
+        private System.Windows.Forms.Label Molecula_Title;
         private System.Windows.Forms.Button button_Save;
         private System.Windows.Forms.ListBox listBox1;
-        private System.Windows.Forms.Label boundtitle;
-        private SharpGL.SceneControl MoleculaScene;
+        private System.Windows.Forms.Label Bound_Title;
+        private SharpGL.SceneControl Molecula_Scene;
         private System.Windows.Forms.Button Button_Info;
         private System.Windows.Forms.Button button_Right;
         private System.Windows.Forms.Button button_Left;
