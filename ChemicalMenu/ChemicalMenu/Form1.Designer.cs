@@ -33,12 +33,12 @@
             this.button_Save = new System.Windows.Forms.Button();
             this.listBox1 = new System.Windows.Forms.ListBox();
             this.Bound_Title = new System.Windows.Forms.Label();
-            this.Molecula_Scene = new SharpGL.SceneControl();
             this.Button_Info = new System.Windows.Forms.Button();
             this.button_Right = new System.Windows.Forms.Button();
             this.button_Left = new System.Windows.Forms.Button();
             this.button_Load = new System.Windows.Forms.Button();
-            ((System.ComponentModel.ISupportInitialize)(this.Molecula_Scene)).BeginInit();
+            this.openGLControl1 = new SharpGL.OpenGLControl();
+            ((System.ComponentModel.ISupportInitialize)(this.openGLControl1)).BeginInit();
             this.SuspendLayout();
             // 
             // textBox1
@@ -72,8 +72,6 @@
             // 
             // listBox1
             // 
-            this.listBox1.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
-            | System.Windows.Forms.AnchorStyles.Left)));
             this.listBox1.FormattingEnabled = true;
             this.listBox1.ItemHeight = 16;
             this.listBox1.Location = new System.Drawing.Point(12, 128);
@@ -91,22 +89,6 @@
             this.Bound_Title.Size = new System.Drawing.Size(112, 20);
             this.Bound_Title.TabIndex = 14;
             this.Bound_Title.Text = "Типы связей";
-            // 
-            // Molecula_Scene
-            // 
-            this.Molecula_Scene.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
-            | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
-            this.Molecula_Scene.DrawFPS = false;
-            this.Molecula_Scene.Location = new System.Drawing.Point(244, 9);
-            this.Molecula_Scene.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
-            this.Molecula_Scene.Name = "Molecula_Scene";
-            this.Molecula_Scene.OpenGLVersion = SharpGL.Version.OpenGLVersion.OpenGL2_1;
-            this.Molecula_Scene.RenderContextType = SharpGL.RenderContextType.DIBSection;
-            this.Molecula_Scene.RenderTrigger = SharpGL.RenderTrigger.TimerBased;
-            this.Molecula_Scene.Size = new System.Drawing.Size(417, 429);
-            this.Molecula_Scene.TabIndex = 16;
-            this.Molecula_Scene.OpenGLDraw += new SharpGL.RenderEventHandler(this.Molecula_Scene_OpenGLDraw);
             // 
             // Button_Info
             // 
@@ -152,17 +134,34 @@
             this.button_Load.Text = "Загрузить";
             this.button_Load.UseVisualStyleBackColor = true;
             // 
+            // openGLControl1
+            // 
+            this.openGLControl1.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.openGLControl1.DrawFPS = false;
+            this.openGLControl1.Location = new System.Drawing.Point(244, 13);
+            this.openGLControl1.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.openGLControl1.Name = "openGLControl1";
+            this.openGLControl1.OpenGLVersion = SharpGL.Version.OpenGLVersion.OpenGL2_1;
+            this.openGLControl1.RenderContextType = SharpGL.RenderContextType.DIBSection;
+            this.openGLControl1.RenderTrigger = SharpGL.RenderTrigger.TimerBased;
+            this.openGLControl1.Size = new System.Drawing.Size(417, 424);
+            this.openGLControl1.TabIndex = 21;
+            this.openGLControl1.OpenGLDraw += new SharpGL.RenderEventHandler(this.openGLControl1_OpenGLDraw);
+            this.openGLControl1.Paint += new System.Windows.Forms.PaintEventHandler(this.openGLControl1_Paint);
+            // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
             this.ClientSize = new System.Drawing.Size(674, 450);
+            this.Controls.Add(this.openGLControl1);
             this.Controls.Add(this.button_Load);
             this.Controls.Add(this.button_Left);
             this.Controls.Add(this.button_Right);
             this.Controls.Add(this.Button_Info);
-            this.Controls.Add(this.Molecula_Scene);
             this.Controls.Add(this.Bound_Title);
             this.Controls.Add(this.listBox1);
             this.Controls.Add(this.button_Save);
@@ -171,7 +170,7 @@
             this.Name = "Form1";
             this.Text = "Form1";
             this.Load += new System.EventHandler(this.Form1_Load);
-            ((System.ComponentModel.ISupportInitialize)(this.Molecula_Scene)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.openGLControl1)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -184,11 +183,11 @@
         private System.Windows.Forms.Button button_Save;
         private System.Windows.Forms.ListBox listBox1;
         private System.Windows.Forms.Label Bound_Title;
-        private SharpGL.SceneControl Molecula_Scene;
         private System.Windows.Forms.Button Button_Info;
         private System.Windows.Forms.Button button_Right;
         private System.Windows.Forms.Button button_Left;
         private System.Windows.Forms.Button button_Load;
+        private SharpGL.OpenGLControl openGLControl1;
     }
 }
 
