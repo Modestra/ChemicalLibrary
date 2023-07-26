@@ -149,7 +149,7 @@
             this.openGLControl1.Size = new System.Drawing.Size(417, 424);
             this.openGLControl1.TabIndex = 21;
             this.openGLControl1.OpenGLDraw += new SharpGL.RenderEventHandler(this.openGLControl1_OpenGLDraw);
-            this.openGLControl1.Paint += new System.Windows.Forms.PaintEventHandler(this.openGLControl1_Paint);
+            this.openGLControl1.KeyDown += new System.Windows.Forms.KeyEventHandler(this.openGLControl1_KeyDown);
             // 
             // Form1
             // 

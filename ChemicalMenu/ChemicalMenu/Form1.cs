@@ -74,98 +74,48 @@ namespace ChemicalMenu
 
         private void button_Left_Click(object sender, EventArgs e)
         {
-            this.axis_rotate_Z = this.axis_rotate_Z + 5f;
+            this.axis_rotate_Y = this.axis_rotate_Y - 10f;
         }
 
         private void button_Right_Click(object sender, EventArgs e)
         {
-            this.axis_rotate_Y = this.axis_rotate_Y + 5f;
+            this.axis_rotate_Y = this.axis_rotate_Y + 10f;
         }
 
         private void openGLControl1_OpenGLDraw(object sender, RenderEventArgs args)
         {
-            SharpGL.OpenGL gl = this.openGLControl1.OpenGL;
-
-            gl.Clear(SharpGL.OpenGL.GL_COLOR_BUFFER_BIT | SharpGL.OpenGL.GL_DEPTH_BUFFER_BIT);  // Очистка скрина
-
-            gl.LoadIdentity();    // сброс
-
-            gl.Translate(0.0f, 0.0f, -6.0f);  // переместить влево
-
-            gl.Rotate(axis_rotate_X, 1.0f, 0.0f, 0.0f);
-
-            gl.Rotate(axis_rotate_Y, 0.0f, 1.0f, 0.0f);
-
-            gl.Rotate(axis_rotate_Z, 0.0f, 0.0f, 1.0f);
-
-            gl.Begin(SharpGL.OpenGL.GL_TRIANGLES); // начать рисовать пирамиду
-
-            gl.Color(1.0f, 0.0f, 0.0f);   //красный
-
-            gl.Vertex(0.0f, 1.0f, 0.0f); // центр пирамиды
-
-            gl.Color(0.0f, 1.0f, 0.0f); //Зеленый
-
-            gl.Vertex(-1.0f, -1.0f, 1.0f);  // левая сторона пирамиды
-
-            gl.Color(0.0f, 0.0f, 1.0f);  // Синий
-
-            gl.Vertex(1.0f, -1.0f, 1.0f);  // права сторона пирамиды
-
-            gl.Color(1.0f, 0.0f, 0.0f);   //красный
-
-            gl.Vertex(0.0f, 1.0f, 0.0f); // центр пирамиды
-
-            gl.Color(0.0f, 0.0f, 1.0f); //Зеленый
-
-            gl.Vertex(1.0f, -1.0f, 1.0f);  // левая сторона пирамиды
-
-            gl.Color(0.0f, 1.0f, 0.0f);  // Синий
-
-            gl.Vertex(1.0f, -1.0f, -1.0f);  // права сторона пирамиды
-
-            gl.Color(1.0f, 0.0f, 0.0f);   //красный
-
-            gl.Vertex(0.0f, 1.0f, 0.0f); // центр пирамиды
-
-            gl.Color(0.0f, 1.0f, 0.0f); //Зеленый
-
-            gl.Vertex(1.0f, -1.0f, -1.0f);  // левая сторона пирамиды
-
-            gl.Color(0.0f, 0.0f, 1.0f);  // Синий
-
-            gl.Vertex(-1.0f, -1.0f, -1.0f);  // права сторона пирамиды
-
-            gl.Color(1.0f, 0.0f, 0.0f);   //красный
-
-            gl.Vertex(0.0f, 1.0f, 0.0f); // центр пирамиды
-
-            gl.Color(0.0f, 0.0f, 1.0f); //Зеленый
-
-            gl.Vertex(-1.0f, -1.0f, -1.0f);  // левая сторона пирамиды
-
-            gl.Color(0.0f, 1.0f, 0.0f);  // Синий
-
-            gl.Vertex(-1.0f, -1.0f, 1.0f);  // права сторона пирамиды
-
-            gl.End();
-
-            gl.LoadIdentity();
+            float[] pos = { 1.0f, 1.0f, 0f };
+            float[] pos2 = { 1.0f, -1.0f, 0f };
+            float[] color = { 1.0f, 0, 0 };
+            float[] color2 = { 1.0f, 1.0f, 0 };
+            using(Cluster cluster = new Cluster(openGLControl1))
+            {
+                cluster.ClearBuffer();
+                cluster.CreateCube(1.0f, pos, color);
+                cluster.CreateCube(3.0f, pos2, color2);
+                cluster.Rotate(1.0f, axis_rotate_X, axis_rotate_Y, axis_rotate_Z);
+                cluster.EndPaint();
+            }
         }
 
-        private void openGLControl1_Paint(object sender, PaintEventArgs e)
+        private void openGLControl1_KeyDown(object sender, KeyEventArgs e)
         {
-            OpenGL gl = openGLControl1.OpenGL;
-            gl.Clear(OpenGL.GL_COLOR_BUFFER_BIT | OpenGL.GL_DEPTH_BUFFER_BIT);
-            gl.LoadIdentity();
-            gl.Begin(OpenGL.GL_TRIANGLES);
-            gl.Color(1.0f, 0.0f, 0.0f);
-            gl.Vertex(0.0f, 1.0f, 0.0f);
-            gl.Color(1.0f, 0.0f, 0.0f);
-            gl.Vertex(1.0f, 0.0f, 0.0f);
-            gl.Color(1.0f, 0.0f, 0.0f);
-            gl.Vertex(0.0f, 0.0f, 1.0f);
-            gl.End();
+            switch (e.KeyCode)
+            {
+                case Keys.A:
+                    this.axis_rotate_Y = this.axis_rotate_Y - 10f; break;
+                case Keys.D:
+                    this.axis_rotate_Y = this.axis_rotate_Y + 10f; break;
+                case Keys.W:
+                    this.axis_rotate_X = this.axis_rotate_X + 10f; break;
+                case Keys.S:
+                    this.axis_rotate_X = this.axis_rotate_X - 10f; break;
+                case Keys.Q:
+                    this.axis_rotate_Z = this.axis_rotate_Z - 10f; break;
+                case Keys.E:
+                    this.axis_rotate_Z = this.axis_rotate_Z + 10f; break;
+            }
+
         }
     }
 }

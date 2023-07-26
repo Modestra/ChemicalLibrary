@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Drawing;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -13,21 +14,7 @@ namespace EnviromentCore
         {
 
         }
-        /// <summary>
-        /// Создание групп вершин графа
-        /// </summary>
-        public void SetGraph(List<Graph> graphs, float[] floats)
-        {
 
-        }
-        /// <summary>
-        /// Создаёт группу графов на основе полученных данных
-        /// </summary>
-        /// <returns></returns>
-        public List<Graph> CreateGraphs(object obj)
-        {
-            return (List<Graph>)obj;
-        }
     }
     /// <summary>
     /// Реализация компонентов графа
@@ -36,28 +23,97 @@ namespace EnviromentCore
     {
         public float[] Color = new float[3];
         public float[] Position = new float[3];
-        public Graph(float[] position, float[] color)
+        private readonly OpenGLControl Gl_controll;
+        public Graph(OpenGLControl gl)
         {
-            position = Position; color = Color;
+            Gl_controll = gl;
         }
-        public void CreateCube(float height, List<float[]> position)
+        public void CreateCube(float radius, float[] position, float[] color)
         {
+            OpenGL gl = Gl_controll.OpenGL;
+            gl.Translate(0.0f, 0.0f, -6.0f);
+            gl.Begin(OpenGL.GL_TRIANGLES);
+            //Левая сторона
+            gl.Color(color[0], color[1], color[2]);
+            gl.Vertex(1.0f + position[0], 0.0f + position[1], 0.0f + position[2]);
+            gl.Vertex(1.0f + position[0], -1.0f + position[1], 0.0f + position[2]);
+            gl.Vertex(0.0f + position[0], -1.0f + position[1], 0.0f + position[2]);
+            gl.Vertex(0.0f + position[0], -1.0f + position[1], 0.0f + position[2]);
+            gl.Vertex(0.0f + position[0], 0.0f + position[1], 0.0f + position[2]);
+            gl.Vertex(1.0f + position[0], 0.0f + position[1], 0.0f + position[2]);
+            //Правая сторона
+            gl.Vertex(0 + position[0], 0 + position[1], 0 + position[2]);
+            gl.Vertex(0.0f + position[0], -1.0f + position[1], 0.0f + position[2]);
+            gl.Vertex(0.0f + position[0], -1.0f + position[1], 1.0f + position[2]);
+            gl.Vertex(0.0f + position[0], -1.0f + position[1], 1.0f + position[2]);
+            gl.Vertex(0.0f + position[0], 0.0f + position[1], 1.0f + position[2]);
+            gl.Vertex(0 + position[0], 0 + position[1], 0 + position[2]);
+            //Дно
+            gl.Vertex(0.0f + position[0], -1.0f + position[1], 0.0f + position[2]);
+            gl.Vertex(1.0f + position[0], -1.0f + position[1], 0.0f + position[2]);
+            gl.Vertex(0.0f + position[0], -1.0f + position[1], 1.0f + position[2]);
+            gl.Vertex(0.0f + position[0], -1.0f + position[1], 1.0f + position[2]);
+            gl.Vertex(1.0f + position[0], -1.0f + position[1], 1.0f + position[2]);
+            gl.Vertex(1.0f + position[0], -1.0f + position[1], 0.0f + position[2]);
+            //Вверх
+            gl.Vertex(0.0f + position[0], 0.0f + position[1], 0.0f + position[2]);
+            gl.Vertex(1.0f + position[0], 0.0f + position[1], 0.0f + position[2]);
+            gl.Vertex(0.0f + position[0], 0.0f + position[1], 1.0f + position[2]);
+            gl.Vertex(0.0f + position[0], 0.0f + position[1], 1.0f + position[2]);
+            gl.Vertex(1.0f + position[0], 0.0f + position[1], 1.0f + position[2]);
+            gl.Vertex(1.0f + position[0], 0.0f + position[1], 0.0f + position[2]);
+            //Правая сторона
+            gl.Vertex(1.0f + position[0], 0.0f + position[1], 1.0f + position[2]);
+            gl.Vertex(1.0f + position[0], -1.0f + position[1], 1.0f + position[2]);
+            gl.Vertex(0.0f + position[0], -1.0f + position[1], 1.0f + position[2]);
+            gl.Vertex(0.0f + position[0], -1.0f + position[1], 1.0f + position[2]);
+            gl.Vertex(0.0f + position[0], 0.0f + position[1], 1.0f + position[2]);
+            gl.Vertex(1.0f + position[0], 0.0f + position[1], 1.0f + position[2]);
+            //Левая сторона
+            gl.Vertex(1.0f + position[0], 0 + position[1], 0 + position[2]);
+            gl.Vertex(1.0f + position[0], -1.0f + position[1], 0.0f + position[2]);
+            gl.Vertex(1.0f + position[0], -1.0f + position[1], 1.0f + position[2]);
+            gl.Vertex(1.0f + position[0], -1.0f + position[1], 1.0f + position[2]);
+            gl.Vertex(1.0f + position[0], 0.0f + position[1], 1.0f + position[2]);
+            gl.Vertex(1.0f + position[0], 0 + position[1], 0 + position[2]);
+        }
 
+    }
+    public class Cluster : IDisposable
+    {
+        private readonly OpenGL gl;
+        private readonly OpenGLControl gLControl;
+        public Cluster(OpenGLControl gl_control)
+        {
+            gl = gl_control.OpenGL;
+            gLControl = gl_control;
         }
-        public void CreateTriangle()
+        public void ClearBuffer()
+        {
+            gl.Clear(OpenGL.GL_COLOR_BUFFER_BIT | OpenGL.GL_DEPTH_BUFFER_BIT);
+            gl.LoadIdentity();
+        }
+        public void CreateCube(float radius, float[] position, float[] color)
+        {
+            Graph graph = new Graph(gLControl);
+            graph.CreateCube(radius, position, color);
+        }
+        public void EndPaint()
+        {
+            gl.End();
+            gl.LoadIdentity();
+        }
+        public void Rotate(float angle, float x, float y, float z)
+        {
+            gl.Rotate(angle, x, y, z);
+        }
+        public void Translate()
+        {
+            gl.Translate(0.0f, 0.0f, -6.0f);
+        }
+        public void Dispose()
         {
             
-        }
-    }
-    public class Cluster
-    {
-        public Cluster(List<Graph> graphs, List<Egle> egles)
-        {
-
-        }
-        public void GetGraphMatrix()
-        {
-
         }
     }
     public class Egle
