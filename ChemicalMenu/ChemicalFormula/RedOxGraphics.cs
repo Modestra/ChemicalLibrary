@@ -107,9 +107,9 @@ namespace EnviromentCore
         {
             gl.Rotate(angle, x, y, z);
         }
-        public void Translate()
+        public void Translate(float x, float y, float z)
         {
-            gl.Translate(0.0f, 0.0f, -6.0f);
+            gl.Translate(x,y,z);
         }
         public void Dispose()
         {

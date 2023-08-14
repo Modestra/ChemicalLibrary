@@ -25,9 +25,7 @@ namespace ChemicalMenu
         {
             InitializeComponent();
             this.axis_rotate_X = 0;
-
             this.axis_rotate_Y = 0;
-
             this.axis_rotate_Z = 0;
         }
 
