@@ -10,7 +10,7 @@ namespace EnviromentCore
     internal class Reaction
     {
         public string errorMessage { get; set; }
-        public Reaction(List<Molecula> components, ReactionType type)
+        public Reaction(List<Molecula> components)
         {
             Thread reaction = Thread.CurrentThread;
             if(components.Count != 0)
@@ -26,11 +26,5 @@ namespace EnviromentCore
                 errorMessage = "Отсутствие компонентов для проведения реакции";
             }
         }
-    }
-    public enum ReactionType
-    {
-        Exchange = 0,//Обмена
-        Decomposition = 1, //Разложение
-        Аccession = 2 //Присоединение
     }
 }
