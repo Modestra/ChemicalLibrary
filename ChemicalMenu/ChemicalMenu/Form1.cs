@@ -72,47 +72,29 @@ namespace ChemicalMenu
 
         private void button_Left_Click(object sender, EventArgs e)
         {
-            this.axis_rotate_Y = this.axis_rotate_Y - 10f;
+            
         }
 
         private void button_Right_Click(object sender, EventArgs e)
         {
-            this.axis_rotate_Y = this.axis_rotate_Y + 10f;
+            this.axis_rotate_Y = this.axis_rotate_Y + 100f;
         }
 
         private void openGLControl1_OpenGLDraw(object sender, RenderEventArgs args)
         {
-            float[] pos = { 1.0f, 1.0f, 0f };
-            float[] pos2 = { 1.0f, -1.0f, 0f };
+            float[] pos = { 0f, 0f, 0f };
             float[] color = { 1.0f, 0, 0 };
-            float[] color2 = { 1.0f, 1.0f, 0 };
             using(Cluster cluster = new Cluster(openGLControl1))
             {
                 cluster.ClearBuffer();
-                cluster.CreateCube(1.0f, pos, color);
-                cluster.CreateCube(3.0f, pos2, color2);
-                cluster.Rotate(1.0f, axis_rotate_X, axis_rotate_Y, axis_rotate_Z);
+                cluster.Rotate(0f, 0, this.axis_rotate_Y, 0);
+                cluster.CreateCube(0.5f, pos, color);
                 cluster.EndPaint();
             }
         }
 
         private void openGLControl1_KeyDown(object sender, KeyEventArgs e)
         {
-            switch (e.KeyCode)
-            {
-                case Keys.A:
-                    this.axis_rotate_Y = this.axis_rotate_Y - 10f; break;
-                case Keys.D:
-                    this.axis_rotate_Y = this.axis_rotate_Y + 10f; break;
-                case Keys.W:
-                    this.axis_rotate_X = this.axis_rotate_X + 10f; break;
-                case Keys.S:
-                    this.axis_rotate_X = this.axis_rotate_X - 10f; break;
-                case Keys.Q:
-                    this.axis_rotate_Z = this.axis_rotate_Z - 10f; break;
-                case Keys.E:
-                    this.axis_rotate_Z = this.axis_rotate_Z + 10f; break;
-            }
 
         }
     }
