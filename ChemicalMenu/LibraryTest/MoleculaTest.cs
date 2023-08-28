@@ -1,5 +1,5 @@
 ﻿using Microsoft.VisualStudio.TestTools.UnitTesting;
-using ChemicalFormula;
+using EnviromentCore;
 using System;
 
 namespace LibraryTest
@@ -7,44 +7,29 @@ namespace LibraryTest
     [TestClass]
     public class MoleculaTest
     {
-        [TestMethod]
-        public void Test_of_molecula()
-        {
-            int num_of_list = 2;
-            Molecula molecula = new Molecula("LiHe");
-            Assert.AreEqual(molecula.element.Count, num_of_list);
-        }
-        [TestMethod]
-        public void Test_molecular_mass()
-        {
-            decimal test = 10.94M;
-            Molecula molecula = new Molecula("LiHe");
-            Assert.AreEqual(molecula.molarmass, test);
-        }
-        [TestMethod]
-        public void Test_molecula_Dummy()
-        {
-            string errorMessage = "Не явно выражена формула";
-            Molecula molecula = new Molecula("");
-            Assert.AreEqual(molecula.errorMessage, errorMessage);
-        }
+        
     }
     [TestClass]
     public class SolutionTest
     {
+
+    }
+    [TestClass]
+    public class EnviromentTest 
+    {
+        public string TestPath = @"C:\Users\Пользователь\OneDrive\Рабочий стол\Работа\";
         [TestMethod]
-        public void Solution_Zero_Value()
+        public void Molecula_NonCorrect_Value()
         {
-            Molecula molecula = new Molecula("LiHe");
-            string test = "Объем не может быть меньше или равен нулю";
-            Solution solution = new Solution(0, molecula);
-            Assert.AreEqual(solution.errorMessage, test);
-        }
-        [TestMethod]
-        public void Solution_Count_Of_Moleculas()
-        {
-            Molecula molecula = new Molecula("LiHe");
-            
+            string molecular = "";
+            string result = $"\n {DateTime.Now} - Некорректный ввод данных. Тип данных Molecula.molecular - {molecular.GetType()}";
+            using (Enviroment enviroment = new Enviroment("test", TestPath))
+            {
+                enviroment.AddComponents(molecular);
+                Molecula mol = enviroment.Components[0];
+                Assert.AreEqual(molecular, mol.ErrorMessage[0]);
+
+            }
         }
     }
 }

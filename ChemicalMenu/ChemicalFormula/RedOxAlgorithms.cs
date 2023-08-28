@@ -30,11 +30,11 @@ namespace EnviromentCore
             ScriptScope scope = engine.CreateScope();
             engine.ExecuteFile(Algorithm, scope);
             dynamic script = scope.GetVariable(formula);
-            if(input.GetType() == typeof(List<>))
+            if (input.GetType() == typeof(List<>))
             {
-                foreach(var item in input as List<dynamic>)
+                foreach (var item in input as List<dynamic>)
                 {
-                   
+
                 }
                 return Results;
             }
@@ -43,6 +43,7 @@ namespace EnviromentCore
                 return script(input);
             }
         }
-        
+
     }
+
 }
