@@ -74,6 +74,47 @@ public class Cube
             gl.Vertex(1.0f * radius + position[0], -1.0f * radius + position[1], 1.0f * radius + position[2]);
             gl.Vertex(1.0f * radius + position[0], 0.0f * radius + position[1], 1.0f * radius + position[2]);
             gl.Vertex(1.0f * radius + position[0], 0 * radius + position[1], 0 * radius + position[2]);
+            gl.Vertex(1.0f + position[0], 0.0f + position[1], 0.0f + position[2]);
+            gl.Vertex(1.0f + position[0], -1.0f + position[1], 0.0f + position[2]);
+            gl.Vertex(0.0f + position[0], -1.0f + position[1], 0.0f + position[2]);
+            gl.Vertex(0.0f + position[0], -1.0f + position[1], 0.0f + position[2]);
+            gl.Vertex(0.0f + position[0], 0.0f + position[1], 0.0f + position[2]);
+            gl.Vertex(1.0f + position[0], 0.0f + position[1], 0.0f + position[2]);
+            //Правая сторона
+            gl.Vertex(0 + position[0], 0 + position[1], 0 + position[2]);
+            gl.Vertex(0.0f + position[0], -1.0f + position[1], 0.0f + position[2]);
+            gl.Vertex(0.0f + position[0], -1.0f + position[1], 1.0f + position[2]);
+            gl.Vertex(0.0f + position[0], -1.0f + position[1], 1.0f + position[2]);
+            gl.Vertex(0.0f + position[0], 0.0f + position[1], 1.0f + position[2]);
+            gl.Vertex(0 + position[0], 0 + position[1], 0 + position[2]);
+            //Дно
+            gl.Vertex(0.0f + position[0], -1.0f + position[1], 0.0f + position[2]);
+            gl.Vertex(1.0f + position[0], -1.0f + position[1], 0.0f + position[2]);
+            gl.Vertex(0.0f + position[0], -1.0f + position[1], 1.0f + position[2]);
+            gl.Vertex(0.0f + position[0], -1.0f + position[1], 1.0f + position[2]);
+            gl.Vertex(1.0f + position[0], -1.0f + position[1], 1.0f + position[2]);
+            gl.Vertex(1.0f + position[0], -1.0f + position[1], 0.0f + position[2]);
+            //Вверх
+            gl.Vertex(0.0f + position[0], 0.0f + position[1], 0.0f + position[2]);
+            gl.Vertex(1.0f + position[0], 0.0f + position[1], 0.0f + position[2]);
+            gl.Vertex(0.0f + position[0], 0.0f + position[1], 1.0f + position[2]);
+            gl.Vertex(0.0f + position[0], 0.0f + position[1], 1.0f + position[2]);
+            gl.Vertex(1.0f + position[0], 0.0f + position[1], 1.0f + position[2]);
+            gl.Vertex(1.0f + position[0], 0.0f + position[1], 0.0f + position[2]);
+            //Правая сторона
+            gl.Vertex(1.0f + position[0], 0.0f + position[1], 1.0f + position[2]);
+            gl.Vertex(1.0f + position[0], -1.0f + position[1], 1.0f + position[2]);
+            gl.Vertex(0.0f + position[0], -1.0f + position[1], 1.0f + position[2]);
+            gl.Vertex(0.0f + position[0], -1.0f + position[1], 1.0f + position[2]);
+            gl.Vertex(0.0f + position[0], 0.0f + position[1], 1.0f + position[2]);
+            gl.Vertex(1.0f + position[0], 0.0f + position[1], 1.0f + position[2]);
+            //Левая сторона
+            gl.Vertex(1.0f + position[0], 0 + position[1], 0 + position[2]);
+            gl.Vertex(1.0f + position[0], -1.0f + position[1], 0.0f + position[2]);
+            gl.Vertex(1.0f + position[0], -1.0f + position[1], 1.0f + position[2]);
+            gl.Vertex(1.0f + position[0], -1.0f + position[1], 1.0f + position[2]);
+            gl.Vertex(1.0f + position[0], 0.0f + position[1], 1.0f + position[2]);
+            gl.Vertex(1.0f + position[0], 0 + position[1], 0 + position[2]);
         }
 
     }
