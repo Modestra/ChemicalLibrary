@@ -27,6 +27,8 @@
     <ApplicationVersion>1.0.0.%2a</ApplicationVersion>
     <UseApplicationTrust>false</UseApplicationTrust>
     <BootstrapperEnabled>true</BootstrapperEnabled>
+    <LangVersion>11</LangVersion>
+    <Nullable>enable</Nullable>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
     <DebugSymbols>true</DebugSymbols>
@@ -124,14 +126,7 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="DataBaseConnect.cs" />
-    <Compile Include="Enviroment.cs" />
-    <Compile Include="Molecula.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="Quantum.cs" />
-    <Compile Include="Reaction.cs" />
-    <Compile Include="RedOxAlgorithms.cs" />
-    <Compile Include="RedOxGraphics.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />
@@ -148,9 +143,6 @@
       <ProductName>.NET Framework 3.5 SP1</ProductName>
       <Install>false</Install>
     </BootstrapperPackage>
-  </ItemGroup>
-  <ItemGroup>
-    <Content Include="SharpGL.png" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

@@ -1,11 +1,14 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Drawing;
 using System.IO;
 using System.Linq;
 using System.Net.NetworkInformation;
 using System.Text;
+using RedOx.Entity;
 using System.Threading;
 using System.Threading.Tasks;
+using static IronPython.Modules._ast;
 
 namespace EnviromentCore
 {
@@ -20,7 +23,7 @@ namespace EnviromentCore
         public string Name { get; set; }
         public string ThreadEnviromentState = "";
         public string PathLog;
-        private bool Isdisposed = false;
+        public string[] ErrorMessages { get; set; }
         public Enviroment(string name, string mrdir)
         {
             Name = name;
@@ -65,7 +68,35 @@ namespace EnviromentCore
 
         public void Dispose()
         {
-            if(Isdisposed) return;
+            if(ErrorMessages != null)
+            {
+                foreach (string error in ErrorMessages)
+                {
+                    File.AppendAllText(PathLog + $@"\{Name}.log", error);
+                }
+            }
+        }
+    }
+    public class DebugLog
+    {
+        public string PathLog;
+        public string Name { get; set; }
+        public DebugLog(string name, string mrdir)
+        {
+            Name = name;
+            PathLog = mrdir + Name;
+            if (!File.Exists(mrdir))
+            {
+                File.Create(mrdir).Close();
+            }
+            else
+            {
+                mrdir = PathLog;
+            }
+        }
+        public void SetDebugMessage(string message)
+        {
+            File.AppendAllText(PathLog + $@"\{Name}.log", $"\n {DateTime.Now} - {message}");
         }
     }
 }

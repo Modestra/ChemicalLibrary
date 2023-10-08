@@ -9,8 +9,10 @@ using Microsoft.Scripting.Hosting;
 using System.Collections;
 using Newtonsoft.Json;
 using System.Threading;
+using EnviromentCore;
+using static IronPython.Modules._ast;
 
-namespace EnviromentCore
+namespace RedOx.Entity
 {
     [Serializable]
     public class Molecula
@@ -29,7 +31,7 @@ namespace EnviromentCore
         public Molecula(string molecular)
         {
             Molecular = molecular;
-            if(molecular != String.Empty)
+            if(molecular != String.Empty || molecular.GetType() != typeof(string))
             {
                 Molarmasslist = new List<double>();
                 List<string> list = molecular.Split(new char[] { '(', ')', '[', ']' }).ToList();
@@ -42,11 +44,13 @@ namespace EnviromentCore
                             Ion ion = new Ion(list[i], int.Parse(list[i + 1]));
                             Element.Add(ion);
                             list.RemoveAt(i + 1);
+                            ErrorMessage.Append(ion.ErrorMessage);
                         }
                         else
                         {
                             Ion ion = new Ion(list[i], 1);
                             Element.Add(ion);
+                            ErrorMessage.Append(ion.ErrorMessage);
                             continue;
                         }
                     }
@@ -54,6 +58,7 @@ namespace EnviromentCore
                     {
                         Ion ion = new Ion(list[i], 1);
                         Element.Add(ion);
+                        ErrorMessage.Append(ion.ErrorMessage);
                         continue;
                     }
                 }
@@ -61,7 +66,7 @@ namespace EnviromentCore
             }
             else
             {
-                //Написать нормальную систему
+                ErrorMessage.Append($"\n {DateTime.Now} - Некорректный ввод данных. Тип данных Molecula.molecular - {molecular.GetType()}");
             }
         }
         public void GetJsonMolecula(Molecula mol, string path)
@@ -164,6 +169,7 @@ namespace EnviromentCore
             else
             {
                 ErrorMessage = "Объем не может быть меньше или равен нулю";
+
             }
             Ions.Add(molecula);
         }
@@ -180,6 +186,8 @@ namespace EnviromentCore
         public bool IsMetal;
         public IEnumerator GetEnumerator() => atoms.GetEnumerator();
         private char[] numbers = "0123456789".ToCharArray();
+
+        public string ErrorMessage { get; set; }
 
         public Ion(string ionName, int count)
         {
@@ -206,7 +214,7 @@ namespace EnviromentCore
             }
             else
             {
-
+                ErrorMessage = $"\n {DateTime.Now} - Недостаточно компонентов для реализации иона";
             }
 
         }
