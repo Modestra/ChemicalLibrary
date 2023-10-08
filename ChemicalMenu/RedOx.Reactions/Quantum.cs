@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
+using RedOx.Entity;
 using System.Threading.Tasks;
 
 namespace EnviromentCore

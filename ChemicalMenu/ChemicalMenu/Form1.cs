@@ -10,7 +10,6 @@ using System.Windows.Forms;
 using Newtonsoft.Json;
 using System.IO;
 using System.Threading;
-using EnviromentCore;
 using SharpGL;
 using System.Runtime.InteropServices;
 

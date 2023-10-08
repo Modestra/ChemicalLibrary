@@ -9,9 +9,10 @@ using Microsoft.Scripting.Hosting;
 using System.Collections;
 using Newtonsoft.Json;
 using System.Threading;
+using EnviromentCore;
 using static IronPython.Modules._ast;
 
-namespace EnviromentCore
+namespace RedOx.Entity
 {
     [Serializable]
     public class Molecula

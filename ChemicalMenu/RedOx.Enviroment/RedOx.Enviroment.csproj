@@ -1,0 +1,15 @@
+<Project Sdk="Microsoft.NET.Sdk">
+
+    <PropertyGroup>
+        <TargetFramework>net7.0</TargetFramework>
+        <ImplicitUsings>enable</ImplicitUsings>
+        <Nullable>enable</Nullable>
+    </PropertyGroup>
+
+    <ItemGroup>
+      <ProjectReference Include="..\RedOx.Algorythm.Base\RedOx.Algorythm.Base.csproj" />
+      <ProjectReference Include="..\RedOx.Entity\RedOx.Entity.csproj" />
+      <ProjectReference Include="..\RedOx.Graphics\RedOx.Graphics.csproj" />
+    </ItemGroup>
+
+</Project>

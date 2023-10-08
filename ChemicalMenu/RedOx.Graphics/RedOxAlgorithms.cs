@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 using IronPython.Hosting;
 using Microsoft.Scripting.Hosting;
 
-namespace EnviromentCore
+namespace RedOx.Graphics
 {
     /// <summary>
     /// Класс, запускающий алгоритмы, написанные на языке Python
