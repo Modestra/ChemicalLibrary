@@ -1,8 +1,8 @@
 using System.Collections;
+using RedOx.DataBase;
+using System.Text.RegularExpressions;
 
 namespace RedOx.Entity;
-using EnviromentCore;
-using System.Text.RegularExpressions;
 public class Ion : IEnumerable
 {
     public string ionName { get; set; }

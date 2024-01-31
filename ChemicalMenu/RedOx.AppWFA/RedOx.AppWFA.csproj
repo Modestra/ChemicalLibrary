@@ -13,6 +13,7 @@
     <AutoGenerateBindingRedirects>true</AutoGenerateBindingRedirects>
     <Deterministic>true</Deterministic>
     <LangVersion>11</LangVersion>
+    <Nullable>enable</Nullable>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
     <PlatformTarget>AnyCPU</PlatformTarget>
@@ -100,6 +101,12 @@
   <ItemGroup>
     <Content Include="SharpGL.ico" />
     <Content Include="SharpGL.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\RedOx.DataBase\RedOx.DataBase.csproj">
+      <Project>{c6f2aefa-3db8-4c15-9c09-958e719c8a58}</Project>
+      <Name>RedOx.DataBase</Name>
+    </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>
