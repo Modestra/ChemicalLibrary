@@ -7,8 +7,10 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
-
+using RedOx.AppWFA.SharpGLEntities;
 using RedOx.DataBase;
+using SharpGL;
+using SharpGL.SceneGraph.Quadrics;
 
 namespace RedOx.AppWFA
 {
@@ -28,10 +30,10 @@ namespace RedOx.AppWFA
         {
 
         }
-
+        //Экран
         private void openGLControl1_Load(object sender, EventArgs e)
         {
-            throw new System.NotImplementedException();
+
         }
 
         private void dataGridView1_CellContentClick(object sender, DataGridViewCellEventArgs e)

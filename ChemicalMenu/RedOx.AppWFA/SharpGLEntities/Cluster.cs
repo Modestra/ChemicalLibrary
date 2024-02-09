@@ -20,7 +20,7 @@ public class Cluster : IDisposable
     }
     public void CreateCube(float radius, float[] position, float[] color)
     {
-        Cube.Graph graph = new Cube.Graph(gLControl);
+        Graph graph = new Graph(gLControl.OpenGL);
         graph.CreateCube(radius, position, color);
     }
     public void EndPaint()
