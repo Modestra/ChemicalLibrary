@@ -3,13 +3,29 @@ using RedOx.DataBase;
 using System.Text.RegularExpressions;
 
 namespace RedOx.Entity;
-public class Ion : IEnumerable
+public class Ion : IEnumerable, IChemPartical
 {
     public string ionName { get; set; }
     public List<Atom> atoms = new List<Atom>();
     public int count { get; set; }
     public bool IsMetal;
     public IEnumerator GetEnumerator() => atoms.GetEnumerator();
+
+    public void SetQuantumParams()
+    {
+        throw new NotImplementedException();
+    }
+
+    public void ConcatPartical()
+    {
+        throw new NotImplementedException();
+    }
+
+    public void GetQuantumParams()
+    {
+        throw new NotImplementedException();
+    }
+
     private char[] numbers = "0123456789".ToCharArray();
 
     public string ErrorMessage { get; set; }

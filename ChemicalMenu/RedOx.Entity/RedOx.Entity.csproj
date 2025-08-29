@@ -4,11 +4,12 @@
         <ImplicitUsings>enable</ImplicitUsings>
         <Nullable>disable</Nullable>
         <LangVersion>11</LangVersion>
-        <TargetFrameworks>net7.0;net481</TargetFrameworks>
+        <TargetFrameworks></TargetFrameworks>
+        <TargetFramework>net9.0</TargetFramework>
     </PropertyGroup>
 
     <ItemGroup>
-      <PackageReference Include="IronPython" Version="3.4.1" />
+      <PackageReference Include="IronPython" Version="3.4.2" />
       <PackageReference Include="Newtonsoft.Json" Version="13.0.3" />
     </ItemGroup>
 

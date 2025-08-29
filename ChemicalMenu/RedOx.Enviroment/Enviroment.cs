@@ -47,7 +47,6 @@ namespace EnviromentCore
         private void SynthesesMolecula(object mole) //Реализация класса Molecula (Создание молекулы)
         {
             Molecula mol = new Molecula((string)mole);
-            mol.GetJsonMolecula(mol, PathLog + $@"\{mole}.json");
             if (mol.ErrorMessage == null)
             {
                 Components.Add(mol);
